@@ -8,23 +8,28 @@
 import UIKit
 
 final class TamagochiCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var tamagochiImage: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var titleBackView: UIView!
-    var tamagochiInfo: TamagochiInfo {
+    @IBOutlet private weak var tamagochiImage: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleBackView: UIView!
+    
+    var tamagochiInfo: TamagochiInfo? {
         didSet {
-            switch tamagochiInfo.tamagochiType {
-            case .sting:
-                tamagochiImage.image = UI
-            case .smiling:
-            case .shinning:
-            }
-            
+            guard let tamagochiInfo else { return }
+            tamagochiImage.image = Layout.getTamagochiImage(
+                with: tamagochiInfo.tamagochiType,
+                level: tamagochiInfo.level
+            )
+            titleLabel.text = tamagochiInfo.name
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        titleBackView.layer.borderColor = Layout.fontAndBorderColor
+        titleBackView.layer.borderWidth = Layout.backViewBorderWidth
+        titleBackView.layer.cornerRadius = Layout.backViewCornerRadius
+        titleBackView.backgroundColor = Layout.backgroundColor
+        titleLabel.font = Layout.nameTitleFont
+        titleLabel.textColor = UIColor(cgColor: Layout.fontAndBorderColor)
     }
 
 }
