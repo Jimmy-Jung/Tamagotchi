@@ -12,6 +12,7 @@ struct LocalizedString {
         static let sting = "stingTamago".localized
         static let smiling = "smilingTamago".localized
         static let shinning = "shinningTamago".localized
+        static let none = "preparingTamago".localized
     }
     
 }

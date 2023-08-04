@@ -10,6 +10,7 @@ enum TamagochiType: String {
     case sting
     case smiling
     case shinning
+    case none
 }
 struct TamagochiInfo {
     let tamagochiType: TamagochiType

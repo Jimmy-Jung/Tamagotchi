@@ -22,7 +22,7 @@ struct Layout {
     static let backViewBorderWidth: CGFloat = 1
     /// 이름 백뷰 코너 크기
     static let backViewCornerRadius: CGFloat = 5
-    static let nameTitleFont = UIFont.systemFont(ofSize: 13, weight: .bold)
+    static let nameTitleFont = UIFont.systemFont(ofSize: 12, weight: .bold)
     /// 물먹기 버튼 이미지
     static let wateringButtonImage = UIImage(systemName: "drop.circle")
     /// 밥먹기 버튼 이미지
@@ -50,6 +50,8 @@ struct Layout {
             return UIImage(named: "2-\(level)")!
         case .shinning:
             return UIImage(named: "3-\(level)")!
+        case .none:
+            return UIImage(named: "noImage")!
         }
     }
 
