@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TamagochiCollectionViewCell" id="gTV-IL-0wX" customClass="TamagochiCollectionViewCell" customModule="Tamagochi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="244" height="282"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="244" height="282"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1-6" translatesAutoresizingMaskIntoConstraints="NO" id="mZr-dV-dS6">
+                        <rect key="frame" x="0.0" y="0.0" width="244" height="244"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="mZr-dV-dS6" secondAttribute="height" id="SmM-sY-yKx"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAS-PM-iaN">
+                        <rect key="frame" x="60" y="254" width="124" height="26"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 방실방실 다마고치 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ5-BA-txB">
+                                <rect key="frame" x="4" y="4" width="116" height="18"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cQ5-BA-txB" secondAttribute="trailing" constant="4" id="89x-wh-eDf"/>
+                            <constraint firstAttribute="bottom" secondItem="cQ5-BA-txB" secondAttribute="bottom" constant="4" id="I4a-Bo-CjB"/>
+                            <constraint firstItem="cQ5-BA-txB" firstAttribute="top" secondItem="MAS-PM-iaN" secondAttribute="top" constant="4" id="QT6-kf-Liz"/>
+                            <constraint firstItem="cQ5-BA-txB" firstAttribute="leading" secondItem="MAS-PM-iaN" secondAttribute="leading" constant="4" id="U99-YV-8dg"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mZr-dV-dS6" secondAttribute="trailing" id="3zc-eT-7FW"/>
+                <constraint firstItem="mZr-dV-dS6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Cg1-sz-2vD"/>
+                <constraint firstItem="MAS-PM-iaN" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="IYV-uf-dR0"/>
+                <constraint firstItem="MAS-PM-iaN" firstAttribute="top" secondItem="mZr-dV-dS6" secondAttribute="bottom" constant="10" id="iiv-NV-1ec"/>
+                <constraint firstItem="mZr-dV-dS6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yp0-iv-rqJ"/>
+            </constraints>
+            <size key="customSize" width="244" height="282"/>
+            <connections>
+                <outlet property="tamagochiImage" destination="mZr-dV-dS6" id="Hfg-Te-hkY"/>
+                <outlet property="titleBackView" destination="MAS-PM-iaN" id="zXd-bl-S8V"/>
+                <outlet property="titleLabel" destination="cQ5-BA-txB" id="6AI-wk-sUL"/>
+            </connections>
+            <point key="canvasLocation" x="201.52671755725191" y="70.422535211267615"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="1-6" width="152" height="151"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
