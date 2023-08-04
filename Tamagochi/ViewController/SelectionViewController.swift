@@ -32,14 +32,15 @@ final class SelectionViewController: UIViewController {
     
     private func configCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        let spacing:CGFloat = 12
-        let width = UIScreen.main.bounds.width - (spacing * 4)
+        let spacing: CGFloat = 20
+        let inset: CGFloat = 20
+        let width = UIScreen.main.bounds.width - (spacing * 2) - (inset * 2)
         layout.itemSize = CGSize(width: width/3, height: width/3 + 36)
         layout.sectionInset = UIEdgeInsets(
             top: spacing,
-            left: spacing,
+            left: inset,
             bottom: spacing,
-            right: spacing
+            right: inset
         )
         tamagochiCollectionView.collectionViewLayout = layout
         layout.minimumInteritemSpacing = spacing
