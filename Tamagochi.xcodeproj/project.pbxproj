@@ -10,6 +10,7 @@
 		552C75992A7D23E400982EAA /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75872A7D232A00982EAA /* SelectionViewController.swift */; };
 		552C759D2A7D270200982EAA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 552C759F2A7D270200982EAA /* Localizable.strings */; };
 		552C75A22A7D276300982EAA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A12A7D276300982EAA /* String+Extension.swift */; };
+		552C75A52A7D32ED00982EAA /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A42A7D32ED00982EAA /* UserDefault.swift */; };
 		557D556E2A7D222A000DDE17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D556D2A7D222A000DDE17 /* AppDelegate.swift */; };
 		557D55702A7D222A000DDE17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D556F2A7D222A000DDE17 /* SceneDelegate.swift */; };
 		557D55752A7D222A000DDE17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557D55732A7D222A000DDE17 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		552C759E2A7D270200982EAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		552C75A02A7D272800982EAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		552C75A12A7D276300982EAA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		552C75A42A7D32ED00982EAA /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		557D556A2A7D222A000DDE17 /* Tamagochi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagochi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		557D556D2A7D222A000DDE17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		557D556F2A7D222A000DDE17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				557D55842A7D22B7000DDE17 /* Extension */,
 				557D55872A7D22B7000DDE17 /* Constant */,
+				552C75A42A7D32ED00982EAA /* UserDefault.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			files = (
 				557D556E2A7D222A000DDE17 /* AppDelegate.swift in Sources */,
 				552C75A22A7D276300982EAA /* String+Extension.swift in Sources */,
+				552C75A52A7D32ED00982EAA /* UserDefault.swift in Sources */,
 				557D558D2A7D22B7000DDE17 /* LocalizedString.swift in Sources */,
 				557D55932A7D22D0000DDE17 /* TamagochiCollectionViewCell.swift in Sources */,
 				557D558E2A7D22B7000DDE17 /* Layout.swift in Sources */,
