@@ -10,9 +10,12 @@ enum TamagochiType: String {
     case sting
     case smiling
     case shinning
-    
 }
 struct TamagochiInfo {
     let tamagochiType: TamagochiType
-    let title: String
+    let name: String
+    let level: Int
+    let feedingCount: Int
+    let wateringCount: Int
 }
+
