@@ -10,15 +10,15 @@ import UIKit
 final class DetailPopupViewController: UIViewController {
     // MARK: - IBOutlet
 
-    @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var tamagoImage: UIImageView!
-    @IBOutlet weak var nameBackView: UIView!
-    @IBOutlet weak var nameTitleLabel: UILabel!
-    @IBOutlet weak var separatorLineView: UIView!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var buttonSeparatorLineView: UIView!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet private weak var backgroundView: UIView!
+    @IBOutlet private weak var tamagoImage: UIImageView!
+    @IBOutlet private weak var nameBackView: UIView!
+    @IBOutlet private weak var nameTitleLabel: UILabel!
+    @IBOutlet private weak var separatorLineView: UIView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var buttonSeparatorLineView: UIView!
+    @IBOutlet private weak var cancelButton: UIButton!
+    @IBOutlet private weak var startButton: UIButton!
     
     // MARK: - ProperTies
 
@@ -28,6 +28,7 @@ final class DetailPopupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTitleColor()
         configUI()
     }
     
@@ -73,7 +74,18 @@ final class DetailPopupViewController: UIViewController {
             ofSize: 14,
             weight: .medium
         )
-        
+    }
+    
+    private func changeRootViewController() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: MainViewController.identifier) as! MainViewController
+        vc.setTitle(type: .userTamagotchi)
+        vc.tamagotchiInfo = UserDefaultManager.pickedTamagotchi
+        let nav = UINavigationController(rootViewController: vc)
+        sceneDelegate?.window?.rootViewController = nav
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
     
     // MARK: - IBAction
@@ -85,9 +97,12 @@ final class DetailPopupViewController: UIViewController {
     }
     @IBAction func startButtonTapped(_ sender: UIButton) {
         UIButton.buttonTapEffect(button: sender, type: .defaults)
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: MainViewController.identifier) as! MainViewController
-        
+        // 유저디폴드에 다마고치 넣어주기
+        // 다음 실행부터 Main화면에서 시작
+        UserDefaultManager.pickedTamagotchi = tamagotchiInfo
+        changeRootViewController()
     }
+    
+    
     
 }

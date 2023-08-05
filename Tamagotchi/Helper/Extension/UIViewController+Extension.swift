@@ -7,12 +7,14 @@
 
 import UIKit.UIViewController
 
-
 extension UIViewController {
     typealias Color = Layout.Color
     typealias Font = Layout.Font
     typealias Size = Layout.Size
     typealias Image = Layout.Image
+    typealias Title = LocalizedString.Title
+    typealias Main = LocalizedString.Main
+    typealias UM = UserDefaultManager
     
     enum VCTitle {
         case selectTamagotchi
@@ -32,19 +34,21 @@ extension UIViewController {
     func setTitle(type: VCTitle) {
         switch type {
         case .selectTamagotchi:
-            self.title = LocalizedString.Title.selectTamagotchi
+            self.title = Title.selectTamagotchi
         case .changeTamagotchi:
-            self.title = LocalizedString.Title.changeTamagotchi
+            self.title = Title.changeTamagotchi
         case .userTamagotchi:
-            self.title = LocalizedString.Title.userTamagotchi
+            self.title = UM.userName + Title.userTamagotchi
         case .setUserName:
-            self.title = LocalizedString.Title.setUserName
+            self.title = UM.userName + Title.setUserName
         case .setting:
-            self.title = LocalizedString.Title.setting
+            self.title = Title.setting
         }
     }
     
+    func setTitleColor() {
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Color.titleColor]
+    }
 
 }
-
 

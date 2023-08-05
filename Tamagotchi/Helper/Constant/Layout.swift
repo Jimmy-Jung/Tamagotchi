@@ -16,6 +16,8 @@ struct Layout {
         case resetData
     }
     struct Color {
+        /// 네비게이션 타이틀 색상
+        static let titleColor = CGColor(red: 83/255, green: 105/255, blue: 118/255, alpha: 1)
         /// 배경색상
         static let backgroundColor = CGColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         /// Popover 화면 배경색

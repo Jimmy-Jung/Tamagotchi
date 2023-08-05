@@ -9,17 +9,17 @@ import UIKit
 
 final class MainViewController: UIViewController {
 
-    @IBOutlet weak var bubbleImage: UIImageView!
-    @IBOutlet weak var bubbleLabel: UILabel!
-    @IBOutlet weak var tamagoImage: UIImageView!
-    @IBOutlet weak var nameBackView: UIView!
-    @IBOutlet weak var nameTitleLabel: UILabel!
-    @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var feedingLabel: UILabel!
-    @IBOutlet weak var feedingButton: UIButton!
-    @IBOutlet weak var wateringLabel: UILabel!
-    @IBOutlet weak var wateringButton: UIButton!
-    @IBOutlet var underLineViews: [UIView]!
+    @IBOutlet private weak var bubbleImage: UIImageView!
+    @IBOutlet private weak var bubbleLabel: UILabel!
+    @IBOutlet private weak var tamagoImage: UIImageView!
+    @IBOutlet private weak var nameBackView: UIView!
+    @IBOutlet private weak var nameTitleLabel: UILabel!
+    @IBOutlet private weak var statusLabel: UILabel!
+    @IBOutlet private weak var feedingLabel: UILabel!
+    @IBOutlet private weak var feedingButton: UIButton!
+    @IBOutlet private weak var wateringLabel: UILabel!
+    @IBOutlet private weak var wateringButton: UIButton!
+    @IBOutlet private var underLineViews: [UIView]!
     
     // MARK: - ProperTies
 
@@ -27,8 +27,9 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = UserDefaultManager.userName + LocalizedString.Title.mainVC
+        setTitleColor()
         configUI()
+        makeBarButtonItem()
     }
     
     private func configUI() {
@@ -43,13 +44,17 @@ final class MainViewController: UIViewController {
         underLineViews.forEach {
             $0.backgroundColor = UIColor(cgColor: Color.separatorColor)
         }
-        statusLabel.text = {
-            let level = String(tamago.level)
-            let feedingCount = String(tamago.feedingCount)
-            let wateringCount = String(tamago.wateringCount)
-            return "LV\(level) • 밥알 \(feedingCount)개 • 물방울 \(wateringCount)개"
-        }()
+
+        statusLabel.text = String(format: Main.status, tamago.level, tamago.feedingCount, tamago.wateringCount)
+    }
+    
+    private func makeBarButtonItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(barButtonTapped))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(cgColor: Color.titleColor)
         
     }
-
+    
+    @objc private func barButtonTapped() {
+        //세팅화면으로 넘어가가기
+    }
 }

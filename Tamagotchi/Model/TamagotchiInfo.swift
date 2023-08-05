@@ -6,13 +6,13 @@
 //
 
 import Foundation
-enum TamagotchiType: String {
+enum TamagotchiType: Codable {
     case sting
     case smiling
     case shinning
     case none
 }
-struct TamagotchiInfo {
+struct TamagotchiInfo: Codable {
     let tamagotchiType: TamagotchiType
     let name: String
     let level: Int

@@ -18,14 +18,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         let sb = UIStoryboard(name: "Main", bundle: nil)
         if let pickedTamago = UserDefaultManager.pickedTamagotchi {
-            let vc = sb.instantiateViewController(identifier: SelectionViewController.identifier) as! SelectionViewController
-            vc.setTitle(type: .selectTamagotchi)
+            let vc = sb.instantiateViewController(identifier: MainViewController.identifier) as! MainViewController
+            vc.setTitle(type: .userTamagotchi)
+            vc.tamagotchiInfo = pickedTamago
             let nav = UINavigationController(rootViewController: vc)
             window?.rootViewController = nav
             window?.makeKeyAndVisible()
         } else {
-            let vc = sb.instantiateViewController(identifier: MainViewController.identifier) as! MainViewController
-            vc.setTitle(type: .userTamagotchi)
+            
+            let vc = sb.instantiateViewController(identifier: SelectionViewController.identifier) as! SelectionViewController
+            vc.setTitle(type: .selectTamagotchi)
             let nav = UINavigationController(rootViewController: vc)
             window?.rootViewController = nav
             window?.makeKeyAndVisible()

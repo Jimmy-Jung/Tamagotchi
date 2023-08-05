@@ -38,6 +38,10 @@ struct LocalizedString {
             }
         }
     }
+    
+    struct Main {
+        static let status = "LV%d • %d • %d".localized
+    }
     struct Title {
         static let selectTamagotchi = "selectTamagotchi".localized
         static let changeTamagotchi = "changeTamagotchi".localized

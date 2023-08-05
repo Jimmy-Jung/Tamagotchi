@@ -15,12 +15,12 @@ final class SelectionViewController: UIViewController {
     // MARK: - Properties
     
     private var tamagoList: [TamagotchiInfo] = []
-    private let userTamagoList: [TamagotchiInfo] = UserDefaultManager.tamagotchiList
     
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTitleColor()
         setupLayout()
         setupCollectionView()
         configCollectionView()
@@ -61,7 +61,8 @@ final class SelectionViewController: UIViewController {
         tamagotchiCollectionView.collectionViewLayout = layout
     }
     private func fetchList() {
-        tamagoList.append(contentsOf: userTamagoList)
+        let defaultsTamagoList = DefaultsTamagotchiList.defaultTamagotchiList
+        tamagoList.append(contentsOf: defaultsTamagoList)
         for _ in 1...20 {
             tamagoList.append(
                 TamagotchiInfo(

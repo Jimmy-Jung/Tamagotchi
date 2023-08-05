@@ -10,3 +10,6 @@
 stingTamago = "Sting Tamago";
 smilingTamago = "Smiling Tamago";
 shinningTamago = "Shinning Tamago";
+
+
+"LV%d • %d • %d" = "LV%d • %d grains of rice • %d droplets";
