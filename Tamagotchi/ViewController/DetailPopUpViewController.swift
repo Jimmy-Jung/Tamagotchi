@@ -33,7 +33,7 @@ final class DetailPopUpViewController: UIViewController {
             level: tamago.level
         )
         nameBackView.backgroundColor = Layout.backgroundColor
-        nameTitleLabel.
+        
     }
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
     }
