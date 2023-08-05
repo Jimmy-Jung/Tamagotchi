@@ -23,7 +23,12 @@ preparingDescription = "앗, 죄송해요! 해당 캐릭터는 아직 제작 중
 // MARK: - Main
 
 "LV%d • %d • %d" = "LV%d • 밥알 %d개 • 물방울 %d개";
-
+feedingPlaceholder = "밥주세용";
+wateringPlaceholder = "물주세용";
+feedingError = "100개 이상은 힘들어요";
+wateringError = "50개 이상은 힘들어요";
+feeding = "밥먹기";
+watering = "물먹기";
 
 // MARK: - Title
 

@@ -41,6 +41,13 @@ struct LocalizedString {
     
     struct Main {
         static let status = "LV%d • %d • %d".localized
+        static let feedingPlaceholder = "feedingPlaceholder".localized
+        static let wateringPlaceholder = "wateringPlaceholder".localized
+        static let feedingError = "feedingError".localized
+        static let wateringError = "wateringError".localized
+        static let feeding = "feeding".localized
+        static let watering = "watering".localized
+        
     }
     struct Title {
         static let selectTamagotchi = "selectTamagotchi".localized

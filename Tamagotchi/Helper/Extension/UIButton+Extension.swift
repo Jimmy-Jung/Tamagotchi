@@ -32,6 +32,27 @@ extension UIButton {
         return config
     }
     
+    static func imageButtonConfig(
+        title: String,
+        titleColor: UIColor = UIColor.label,
+        ofSize fontSize: CGFloat,
+        weight: UIFont.Weight,
+        systemName: String,
+        cornerStyle: Configuration.CornerStyle
+    ) -> UIButton.Configuration {
+        var config = UIButton.Configuration.plain()
+        var titleAtt = AttributedString.init(title)
+        titleAtt.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
+        titleAtt.foregroundColor = titleColor
+        config.attributedTitle = titleAtt
+        config.image = UIImage(systemName: systemName)
+        config.preferredSymbolConfigurationForImage = .init(pointSize: fontSize)
+        config.cornerStyle = cornerStyle
+        config.imagePadding = 3
+        config.baseBackgroundColor = UIColor(cgColor: Layout.Color.backgroundColor)
+        return config
+    }
+    
     /// 버튼 클릭시 배경색 변화 애니메이션 및 햅틱반응
     /// - Parameters:
     ///   - button: 적용 할 버튼

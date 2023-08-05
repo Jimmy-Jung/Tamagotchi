@@ -16,14 +16,18 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var nameTitleLabel: UILabel!
     @IBOutlet private weak var statusLabel: UILabel!
     @IBOutlet private weak var feedingLabel: UILabel!
+    @IBOutlet private weak var feedingTextField: UITextField!
     @IBOutlet private weak var feedingButton: UIButton!
     @IBOutlet private weak var wateringLabel: UILabel!
+    @IBOutlet private weak var wateringTextField: UITextField!
     @IBOutlet private weak var wateringButton: UIButton!
     @IBOutlet private var underLineViews: [UIView]!
     
     // MARK: - ProperTies
 
     var tamagotchiInfo: TamagotchiInfo?
+    let inspirationMessages = LocalizedString.Inspiration.getMessages()
+    let cannotEatMessages = LocalizedString.CannotEatMessage.getMessages()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,7 @@ final class MainViewController: UIViewController {
     
     private func configUI() {
         guard let tamago = tamagotchiInfo else {return}
+        bubbleLabel.text = inspirationMessages.randomElement()
         tamagoImage.image = Image.getTamagochiImage(
             type: tamago.tamagotchiType,
             level: tamago.level
@@ -46,6 +51,21 @@ final class MainViewController: UIViewController {
         }
 
         statusLabel.text = String(format: Main.status, tamago.level, tamago.feedingCount, tamago.wateringCount)
+        
+        configFeedingWatering()
+    }
+    private func configFeedingWatering() {
+        feedingTextField.delegate = self
+        wateringTextField.delegate = self
+        feedingLabel.text = Main.feedingError
+        feedingLabel.textColor = .clear
+        feedingLabel.font = Font.mainFont
+        wateringLabel.text = Main.wateringError
+        wateringLabel.textColor = .clear
+        wateringLabel.font = Font.mainFont
+        feedingButton.configuration = UIButton.imageButtonConfig(title: Main.feeding, ofSize: 13, weight: .medium, systemName: "leaf.circle", cornerStyle: <#T##UIButton.Configuration.CornerStyle#>)
+        
+        
     }
     
     private func makeBarButtonItem() {
@@ -57,4 +77,20 @@ final class MainViewController: UIViewController {
     @objc private func barButtonTapped() {
         //세팅화면으로 넘어가가기
     }
+    @IBAction func ButtonTapped(_ sender: UIButton) {
+        if sender.tag == 0 {
+            guard let num = feedingTextField.text, !num.isEmpty else { return }
+            if num > 99 {
+                
+            }
+        } else {
+            
+        }
+    }
+    
+    
+}
+
+extension MainViewController: UITextFieldDelegate {
+    
 }
