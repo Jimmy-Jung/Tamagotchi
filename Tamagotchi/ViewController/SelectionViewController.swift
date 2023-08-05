@@ -95,12 +95,14 @@ extension SelectionViewController: UICollectionViewDataSource {
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: DetailPopupViewController.identifier) as! DetailPopupViewController
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         vc.tamagotchiInfo = tamagoList[indexPath.item]
         present(vc, animated: true)
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
     
     

@@ -22,6 +22,17 @@ final class TamagotchiCollectionViewCell: UICollectionViewCell {
             titleLabel.text = tamagotchiInfo.name
         }
     }
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                backgroundColor = UIColor(cgColor: Layout.Color.cancelBackgroundColor)
+                HapticsManager.shared.vibrateForSelection()
+            } else {
+                backgroundColor = .clear
+            }
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         titleBackView.defaultViewSetting()
