@@ -18,12 +18,23 @@ final class DetailPopUpViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
+    var tamagochiInfo: TamagochiInfo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        configUI()
     }
 
+    private func configUI() {
+        guard let tamago = tamagochiInfo else {return}
+        tamagoImage.image = Layout.getTamagochiImage(
+            type: tamago.tamagochiType,
+            level: tamago.level
+        )
+        nameBackView.backgroundColor = Layout.backgroundColor
+        nameTitleLabel.
+    }
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
     }
     @IBAction func startButtonTapped(_ sender: UIButton) {

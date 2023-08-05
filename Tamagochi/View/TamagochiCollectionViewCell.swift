@@ -16,7 +16,7 @@ final class TamagochiCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let tamagochiInfo else { return }
             tamagochiImage.image = Layout.getTamagochiImage(
-                with: tamagochiInfo.tamagochiType,
+                type: tamagochiInfo.tamagochiType,
                 level: tamagochiInfo.level
             )
             titleLabel.text = tamagochiInfo.name
@@ -24,12 +24,8 @@ final class TamagochiCollectionViewCell: UICollectionViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleBackView.layer.borderColor = Layout.fontAndBorderColor
-        titleBackView.layer.borderWidth = Layout.backViewBorderWidth
-        titleBackView.layer.cornerRadius = Layout.backViewCornerRadius
-        titleBackView.backgroundColor = Layout.backgroundColor
-        titleLabel.font = Layout.nameTitleFont
-        titleLabel.textColor = UIColor(cgColor: Layout.fontAndBorderColor)
+        titleBackView.defaultViewSetting()
+        titleLabel.defaultLabelSetting()
     }
 
 }

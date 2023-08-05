@@ -8,6 +8,7 @@
 import UIKit
 
 final class SelectionViewController: UIViewController {
+    typealias Name = LocalizedString.Tamagochi.Name
     // MARK: - IBOutlet
 
     @IBOutlet weak var tamagochiCollectionView: UICollectionView!
@@ -66,7 +67,7 @@ final class SelectionViewController: UIViewController {
             tamagoList.append(
                 TamagochiInfo(
                     tamagochiType: .none,
-                    name: LocalizedString.TamagochiName.none,
+                    name: Name.none,
                     level: 1,
                     feedingCount: 1,
                     wateringCount: 1

@@ -22,6 +22,7 @@ struct Layout {
     static let backViewBorderWidth: CGFloat = 1
     /// 이름 백뷰 코너 크기
     static let backViewCornerRadius: CGFloat = 5
+    /// 이름 레이블 폰트
     static let nameTitleFont = UIFont.systemFont(ofSize: 12, weight: .bold)
     /// 물먹기 버튼 이미지
     static let wateringButtonImage = UIImage(systemName: "drop.circle")
@@ -31,7 +32,7 @@ struct Layout {
     /// 설정화면 이미지 가져오기
     /// - Parameter type: SettingType
     /// - Returns: UIImage
-    static func getSettingButtonImage(with type: SettingType) -> UIImage {
+    static func getSettingButtonImage(type: SettingType) -> UIImage {
         switch type {
         case .setName:
             return UIImage(systemName: "pencil")!
@@ -42,7 +43,7 @@ struct Layout {
         }
     }
     
-    static func getTamagochiImage(with type: TamagochiType, level: Int) -> UIImage {
+    static func getTamagochiImage(type: TamagochiType, level: Int) -> UIImage {
         switch type {
         case .sting:
             return UIImage(named: "1-\(level)")!

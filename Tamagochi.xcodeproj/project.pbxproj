@@ -12,6 +12,8 @@
 		552C75A22A7D276300982EAA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A12A7D276300982EAA /* String+Extension.swift */; };
 		552C75A52A7D32ED00982EAA /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A42A7D32ED00982EAA /* UserDefault.swift */; };
 		552C75A72A7DC7E200982EAA /* DetailPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A62A7DC7E200982EAA /* DetailPopUpViewController.swift */; };
+		552C75A92A7DD72900982EAA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A82A7DD72900982EAA /* UILabel+Extension.swift */; };
+		552C75AB2A7DD86F00982EAA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75AA2A7DD86F00982EAA /* UIView+Extension.swift */; };
 		557D556E2A7D222A000DDE17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D556D2A7D222A000DDE17 /* AppDelegate.swift */; };
 		557D55702A7D222A000DDE17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D556F2A7D222A000DDE17 /* SceneDelegate.swift */; };
 		557D55752A7D222A000DDE17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557D55732A7D222A000DDE17 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 		552C75A12A7D276300982EAA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		552C75A42A7D32ED00982EAA /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		552C75A62A7DC7E200982EAA /* DetailPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopUpViewController.swift; sourceTree = "<group>"; };
+		552C75A82A7DD72900982EAA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		552C75AA2A7DD86F00982EAA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		557D556A2A7D222A000DDE17 /* Tamagochi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagochi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		557D556D2A7D222A000DDE17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		557D556F2A7D222A000DDE17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 			children = (
 				557D55852A7D22B7000DDE17 /* Identifier+Extension.swift */,
 				552C75A12A7D276300982EAA /* String+Extension.swift */,
+				552C75A82A7DD72900982EAA /* UILabel+Extension.swift */,
+				552C75AA2A7DD86F00982EAA /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -232,10 +238,12 @@
 				552C75A22A7D276300982EAA /* String+Extension.swift in Sources */,
 				552C75A72A7DC7E200982EAA /* DetailPopUpViewController.swift in Sources */,
 				552C75A52A7D32ED00982EAA /* UserDefault.swift in Sources */,
+				552C75AB2A7DD86F00982EAA /* UIView+Extension.swift in Sources */,
 				557D558D2A7D22B7000DDE17 /* LocalizedString.swift in Sources */,
 				557D55932A7D22D0000DDE17 /* TamagochiCollectionViewCell.swift in Sources */,
 				557D558E2A7D22B7000DDE17 /* Layout.swift in Sources */,
 				557D558B2A7D22B7000DDE17 /* Identifier+Extension.swift in Sources */,
+				552C75A92A7DD72900982EAA /* UILabel+Extension.swift in Sources */,
 				552C75992A7D23E400982EAA /* SelectionViewController.swift in Sources */,
 				557D55702A7D222A000DDE17 /* SceneDelegate.swift in Sources */,
 				557D558F2A7D22B7000DDE17 /* TamagochiInfo.swift in Sources */,

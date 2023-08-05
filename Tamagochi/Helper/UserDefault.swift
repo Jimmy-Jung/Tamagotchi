@@ -28,7 +28,7 @@ struct UserDefault<T> {
 }
 
 struct UserDefaultManager {
-    typealias tamagoName = LocalizedString.TamagochiName
+    typealias tamagoName = LocalizedString.Tamagochi.Name
     @UserDefault(
         key: KeyEnum.tamagochiList.rawValue,
         defaultValue: [
