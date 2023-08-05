@@ -8,7 +8,6 @@
 import UIKit
 
 final class SelectionViewController: UIViewController {
-    typealias Name = LocalizedString.Tamagotchi.Name
     // MARK: - IBOutlet
 
     @IBOutlet weak var tamagotchiCollectionView: UICollectionView!
@@ -58,7 +57,7 @@ final class SelectionViewController: UIViewController {
         layout.minimumInteritemSpacing = spacing
         layout.minimumLineSpacing = spacing
         layout.scrollDirection = .vertical
-        layout.collectionView?.backgroundColor = Layout.backgroundColor
+        layout.collectionView?.backgroundColor =  UIColor(cgColor: Layout.Color.backgroundColor)
         tamagotchiCollectionView.collectionViewLayout = layout
     }
     private func fetchList() {
@@ -67,7 +66,7 @@ final class SelectionViewController: UIViewController {
             tamagoList.append(
                 TamagotchiInfo(
                     tamagotchiType: .none,
-                    name: Name.none,
+                    name: LocalizedString.Name.none,
                     level: 1,
                     feedingCount: 1,
                     wateringCount: 1

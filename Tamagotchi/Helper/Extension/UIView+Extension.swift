@@ -10,10 +10,10 @@ import UIKit.UIView
 extension UIView {
     /// 타이틀 백뷰 테두리 & 코너 & 배경색
     func defaultViewSetting() {
-        self.layer.borderColor = Layout.fontAndBorderColor
-        self.layer.borderWidth = Layout.backViewBorderWidth
-        self.layer.cornerRadius = Layout.backViewCornerRadius
+        self.layer.borderColor = Layout.Color.fontAndBorderColor
+        self.layer.borderWidth = Layout.Size.backViewBorderWidth
+        self.layer.cornerRadius = Layout.Size.backViewCornerRadius
         self.clipsToBounds = true
-        self.backgroundColor = Layout.backgroundColor
+        self.backgroundColor = UIColor(cgColor: Layout.Color.backgroundColor)
     }
 }

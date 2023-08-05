@@ -15,6 +15,8 @@
 		552C75A92A7DD72900982EAA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A82A7DD72900982EAA /* UILabel+Extension.swift */; };
 		552C75AB2A7DD86F00982EAA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75AA2A7DD86F00982EAA /* UIView+Extension.swift */; };
 		552C75AD2A7DE3E000982EAA /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75AC2A7DE3E000982EAA /* UIButton+Extension.swift */; };
+		552C75B02A7E1B0C00982EAA /* SegueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75AF2A7E1B0C00982EAA /* SegueType.swift */; };
+		552C75B22A7E238F00982EAA /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75B12A7E238F00982EAA /* HapticManager.swift */; };
 		557D556E2A7D222A000DDE17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D556D2A7D222A000DDE17 /* AppDelegate.swift */; };
 		557D55702A7D222A000DDE17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D556F2A7D222A000DDE17 /* SceneDelegate.swift */; };
 		557D55752A7D222A000DDE17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557D55732A7D222A000DDE17 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		552C75A82A7DD72900982EAA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		552C75AA2A7DD86F00982EAA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		552C75AC2A7DE3E000982EAA /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		552C75AF2A7E1B0C00982EAA /* SegueType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueType.swift; sourceTree = "<group>"; };
+		552C75B12A7E238F00982EAA /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		557D556A2A7D222A000DDE17 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		557D556D2A7D222A000DDE17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		557D556F2A7D222A000DDE17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,15 @@
 				552C75A62A7DC7E200982EAA /* DetailPopUpViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		552C75AE2A7E1AFB00982EAA /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				552C75AF2A7E1B0C00982EAA /* SegueType.swift */,
+				552C75B12A7E238F00982EAA /* HapticManager.swift */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		557D55612A7D2229000DDE17 = {
@@ -126,6 +139,7 @@
 		557D55832A7D22B7000DDE17 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				552C75AE2A7E1AFB00982EAA /* Tool */,
 				557D55842A7D22B7000DDE17 /* Extension */,
 				557D55872A7D22B7000DDE17 /* Constant */,
 				552C75A42A7D32ED00982EAA /* UserDefault.swift */,
@@ -239,6 +253,8 @@
 			files = (
 				557D556E2A7D222A000DDE17 /* AppDelegate.swift in Sources */,
 				552C75A22A7D276300982EAA /* String+Extension.swift in Sources */,
+				552C75B22A7E238F00982EAA /* HapticManager.swift in Sources */,
+				552C75B02A7E1B0C00982EAA /* SegueType.swift in Sources */,
 				552C75A72A7DC7E200982EAA /* DetailPopUpViewController.swift in Sources */,
 				552C75A52A7D32ED00982EAA /* UserDefault.swift in Sources */,
 				552C75AB2A7DD86F00982EAA /* UIView+Extension.swift in Sources */,

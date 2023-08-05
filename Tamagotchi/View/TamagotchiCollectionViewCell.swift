@@ -15,7 +15,7 @@ final class TamagotchiCollectionViewCell: UICollectionViewCell {
     var tamagotchiInfo: TamagotchiInfo? {
         didSet {
             guard let tamagotchiInfo else { return }
-            tamagotchiImage.image = Layout.getTamagochiImage(
+            tamagotchiImage.image = Layout.Image.getTamagochiImage(
                 type: tamagotchiInfo.tamagotchiType,
                 level: tamagotchiInfo.level
             )
