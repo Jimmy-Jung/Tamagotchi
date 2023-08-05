@@ -61,8 +61,15 @@ struct UserDefaultManager {
     )
     static var userName: String
     
+    @UserDefault(
+        key: KeyEnum.pickedTamagotchi.rawValue,
+        defaultValue: nil
+    )
+    static var pickedTamagotchi: TamagotchiInfo?
+    
     enum KeyEnum: String {
         case tamagotchiList
         case userName
+        case pickedTamagotchi
     }
 }

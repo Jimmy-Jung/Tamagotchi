@@ -39,9 +39,11 @@ struct LocalizedString {
         }
     }
     struct Title {
-        static let selectionVC = "selectionTitle".localized
-        static let mainVC = "mainTitle".localized
-        
+        static let selectTamagotchi = "selectTamagotchi".localized
+        static let changeTamagotchi = "changeTamagotchi".localized
+        static let userTamagotchi = "userTamagotchi".localized
+        static let setUserName = "setUserName".localized
+        static let setting = "setting".localized
     }
     
     struct System {

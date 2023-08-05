@@ -21,7 +21,6 @@ final class SelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = LocalizedString.Title.selectionVC
         setupLayout()
         setupCollectionView()
         configCollectionView()

@@ -22,8 +22,11 @@ preparingDescription = "앗, 죄송해요! 해당 캐릭터는 아직 제작 중
 
 // MARK: - Title
 
-selectionTitle = "다마고치 선택하기";
-mainTitle = "의 다마고치";
+selectTamagotchi = "다마고치 선택하기";
+changeTamagotchi = "다마고치 변경하기";
+userTamagotchi = "님의 다마고치";
+setUserName = "님 이름 정하기";
+setting = "설정";
 
 // MARK: - System
 
