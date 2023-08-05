@@ -11,7 +11,7 @@ struct Layout {
     /// 설정 화면 리스트
     enum SettingType {
         case setName
-        case changeTamagochi
+        case changeTamagotchi
         case resetData
     }
     /// 배경색상
@@ -24,10 +24,14 @@ struct Layout {
     static let backViewCornerRadius: CGFloat = 5
     /// 이름 레이블 폰트
     static let nameTitleFont = UIFont.systemFont(ofSize: 12, weight: .bold)
+    /// 설명 레이블 폰트
+    static let descriptionFont = UIFont.systemFont(ofSize: 14, weight: .medium)
     /// 물먹기 버튼 이미지
     static let wateringButtonImage = UIImage(systemName: "drop.circle")
     /// 밥먹기 버튼 이미지
-    static let feedignButtonImage = UIImage(systemName: "leaf.circle")
+    static let feedingButtonImage = UIImage(systemName: "leaf.circle")
+    /// 취소버튼 색상
+    static let cancelBackgroundColor = CGColor(red: 230/255, green: 237/255, blue: 239/255, alpha: 1)
     
     /// 설정화면 이미지 가져오기
     /// - Parameter type: SettingType
@@ -36,14 +40,19 @@ struct Layout {
         switch type {
         case .setName:
             return UIImage(systemName: "pencil")!
-        case .changeTamagochi:
+        case .changeTamagotchi:
             return UIImage(systemName: "moon.fill")!
         case .resetData:
             return UIImage(systemName: "arrow.clockwise")!
         }
     }
     
-    static func getTamagochiImage(type: TamagochiType, level: Int) -> UIImage {
+    /// 다마고치 이미지 가져오기
+    /// - Parameters:
+    ///   - type: TamagotchiType
+    ///   - level: level
+    /// - Returns: UIImage
+    static func getTamagochiImage(type: TamagotchiType, level: Int) -> UIImage {
         switch type {
         case .sting:
             return UIImage(named: "1-\(level)")!
@@ -53,6 +62,22 @@ struct Layout {
             return UIImage(named: "3-\(level)")!
         case .none:
             return UIImage(named: "noImage")!
+        }
+    }
+    
+    /// 다마고치 설명 가져오기
+    /// - Parameter type: TamagotchiType
+    /// - Returns: Localized String
+    static func getDescription(type: TamagotchiType) -> String {
+        switch type {
+        case .sting:
+            return LocalizedString.Tamagotchi.Description.sting
+        case .smiling:
+            return LocalizedString.Tamagotchi.Description.smiling
+        case .shinning:
+            return LocalizedString.Tamagotchi.Description.shinning
+        case .none:
+            return ""
         }
     }
 

@@ -28,34 +28,34 @@ struct UserDefault<T> {
 }
 
 struct UserDefaultManager {
-    typealias tamagoName = LocalizedString.Tamagochi.Name
+    typealias tamagoName = LocalizedString.Tamagotchi.Name
     @UserDefault(
-        key: KeyEnum.tamagochiList.rawValue,
+        key: KeyEnum.tamagotchiList.rawValue,
         defaultValue: [
-            TamagochiInfo(
-                tamagochiType: .sting,
+            TamagotchiInfo(
+                tamagotchiType: .sting,
                 name: tamagoName.sting,
                 level: 1,
                 feedingCount: 0,
                 wateringCount: 0
             ),
-            TamagochiInfo(
-                tamagochiType: .smiling,
+            TamagotchiInfo(
+                tamagotchiType: .smiling,
                 name: tamagoName.smiling,
                 level: 1,
                 feedingCount: 0,
                 wateringCount: 0
             ),
-            TamagochiInfo(
-                tamagochiType: .shinning,
+            TamagotchiInfo(
+                tamagotchiType: .shinning,
                 name: tamagoName.shinning,
                 level: 1,
                 feedingCount: 0,
                 wateringCount: 0
             )])
-    static var tamagochiList: [TamagochiInfo]
+    static var tamagotchiList: [TamagotchiInfo]
     
     enum KeyEnum: String {
-        case tamagochiList
+        case tamagotchiList
     }
 }

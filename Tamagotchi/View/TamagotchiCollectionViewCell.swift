@@ -7,19 +7,19 @@
 
 import UIKit
 
-final class TamagochiCollectionViewCell: UICollectionViewCell {
-    @IBOutlet private weak var tamagochiImage: UIImageView!
+final class TamagotchiCollectionViewCell: UICollectionViewCell {
+    @IBOutlet private weak var tamagotchiImage: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var titleBackView: UIView!
     
-    var tamagochiInfo: TamagochiInfo? {
+    var tamagotchiInfo: TamagotchiInfo? {
         didSet {
-            guard let tamagochiInfo else { return }
-            tamagochiImage.image = Layout.getTamagochiImage(
-                type: tamagochiInfo.tamagochiType,
-                level: tamagochiInfo.level
+            guard let tamagotchiInfo else { return }
+            tamagotchiImage.image = Layout.getTamagochiImage(
+                type: tamagotchiInfo.tamagotchiType,
+                level: tamagotchiInfo.level
             )
-            titleLabel.text = tamagochiInfo.name
+            titleLabel.text = tamagotchiInfo.name
         }
     }
     override func awakeFromNib() {

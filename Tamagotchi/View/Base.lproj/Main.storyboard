@@ -12,7 +12,7 @@
         <!--Selection View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="SelectionViewController" id="BYZ-38-t0r" customClass="SelectionViewController" customModule="Tamagochi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectionViewController" id="BYZ-38-t0r" customClass="SelectionViewController" customModule="Tamagotchi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,7 +39,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tamagochiCollectionView" destination="X9v-Qh-f0i" id="qaX-5m-EWe"/>
+                        <outlet property="tamagotchiCollectionView" destination="X9v-Qh-f0i" id="qaX-5m-EWe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -49,22 +49,22 @@
         <!--Detail Pop Up View Controller-->
         <scene sceneID="3cA-XL-ffj">
             <objects>
-                <viewController storyboardIdentifier="DetailPopUpViewController" id="B6z-9B-i3u" customClass="DetailPopUpViewController" customModule="Tamagochi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailPopUpViewController" id="B6z-9B-i3u" customClass="DetailPopUpViewController" customModule="Tamagotchi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3za-De-0L3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxL-7H-745">
-                                <rect key="frame" x="40" y="221.66666666666666" width="313" height="408.66666666666674"/>
+                                <rect key="frame" x="40" y="213.66666666666666" width="313" height="424.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1-6" translatesAutoresizingMaskIntoConstraints="NO" id="Lmg-Fs-05y">
-                                        <rect key="frame" x="94" y="50.000000000000028" width="125" height="125"/>
+                                        <rect key="frame" x="94" y="50.000000000000021" width="125" height="125.33333333333331"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Lmg-Fs-05y" secondAttribute="height" id="OHU-lG-PAy"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="k6O-jy-MsQ">
-                                        <rect key="frame" x="100" y="183.00000000000003" width="113" height="27.666666666666657"/>
+                                        <rect key="frame" x="100" y="183.33333333333334" width="113" height="27.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text=" 방실방실 다마고치 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVy-Vd-zUR">
                                                 <rect key="frame" x="6" y="5.9999999999999991" width="101" height="15.666666666666664"/>
@@ -83,14 +83,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQv-u5-5Pr">
-                                        <rect key="frame" x="40" y="240.66666666666666" width="233" height="1"/>
+                                        <rect key="frame" x="40" y="241.00000000000003" width="233" height="1"/>
                                         <color key="backgroundColor" systemColor="labelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="BGx-KH-GoE"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZX-E9-1Eu">
-                                        <rect key="frame" x="40" y="271.66666666666663" width="233" height="71.666666666666686"/>
+                                        <rect key="frame" x="40" y="272" width="233" height="71.666666666666686"/>
                                         <string key="text">저는 방실방실 다마고치입니당 키는 100km
 몸무게는 150톤이에용 성격은 화끈하고 날라다닙니당~!
 열심히 잘 먹고 잘 클 자신은 
@@ -99,11 +99,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="osD-h9-UfM">
-                                        <rect key="frame" x="0.0" y="374.33333333333337" width="313" height="34.333333333333314"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osD-h9-UfM">
+                                        <rect key="frame" x="0.0" y="374.66666666666674" width="313" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrU-ps-50r">
-                                                <rect key="frame" x="0.0" y="0.0" width="152.66666666666666" height="34.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="50"/>
                                                 <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="취소"/>
@@ -112,7 +112,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5S-j2-Kba">
-                                                <rect key="frame" x="160.66666666666663" y="0.0" width="152.33333333333337" height="34.333333333333336"/>
+                                                <rect key="frame" x="156.66666666666663" y="0.0" width="156.33333333333337" height="50"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="시작하기"/>
                                                 <connections>
@@ -120,9 +120,12 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Knk-nT-viw"/>
+                                        </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ofn-CI-uZu">
-                                        <rect key="frame" x="0.0" y="373.33333333333337" width="313" height="1"/>
+                                        <rect key="frame" x="0.0" y="373.66666666666674" width="313" height="1"/>
                                         <color key="backgroundColor" systemColor="labelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="etv-Th-KJQ"/>
@@ -162,6 +165,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="oxL-7H-745" id="qu8-To-VT6"/>
                         <outlet property="buttonSeparatorLineView" destination="Ofn-CI-uZu" id="OF9-56-6MN"/>
                         <outlet property="cancelButton" destination="vrU-ps-50r" id="brv-yI-fHa"/>
                         <outlet property="descriptionLabel" destination="KZX-E9-1Eu" id="oAU-BS-U3P"/>

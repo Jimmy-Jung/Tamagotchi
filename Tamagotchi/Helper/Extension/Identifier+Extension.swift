@@ -8,13 +8,13 @@
 import UIKit
 
 extension UIViewController {
-    static var indentifier: String {
+    static var identifier: String {
         return String(describing: self)
     }
 }
 
 extension UICollectionViewCell {
-    static var indentifier: String {
+    static var identifier: String {
         return String(describing: self)
     }
 }

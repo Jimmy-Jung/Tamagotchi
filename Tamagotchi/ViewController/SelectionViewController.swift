@@ -8,15 +8,15 @@
 import UIKit
 
 final class SelectionViewController: UIViewController {
-    typealias Name = LocalizedString.Tamagochi.Name
+    typealias Name = LocalizedString.Tamagotchi.Name
     // MARK: - IBOutlet
 
-    @IBOutlet weak var tamagochiCollectionView: UICollectionView!
+    @IBOutlet weak var tamagotchiCollectionView: UICollectionView!
     
     // MARK: - Properties
     
-    private var tamagoList: [TamagochiInfo] = []
-    private let userTamagoList: [TamagochiInfo] = UserDefaultManager.tamagochiList
+    private var tamagoList: [TamagotchiInfo] = []
+    private let userTamagoList: [TamagotchiInfo] = UserDefaultManager.tamagotchiList
     
     // MARK: - LifeCycle
 
@@ -35,10 +35,10 @@ final class SelectionViewController: UIViewController {
     
     /// 컬렉션뷰 세팅
     private func setupCollectionView() {
-        tamagochiCollectionView.delegate = self
-        tamagochiCollectionView.dataSource = self
-        let nib = UINib(nibName: TamagochiCollectionViewCell.indentifier, bundle: nil)
-        tamagochiCollectionView.register(nib, forCellWithReuseIdentifier: TamagochiCollectionViewCell.indentifier)
+        tamagotchiCollectionView.delegate = self
+        tamagotchiCollectionView.dataSource = self
+        let nib = UINib(nibName: TamagotchiCollectionViewCell.identifier, bundle: nil)
+        tamagotchiCollectionView.register(nib, forCellWithReuseIdentifier: TamagotchiCollectionViewCell.identifier)
     }
     
     /// 컬렉션뷰 구성
@@ -54,19 +54,19 @@ final class SelectionViewController: UIViewController {
             bottom: spacing,
             right: inset
         )
-        tamagochiCollectionView.collectionViewLayout = layout
+        tamagotchiCollectionView.collectionViewLayout = layout
         layout.minimumInteritemSpacing = spacing
         layout.minimumLineSpacing = spacing
         layout.scrollDirection = .vertical
         layout.collectionView?.backgroundColor = Layout.backgroundColor
-        tamagochiCollectionView.collectionViewLayout = layout
+        tamagotchiCollectionView.collectionViewLayout = layout
     }
     private func fetchList() {
         tamagoList.append(contentsOf: userTamagoList)
         for _ in 1...20 {
             tamagoList.append(
-                TamagochiInfo(
-                    tamagochiType: .none,
+                TamagotchiInfo(
+                    tamagotchiType: .none,
                     name: Name.none,
                     level: 1,
                     feedingCount: 1,
@@ -90,9 +90,17 @@ extension SelectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TamagochiCollectionViewCell.indentifier, for: indexPath) as! TamagochiCollectionViewCell
-        cell.tamagochiInfo = tamagoList[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TamagotchiCollectionViewCell.identifier, for: indexPath) as! TamagotchiCollectionViewCell
+        cell.tamagotchiInfo = tamagoList[indexPath.item]
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: DetailPopUpViewController.identifier) as! DetailPopUpViewController
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        vc.tamagotchiInfo = tamagoList[indexPath.item]
+        present(vc, animated: true)
     }
     
     
