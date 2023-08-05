@@ -21,6 +21,7 @@ final class SelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = LocalizedString.Title.selectionVC
         setupLayout()
         setupCollectionView()
         configCollectionView()
@@ -95,7 +96,7 @@ extension SelectionViewController: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: DetailPopUpViewController.identifier) as! DetailPopUpViewController
+        let vc = sb.instantiateViewController(withIdentifier: DetailPopupViewController.identifier) as! DetailPopupViewController
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         vc.tamagotchiInfo = tamagoList[indexPath.item]

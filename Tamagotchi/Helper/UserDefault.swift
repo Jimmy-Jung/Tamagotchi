@@ -35,27 +35,34 @@ struct UserDefaultManager {
             TamagotchiInfo(
                 tamagotchiType: .sting,
                 name: tamagoName.sting,
-                level: 1,
+                level: 6,
                 feedingCount: 0,
                 wateringCount: 0
             ),
             TamagotchiInfo(
                 tamagotchiType: .smiling,
                 name: tamagoName.smiling,
-                level: 1,
+                level: 6,
                 feedingCount: 0,
                 wateringCount: 0
             ),
             TamagotchiInfo(
                 tamagotchiType: .shinning,
                 name: tamagoName.shinning,
-                level: 1,
+                level: 6,
                 feedingCount: 0,
                 wateringCount: 0
             )])
     static var tamagotchiList: [TamagotchiInfo]
     
+    @UserDefault(
+        key: KeyEnum.userName.rawValue,
+        defaultValue: "대장님"
+    )
+    static var userName: String
+    
     enum KeyEnum: String {
         case tamagotchiList
+        case userName
     }
 }

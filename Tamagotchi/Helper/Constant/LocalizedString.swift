@@ -20,6 +20,7 @@ struct LocalizedString {
         static private let sting = "stingDescription".localized
         static private let smiling = "smilingDescription".localized
         static private let shinning = "shinningDescription".localized
+        static private let none = "preparingDescription".localized
         
         /// 다마고치 설명 가져오기
         /// - Parameter type: TamagotchiType
@@ -33,9 +34,14 @@ struct LocalizedString {
             case .shinning:
                 return shinning
             case .none:
-                return ""
+                return none
             }
         }
+    }
+    struct Title {
+        static let selectionVC = "selectionTitle".localized
+        static let mainVC = "mainTitle".localized
+        
     }
     
     struct System {

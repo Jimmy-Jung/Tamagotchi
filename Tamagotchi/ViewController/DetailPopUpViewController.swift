@@ -7,11 +7,8 @@
 
 import UIKit
 
-final class DetailPopUpViewController: UIViewController {
-    typealias Color = Layout.Color
-    typealias Font = Layout.Font
-    typealias Size = Layout.Size
-    typealias Image = Layout.Image
+final class DetailPopupViewController: UIViewController {
+    // MARK: - IBOutlet
 
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var tamagoImage: UIImageView!
@@ -23,13 +20,18 @@ final class DetailPopUpViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
+    // MARK: - ProperTies
+
     var tamagotchiInfo: TamagotchiInfo?
-    var segueType: SegueType?
     
+    // MARK: - LifeCycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
     }
+    
+    // MARK: - Methods
 
     private func configUI() {
         guard let tamago = tamagotchiInfo else {return}
@@ -65,6 +67,9 @@ final class DetailPopUpViewController: UIViewController {
         )
         
     }
+    
+    // MARK: - IBAction
+
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
         // 색 변화 트랜지션 효과 적용
