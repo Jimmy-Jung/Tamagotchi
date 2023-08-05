@@ -45,6 +45,8 @@ struct LocalizedString {
         static let wateringPlaceholder = "wateringPlaceholder".localized
         static let feedingError = "feedingError".localized
         static let wateringError = "wateringError".localized
+        static let numberError = "numberError".localized
+        static let minusError = "minusError".localized
         static let feeding = "feeding".localized
         static let watering = "watering".localized
         

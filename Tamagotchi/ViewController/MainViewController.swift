@@ -24,10 +24,17 @@ final class MainViewController: UIViewController {
     @IBOutlet private var underLineViews: [UIView]!
     
     // MARK: - ProperTies
-
-    var tamagotchiInfo: TamagotchiInfo?
     let inspirationMessages = LocalizedString.Inspiration.getMessages()
     let cannotEatMessages = LocalizedString.CannotEatMessage.getMessages()
+    var tamagotchiInfo: TamagotchiInfo?
+    var changedValue: TamagotchiInfo? {
+        didSet {
+            guard let changedValue else {return}
+            UserDefaultManager.pickedTamagotchi = changedValue
+            statusLabel.text = String(format: Main.status, changedValue.level, changedValue.feedingCount, changedValue.wateringCount)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,20 +44,21 @@ final class MainViewController: UIViewController {
     }
     
     private func configUI() {
-        guard let tamago = tamagotchiInfo else {return}
+        guard let tamagotchiInfo else {return}
         bubbleLabel.text = inspirationMessages.randomElement()
         tamagoImage.image = Image.getTamagochiImage(
-            type: tamago.tamagotchiType,
-            level: tamago.level
+            type: tamagotchiInfo.tamagotchiType,
+            level: tamagotchiInfo.level
         )
         view.backgroundColor = UIColor(cgColor: Color.backgroundColor)
         nameBackView.defaultViewSetting()
-        nameTitleLabel.defaultLabelSetting()
+        nameTitleLabel.font = Layout.Font.mainNameFont
+        nameTitleLabel.textColor = UIColor(cgColor: Layout.Color.fontAndBorderColor)
         underLineViews.forEach {
             $0.backgroundColor = UIColor(cgColor: Color.separatorColor)
         }
 
-        statusLabel.text = String(format: Main.status, tamago.level, tamago.feedingCount, tamago.wateringCount)
+        statusLabel.text = String(format: Main.status, tamagotchiInfo.level, tamagotchiInfo.feedingCount, tamagotchiInfo.wateringCount)
         
         configFeedingWatering()
     }
@@ -59,17 +67,39 @@ final class MainViewController: UIViewController {
         wateringTextField.delegate = self
         feedingLabel.text = Main.feedingError
         feedingLabel.textColor = .clear
-        feedingLabel.font = Font.mainFont
+        feedingLabel.font = Font.descriptionFont
         wateringLabel.text = Main.wateringError
         wateringLabel.textColor = .clear
-        wateringLabel.font = Font.mainFont
-        feedingButton.configuration = UIButton.imageButtonConfig(title: Main.feeding, ofSize: 13, weight: .medium, systemName: "leaf.circle", cornerStyle: <#T##UIButton.Configuration.CornerStyle#>)
-        
+        wateringLabel.font = Font.descriptionFont
+        feedingButton.configuration = UIButton.imageButtonConfig(
+            title: Main.feeding,
+            ofSize: 14,
+            weight: .bold,
+            systemName: SystemName.leaf_circle
+        )
+        feedingButton.layoutButton(
+            tintColor: UIColor(cgColor: Color.fontAndBorderColor),
+            borderColor: Color.fontAndBorderColor,
+            borderWidth: Size.backViewBorderWidth,
+            cornerRadius: Size.buttonCornerRadius
+        )
+        wateringButton.configuration = UIButton.imageButtonConfig(
+            title: Main.feeding,
+            ofSize: 14,
+            weight: .bold,
+            systemName: SystemName.leaf_circle
+        )
+        wateringButton.layoutButton(
+            tintColor: UIColor(cgColor: Color.fontAndBorderColor),
+            borderColor: Color.fontAndBorderColor,
+            borderWidth: Size.backViewBorderWidth,
+            cornerRadius: Size.buttonCornerRadius
+        )
         
     }
     
     private func makeBarButtonItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(barButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: SystemName.person_circle), style: .plain, target: self, action: #selector(barButtonTapped))
         navigationItem.rightBarButtonItem?.tintColor = UIColor(cgColor: Color.titleColor)
         
     }
@@ -78,19 +108,49 @@ final class MainViewController: UIViewController {
         //세팅화면으로 넘어가가기
     }
     @IBAction func ButtonTapped(_ sender: UIButton) {
+        
         if sender.tag == 0 {
             guard let num = feedingTextField.text, !num.isEmpty else { return }
-            if num > 99 {
-                
-            }
+            feedingLogic(
+                numString: num,
+                label: feedingLabel,
+                constraint: Logic.feedingConstraint
+            )
         } else {
-            
+            guard let num = wateringTextField.text, !num.isEmpty else { return }
+            feedingLogic(
+                numString: num,
+                label: wateringLabel,
+                constraint: Logic.wateringConstraint
+            )
         }
     }
-    
+    private func feedingLogic(numString: String, label: UILabel, constraint: Int) {
+        guard let count = Int(numString) else {
+            label.text = LocalizedString.Main.numberError
+            label.textColor = .systemRed
+            label.shake()
+            return
+        }
+        if count > constraint {
+            bubbleLabel.text = LocalizedString.CannotEatMessage.getMessages().randomElement()
+            label.textColor = .systemRed
+            label.shake()
+        } else if 0 <= count && count <= constraint {
+            bubbleLabel.text = LocalizedString.Inspiration.getMessages().randomElement()
+            UserDefaultManager.pickedTamagotchi?.raiseFeedingCount(count)
+            changedValue = UserDefaultManager.pickedTamagotchi!
+        } else {
+            bubbleLabel.text = LocalizedString.Main.minusError
+            label.textColor = .systemRed
+            label.shake()
+        }
+    }
     
 }
 
 extension MainViewController: UITextFieldDelegate {
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        <#code#>
+    }
 }

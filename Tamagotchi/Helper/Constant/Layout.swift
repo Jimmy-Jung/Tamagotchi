@@ -35,14 +35,16 @@ struct Layout {
         static let backViewBorderWidth: CGFloat = 1
         /// 이름 백뷰 코너 크기
         static let backViewCornerRadius: CGFloat = 5
+        /// 버튼 코너 크기
+        static let buttonCornerRadius: CGFloat = 8
+        
     }
     struct Font {
         /// 이름 레이블 폰트
-        static let nameTitleFont = UIFont.systemFont(ofSize: 12, weight: .bold)
+        static let nameTitleFont = UIFont.systemFont(ofSize: 13, weight: .bold)
         /// 설명 레이블 폰트
         static let descriptionFont = UIFont.systemFont(ofSize: 14, weight: .medium)
-        /// 메인 레이블 폰트
-        static let mainFont = UIFont.systemFont(ofSize: 13, weight: .medium)
+        static let mainNameFont = UIFont.systemFont(ofSize: 15, weight: .bold)
     }
     struct Image {
         /// 물먹기 버튼 이미지

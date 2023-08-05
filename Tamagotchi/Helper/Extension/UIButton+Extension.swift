@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIButton {
+    typealias Color = Layout.Color
     enum ButtonActionType {
         case cancel
         case defaults
@@ -34,23 +35,40 @@ extension UIButton {
     
     static func imageButtonConfig(
         title: String,
-        titleColor: UIColor = UIColor.label,
         ofSize fontSize: CGFloat,
         weight: UIFont.Weight,
-        systemName: String,
-        cornerStyle: Configuration.CornerStyle
+        systemName: String
     ) -> UIButton.Configuration {
         var config = UIButton.Configuration.plain()
         var titleAtt = AttributedString.init(title)
         titleAtt.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
-        titleAtt.foregroundColor = titleColor
         config.attributedTitle = titleAtt
         config.image = UIImage(systemName: systemName)
         config.preferredSymbolConfigurationForImage = .init(pointSize: fontSize)
-        config.cornerStyle = cornerStyle
         config.imagePadding = 3
-        config.baseBackgroundColor = UIColor(cgColor: Layout.Color.backgroundColor)
+        config.background.backgroundColor = UIColor(cgColor: Color.backgroundColor)
+        config.contentInsets = .zero
         return config
+    }
+    func layoutButton(
+        tintColor: UIColor,
+        borderColor: CGColor,
+        borderWidth: CGFloat,
+        cornerRadius: CGFloat
+    ) {
+        self.tintColor = UIColor(cgColor: Color.fontAndBorderColor)
+        self.layer.borderColor = Color.fontAndBorderColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 8
+        self.clipsToBounds = true
+    }
+    
+    func defaultButtonSetting(borderWidth: CGFloat, cornerRadius: CGFloat) {
+        self.layer.borderColor = Color.fontAndBorderColor
+        self.layer.borderWidth = borderWidth
+        self.layer.cornerRadius = cornerRadius
+        self.clipsToBounds = true
+        self.backgroundColor = UIColor(cgColor: Layout.Color.backgroundColor)
     }
     
     /// 버튼 클릭시 배경색 변화 애니메이션 및 햅틱반응

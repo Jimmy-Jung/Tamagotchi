@@ -35,11 +35,11 @@ final class DetailPopupViewController: UIViewController {
     // MARK: - Methods
 
     private func configUI() {
-        guard let tamago = tamagotchiInfo else {return}
+        guard let tamagotchiInfo else {return}
         // 다마고치 이미지 설정
         tamagoImage.image = Image.getTamagochiImage(
-            type: tamago.tamagotchiType,
-            level: tamago.level
+            type: tamagotchiInfo.tamagotchiType,
+            level: tamagotchiInfo.level
         )
         // 배경색상 및 코너
         backgroundView.backgroundColor = UIColor(cgColor: Color.backgroundColor)
@@ -54,7 +54,7 @@ final class DetailPopupViewController: UIViewController {
         // 구분 선 색상 설정
         separatorLineView.backgroundColor = UIColor(cgColor: Color.separatorColor)
         // 설명 텍스트 및 레이아웃 설정
-        descriptionLabel.text = LocalizedString.Description.getDescription(type: tamago.tamagotchiType)
+        descriptionLabel.text = LocalizedString.Description.getDescription(type: tamagotchiInfo.tamagotchiType)
         descriptionLabel.textColor = UIColor(cgColor: Color.fontAndBorderColor)
         descriptionLabel.font = Font.descriptionFont
         // 버튼 위 구분 선 색상 설정

@@ -13,10 +13,24 @@ enum TamagotchiType: Codable {
     case none
 }
 struct TamagotchiInfo: Codable {
-    let tamagotchiType: TamagotchiType
+    var tamagotchiType: TamagotchiType
     let name: String
-    let level: Int
-    let feedingCount: Int
-    let wateringCount: Int
+    var level: Int
+    var feedingCount: Int
+    var wateringCount: Int
+    
+    mutating func raiseFeedingCount(_ count: Int) {
+        feedingCount += count
+    }
+    mutating func raiseWateringCount(_ count: Int) {
+        wateringCount += count
+    }
+    mutating func raiseLevel() {
+        level += 1
+    }
+    mutating func changeType(to type: TamagotchiType) {
+        tamagotchiType = type
+    }
+    
 }
 

@@ -27,6 +27,8 @@ feedingPlaceholder = "밥주세용";
 wateringPlaceholder = "물주세용";
 feedingError = "100개 이상은 힘들어요";
 wateringError = "50개 이상은 힘들어요";
+numberError = "숫자를 입력하세요";
+minusError = "양수를 입력하세요";
 feeding = "밥먹기";
 watering = "물먹기";
 
