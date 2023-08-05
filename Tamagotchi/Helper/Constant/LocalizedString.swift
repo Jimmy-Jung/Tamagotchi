@@ -54,4 +54,31 @@ struct LocalizedString {
         static let cancel = "cancel".localized
         static let start = "start".localized
     }
+    
+    struct Inspiration {
+        static func getMessages() -> [String] {
+            return [message0, message1, message2, message3, message4, message5]
+        }
+        static private let message0 = "InspirationMessage0".localized
+        static private let message1 = "InspirationMessage1".localized
+        static private let message2 = "InspirationMessage2".localized
+        static private let message3 = "InspirationMessage3".localized
+        static private let message4 = "InspirationMessage4".localized
+        static private let message5 = "InspirationMessage5".localized
+    }
+
+    struct CannotEatMessage {
+        static func getMessages() -> [String] {
+            return messages.map {
+                String(format: $0, UserDefaultManager.userName)
+            }
+        }
+        static let messages = [message0, message1, message2, message3, message4]
+        static private let message0 = "CannotEatMessage0 %@".localized
+        static private let message1 = "CannotEatMessage1 %@".localized
+        static private let message2 = "CannotEatMessage2 %@".localized
+        static private let message3 = "CannotEatMessage3 %@".localized
+        static private let message4 = "CannotEatMessage4 %@".localized
+    }
 }
+
