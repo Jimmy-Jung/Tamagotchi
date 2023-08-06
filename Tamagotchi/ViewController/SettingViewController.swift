@@ -11,46 +11,63 @@ final class SettingViewController: UIViewController {
     let cellIdentifier = "SettingTableViewCell"
     @IBOutlet weak var settingTableView: UITableView!
     
+    private let settingManager = SettingManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingManager.delegate = self
+        configUI()
+        setupTableView()
+    }
+    
+    private func configUI() {
         view.backgroundColor = UIColor(cgColor: Color.backgroundColor)
         settingTableView.backgroundColor = UIColor(cgColor: Color.backgroundColor)
         configBackBarButton(title: Title.setting)
-        setupTableView()
     }
     
     private func setupTableView() {
         settingTableView.delegate = self
         settingTableView.dataSource = self
+        
     }
     
 
 }
 
 extension SettingViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let settingInfo = settingManager.settingList[indexPath.row]
+        settingInfo.handler()
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return settingManager.settingList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let settingInfo = settingManager.settingList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
         var content = cell.defaultContentConfiguration()
-        let title = "내이름 설정하기"
+        let title = settingInfo.title
         content.attributedText = NSAttributedString(string: title, attributes: [
             .font: Font.mainNameFont,
             .foregroundColor: Color.fontAndBorderColor
         ])
-        content.image = UIImage(systemName: "pencil")
+        content.image = settingInfo.icon
+//        UIImage(systemName: "pencil")
         content.imageProperties.tintColor = UIColor(cgColor: Color.fontAndBorderColor)
-        let secondaryText = "고래밥"
-        content.secondaryAttributedText = NSAttributedString(string: secondaryText, attributes: [
+        if let secondaryText = settingInfo.secondaryText {
+            content.secondaryAttributedText = NSAttributedString(
+                string: secondaryText,
+                attributes: [
                 .font: Font.mainNameFont,
                 .foregroundColor: UIColor.lightGray
             ])
+        }
         cell.contentConfiguration = content
         cell.accessoryType = .disclosureIndicator
         cell.backgroundColor = UIColor(cgColor: Color.backgroundColor)

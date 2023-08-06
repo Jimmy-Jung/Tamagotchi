@@ -28,7 +28,6 @@ final class DetailPopupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTitleColor()
         configUI()
     }
     
