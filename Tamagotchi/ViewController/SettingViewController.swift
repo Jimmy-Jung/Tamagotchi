@@ -46,6 +46,7 @@ final class SettingViewController: UIViewController {
 
 extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        HapticsManager.shared.vibrateForSelection()
         let settingInfo = settingList[indexPath.row]
         settingInfo.handler()
         tableView.deselectRow(at: indexPath, animated: true)

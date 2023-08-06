@@ -122,6 +122,7 @@ final class MainViewController: UIViewController {
     }
     /// 세팅화면으로 넘어가가기
     @objc private func barButtonTapped() {
+        HapticsManager.shared.vibrateForSelection()
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(identifier: SettingViewController.identifier) as! SettingViewController
         vc.setTitle(type: .setting)
@@ -129,6 +130,7 @@ final class MainViewController: UIViewController {
     }
     
     @IBAction func ButtonTapped(_ sender: UIButton) {
+        HapticsManager.shared.vibrateForSelection()
         if sender.tag == 0 {
             guard let num = feedingTextField.text else { return }
             logicManager.feedingLogic(
