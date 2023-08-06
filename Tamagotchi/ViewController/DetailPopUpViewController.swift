@@ -61,18 +61,30 @@ final class DetailPopupViewController: UIViewController {
         // 버튼 색상 설정 및 레이아웃 설정
         cancelButton.backgroundColor = UIColor(cgColor: Color.cancelBackgroundColor)
         startButton.backgroundColor = UIColor(cgColor: Color.backgroundColor)
+        
         cancelButton.configuration = UIButton.plainButtonConfig(
             title: LocalizedString.System.cancel,
             titleColor: UIColor(cgColor: Color.fontAndBorderColor),
             ofSize: 14,
             weight: .bold
         )
-        startButton.configuration = UIButton.plainButtonConfig(
-            title: LocalizedString.System.start,
-            titleColor: UIColor(cgColor: Color.fontAndBorderColor),
-            ofSize: 14,
-            weight: .medium
-        )
+        if tamagotchiInfo.tamagotchiType == .none {
+            startButton.isEnabled = false
+            startButton.backgroundColor = UIColor(cgColor: Color.separatorColor)
+            startButton.configuration = UIButton.plainButtonConfig(
+                title: LocalizedString.System.start,
+                titleColor: UIColor(cgColor: Color.separatorColor),
+                ofSize: 14,
+                weight: .medium
+            )
+        } else {
+            startButton.configuration = UIButton.plainButtonConfig(
+                title: LocalizedString.System.start,
+                titleColor: UIColor(cgColor: Color.fontAndBorderColor),
+                ofSize: 14,
+                weight: .medium
+            )
+        }
     }
     
     private func changeRootViewController() {
