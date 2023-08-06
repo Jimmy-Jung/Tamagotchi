@@ -50,8 +50,8 @@ final class MainViewController: UIViewController {
         feedingTextField.delegate = self
         wateringTextField.delegate = self
         logicManager.delegate = self
-        setTitleColor()
         configUI()
+        configBackBarButton(title: "")
         makeBarButtonItem()
         keyboardNotification()
     }
@@ -115,9 +115,14 @@ final class MainViewController: UIViewController {
         navigationItem.rightBarButtonItem?.tintColor = UIColor(cgColor: Color.titleColor)
         
     }
-    
+    /// 세팅화면으로 넘어가가기
     @objc private func barButtonTapped() {
-        //세팅화면으로 넘어가가기
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: SettingViewController.identifier) as! SettingViewController
+        vc.setTitle(type: .setting)
+        vc.setTitleColor()
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     @IBAction func ButtonTapped(_ sender: UIButton) {
         if sender.tag == 0 {

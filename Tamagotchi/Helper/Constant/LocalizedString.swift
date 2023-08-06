@@ -55,13 +55,23 @@ struct LocalizedString {
         static let selectTamagotchi = "selectTamagotchi".localized
         static let changeTamagotchi = "changeTamagotchi".localized
         static let userTamagotchi = "userTamagotchi".localized
-        static let setUserName = "setUserName".localized
+        static let changeUserName = "changeUserName".localized
         static let setting = "setting".localized
     }
     
     struct System {
         static let cancel = "cancel".localized
         static let start = "start".localized
+        static let ok = "ok".localized
+        static let no = "no".localized
+        static let resetTitle = "resetTitle".localized
+        static let resetMessage = "resetMessage".localized
+    }
+    
+    struct Setting {
+        static let changeUserName = "changeUserName".localized
+        static let changeTamagotchi = "changeTamagotchi".localized
+        static let reset = "reset".localized
     }
     
     struct Inspiration {

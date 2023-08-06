@@ -22,7 +22,7 @@ extension UIViewController {
         case selectTamagotchi
         case changeTamagotchi
         case userTamagotchi
-        case setUserName
+        case changeUserName
         case setting
     }
     
@@ -41,16 +41,37 @@ extension UIViewController {
             self.title = Title.changeTamagotchi
         case .userTamagotchi:
             self.title = UM.userName + Title.userTamagotchi
-        case .setUserName:
-            self.title = UM.userName + Title.setUserName
+        case .changeUserName:
+            self.title = UM.userName + Title.changeUserName
         case .setting:
             self.title = Title.setting
         }
-    }
-    
-    func setTitleColor() {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Color.titleColor]
     }
 
+    
+    func configBackBarButton(title: String) {
+        let backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = UIColor(cgColor: Color.fontAndBorderColor)
+        navigationItem.backBarButtonItem = backBarButtonItem
+    }
+
+    func showCancelAlert(
+        title: String?,
+        message: String?,
+        preferredStyle: UIAlertController.Style,
+        cancelTitle: String?,
+        okTitle: String?,
+        cancelHandler: ((UIAlertAction) -> Void)?,
+        okHandler: ((UIAlertAction) -> Void)?
+    ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
+        
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: cancelHandler)
+        let okAction = UIAlertAction(title: okTitle, style: .default, handler: okHandler)
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }
 

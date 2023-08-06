@@ -37,15 +37,25 @@ watering = "물먹기";
 selectTamagotchi = "다마고치 선택하기";
 changeTamagotchi = "다마고치 변경하기";
 userTamagotchi = "님의 다마고치";
-setUserName = "님 이름 정하기";
+changeUserName = "님 이름 정하기";
 setting = "설정";
 
 // MARK: - System
 
 cancel = "취소";
 start = "시작하기";
+ok = "웅";
+no = "아냐!";
+resetTitle = "데이터 초기화";
+resetMessage = "정말 다시 처음부터 시작하실 건가용?";
 
-// Mark: - Inspiration Message
+// MARK: - Setting
+
+changeUserName = "내 이름 설정하기";
+changeTamagotchi = "다마고치 변경하기";
+reset = "데이터 초기화";
+
+// MARK: - Inspiration Message
 
 InspirationMessage0 = "‘일단 짜보고 고치기’는 우연에 맡기는 프로그래밍 방식이다. 이에 반대되는 말은 의도적 프로그래밍이다. 이것은 계획과 설계가 필요하며 행운과 어쩌다가 오는 성공에 의존하는 프로그래밍을 하지말란 의미이다.\n-앤드류 헌터,실용주의 프로그래밍";
 InspirationMessage1 = "우리는 모델을 만들고, 그 모델이 다시 우리를 만든다.\n-피에트 하인";
@@ -54,7 +64,7 @@ InspirationMessage3 = "소프트웨어를 디자인 할때 저는 건축가입�
 InspirationMessage4 = "컴퓨터가 이해할 수 있는 코드는 어느 바보나 다 짤 수 있다. 좋은 프로그래머는 사람이 이해할 수 있는 코드를 짠다.\n-마틴파울러";
 InspirationMessage5 = "소프트웨어 개발은 흥미진진한 것이다. 그렇지 않다면 그 프로세스는 잘못된 것이다. 소프트웨어 개발은 예술,과학,그리고 공학을 정교하게 섞는 기술, 즉 장인 정신이다. 그것은 단지 일이 아니다. 그것은 일에 대한 열정이다.\n-피트 맥브린";
 
-// Mark: - CannotEat Message
+// MARK: - CannotEat Message
 
 "CannotEatMessage0 %@" = "%@님 다마고치가 배가 너무 불러요. 좀 더 나중에 먹이와 물을 주세요.";
 "CannotEatMessage1 %@" = "%@님 먹이와 물을 너무 많이 주셨어요. 다마고치가 소화하기 어려울 것 같아요.";
