@@ -8,14 +8,15 @@
 import UIKit.UIView
 
 extension UIView {
-    
+    typealias Color = Layout.Color
+    typealias Size = Layout.Size
     /// 타이틀 백뷰 테두리 & 코너 & 배경색
     func defaultViewSetting() {
-        self.layer.borderColor = Layout.Color.fontAndBorderColor
-        self.layer.borderWidth = Layout.Size.backViewBorderWidth
-        self.layer.cornerRadius = Layout.Size.backViewCornerRadius
+        self.layer.borderColor = Color.fontAndBorderColor?.cgColor
+        self.layer.borderWidth = Size.backViewBorderWidth
+        self.layer.cornerRadius = Size.backViewCornerRadius
         self.clipsToBounds = true
-        self.backgroundColor = UIColor(cgColor: Layout.Color.backgroundColor)
+        self.backgroundColor = Color.backgroundColor
     }
     
     //로그인 오류시 글씨 흔들기

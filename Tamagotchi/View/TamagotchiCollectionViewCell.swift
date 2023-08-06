@@ -26,7 +26,7 @@ final class TamagotchiCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                backgroundColor = UIColor(cgColor: Layout.Color.cancelBackgroundColor)
+                backgroundColor = Layout.Color.cancelBackgroundColor
                 HapticsManager.shared.vibrateForSelection()
             } else {
                 backgroundColor = .clear

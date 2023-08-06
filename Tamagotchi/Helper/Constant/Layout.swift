@@ -17,17 +17,24 @@ struct Layout {
     }
     struct Color {
         /// 네비게이션 타이틀 색상
-        static let titleColor = CGColor(red: 83/255, green: 105/255, blue: 118/255, alpha: 1)
+        /// CGColor(red: 83/255, green: 105/255, blue: 118/255, alpha: 1)
+        static let titleColor = UIColor(named: "titleColor")
         /// 배경색상
-        static let backgroundColor = CGColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
+        /// CGColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
+        static let backgroundColor = UIColor(named: "backgroundColor")
         /// Popover 화면 배경색
-        static let seeThroughBackgroundColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        /// CGColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        static let seeThroughBackgroundColor = UIColor(named: "seeThroughBackgroundColor")
         /// 폰트/테두리 색상
-        static let fontAndBorderColor = CGColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        /// CGColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        static let fontAndBorderColor = UIColor(named: "fontAndBorderColor")
         /// 취소버튼 색상
-        static let cancelBackgroundColor = CGColor(red: 230/255, green: 237/255, blue: 239/255, alpha: 1)
+        /// CGColor(red: 230/255, green: 237/255, blue: 239/255, alpha: 1)
+        static let cancelBackgroundColor = UIColor(named: "cancelBackgroundColor")
         /// 구분선 색상
-        static let separatorColor = CGColor(red: 148/255, green: 163/255, blue: 172/255, alpha: 1)
+        /// CGColor(red: 148/255, green: 163/255, blue: 172/255, alpha: 1)
+        static let separatorColor = UIColor(named: "separatorColor")
+
         
     }
     struct Size {

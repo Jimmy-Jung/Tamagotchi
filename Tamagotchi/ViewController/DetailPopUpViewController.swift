@@ -41,46 +41,46 @@ final class DetailPopupViewController: UIViewController {
             level: 6
         )
         // 배경색상 및 코너
-        backgroundView.backgroundColor = UIColor(cgColor: Color.backgroundColor)
+        backgroundView.backgroundColor = Color.backgroundColor
         backgroundView.layer.cornerRadius = 10
         backgroundView.clipsToBounds = true
         // 뷰컨트롤러 배경색상 반투명색
-        view.backgroundColor = UIColor(cgColor: Color.seeThroughBackgroundColor)
+        view.backgroundColor = Color.seeThroughBackgroundColor
         // 이름 배경 레이아웃 설정
         nameBackView.defaultViewSetting()
         // 이름 레이블 레이아웃 설정
         nameTitleLabel.defaultLabelSetting()
         // 구분 선 색상 설정
-        separatorLineView.backgroundColor = UIColor(cgColor: Color.separatorColor)
+        separatorLineView.backgroundColor = Color.separatorColor
         // 설명 텍스트 및 레이아웃 설정
         descriptionLabel.text = LocalizedString.Description.getDescription(type: tamagotchiInfo.tamagotchiType)
-        descriptionLabel.textColor = UIColor(cgColor: Color.fontAndBorderColor)
+        descriptionLabel.textColor = Color.fontAndBorderColor
         descriptionLabel.font = Font.descriptionFont
         // 버튼 위 구분 선 색상 설정
-        buttonSeparatorLineView.backgroundColor = UIColor(cgColor: Color.separatorColor)
+        buttonSeparatorLineView.backgroundColor = Color.separatorColor
         // 버튼 색상 설정 및 레이아웃 설정
-        cancelButton.backgroundColor = UIColor(cgColor: Color.cancelBackgroundColor)
-        startButton.backgroundColor = UIColor(cgColor: Color.backgroundColor)
+        cancelButton.backgroundColor = Color.cancelBackgroundColor
+        startButton.backgroundColor = Color.backgroundColor
         
         cancelButton.configuration = UIButton.plainButtonConfig(
             title: LocalizedString.System.cancel,
-            titleColor: UIColor(cgColor: Color.fontAndBorderColor),
+            titleColor: Color.fontAndBorderColor ?? UIColor.label,
             ofSize: 14,
             weight: .bold
         )
         if tamagotchiInfo.tamagotchiType == .none {
             startButton.isEnabled = false
-            startButton.backgroundColor = UIColor(cgColor: Color.separatorColor)
+            startButton.backgroundColor = Color.separatorColor
             startButton.configuration = UIButton.plainButtonConfig(
                 title: LocalizedString.System.start,
-                titleColor: UIColor(cgColor: Color.separatorColor),
+                titleColor: Color.separatorColor ?? UIColor.separator,
                 ofSize: 14,
                 weight: .medium
             )
         } else {
             startButton.configuration = UIButton.plainButtonConfig(
                 title: LocalizedString.System.start,
-                titleColor: UIColor(cgColor: Color.fontAndBorderColor),
+                titleColor: Color.fontAndBorderColor ?? UIColor.label,
                 ofSize: 14,
                 weight: .medium
             )
@@ -101,12 +101,12 @@ final class DetailPopupViewController: UIViewController {
     
     // MARK: - IBAction
 
-    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+    @IBAction private func cancelButtonTapped(_ sender: UIButton) {
         // 색 변화 트랜지션 효과 적용
         UIButton.buttonTapEffect(button: sender, type: .cancel)
         dismiss(animated: true)
     }
-    @IBAction func startButtonTapped(_ sender: UIButton) {
+    @IBAction private func startButtonTapped(_ sender: UIButton) {
         UIButton.buttonTapEffect(button: sender, type: .defaults)
         // 유저디폴드에 다마고치 넣어주기
         // 다음 실행부터 Main화면에서 시작

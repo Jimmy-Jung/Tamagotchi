@@ -11,7 +11,7 @@ extension UILabel {
     /// 타이틀 색상컬러 & 폰트 크기
     func defaultLabelSetting() {
         self.font = Layout.Font.nameTitleFont
-        self.textColor = UIColor(cgColor: Layout.Color.fontAndBorderColor)
+        self.textColor = Layout.Color.fontAndBorderColor
     }
 }
 

@@ -47,17 +47,17 @@ extension UIViewController {
         case .setting:
             self.title = Title.setting
         }
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Color.titleColor]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Color.titleColor ?? UIColor.label]
     }
     func setNavigationColor() {
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Color.titleColor]
-        view.backgroundColor = UIColor(cgColor: Color.backgroundColor)
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Color.titleColor ?? UIColor.label]
+        view.backgroundColor = Color.backgroundColor
     }
 
     
     func configBackBarButton(title: String) {
         let backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = UIColor(cgColor: Color.fontAndBorderColor)
+        backBarButtonItem.tintColor = Color.fontAndBorderColor
         navigationItem.backBarButtonItem = backBarButtonItem
     }
 

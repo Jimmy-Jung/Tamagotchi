@@ -21,13 +21,13 @@ final class ChangeNameViewController: UIViewController {
     
     private func configUI() {
         nameTextField.font = Font.descriptionFont
-        nameTextField.textColor = UIColor(cgColor: Color.titleColor)
+        nameTextField.textColor = Color.titleColor
         nameTextField.text = UM.userName
-        underLineView.backgroundColor = UIColor(cgColor: Color.separatorColor)
+        underLineView.backgroundColor = Color.separatorColor
     }
     private func makeBarButtonItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: System.save, style: .plain, target: self, action: #selector(barButtonTapped))
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(cgColor: Color.titleColor)
+        navigationItem.rightBarButtonItem?.tintColor = Color.titleColor
         
     }
     /// 세팅화면으로 넘어가가기

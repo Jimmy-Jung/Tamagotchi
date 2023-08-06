@@ -25,9 +25,9 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     
     // MARK: - ProperTies
-    let inspirationMessages = LocalizedString.Inspiration.getMessages()
-    let cannotEatMessages = LocalizedString.CannotEatMessage.getMessages()
-    let logicManager = LogicManager()
+    private let inspirationMessages = LocalizedString.Inspiration.getMessages()
+    private let cannotEatMessages = LocalizedString.CannotEatMessage.getMessages()
+    private let logicManager = LogicManager()
     var tamagotchiInfo: TamagotchiInfo?
     var changedValue: TamagotchiInfo? {
         didSet {
@@ -65,23 +65,26 @@ final class MainViewController: UIViewController {
         guard let tamagotchiInfo else {return}
         bubbleLabel.text = inspirationMessages.randomElement()
         bubbleLabel.font = Font.bubbleFont
+        bubbleLabel.textColor = Color.titleColor
         tamagoImage.image = Image.getTamagotchiImage(
             type: tamagotchiInfo.tamagotchiType,
             level: tamagotchiInfo.level
         )
-        view.backgroundColor = UIColor(cgColor: Color.backgroundColor)
+        view.backgroundColor = Color.backgroundColor
         nameBackView.defaultViewSetting()
         nameTitleLabel.font = Layout.Font.mainNameFont
-        nameTitleLabel.textColor = UIColor(cgColor: Layout.Color.fontAndBorderColor)
+        nameTitleLabel.textColor = Color.fontAndBorderColor
         underLineViews.forEach {
-            $0.backgroundColor = UIColor(cgColor: Color.separatorColor)
+            $0.backgroundColor = Color.separatorColor
         }
 
         statusLabel.text = String(format: Main.status, tamagotchiInfo.level, tamagotchiInfo.feedingCount, tamagotchiInfo.wateringCount)
-        
+        statusLabel.textColor = .gray
         configFeedingWatering()
     }
     private func configFeedingWatering() {
+        feedingTextField.textColor = Color.fontAndBorderColor
+        wateringTextField.textColor = Color.fontAndBorderColor
         feedingLabel.text = Main.feedingError
         feedingLabel.textColor = .clear
         feedingLabel.font = Font.descriptionFont
@@ -95,8 +98,8 @@ final class MainViewController: UIViewController {
             systemName: SystemName.leaf_circle
         )
         feedingButton.layoutButton(
-            tintColor: UIColor(cgColor: Color.fontAndBorderColor),
-            borderColor: Color.fontAndBorderColor,
+            tintColor: Color.fontAndBorderColor ?? UIColor.label,
+            borderColor: Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
             borderWidth: Size.backViewBorderWidth,
             cornerRadius: Size.buttonCornerRadius
         )
@@ -107,8 +110,8 @@ final class MainViewController: UIViewController {
             systemName: SystemName.drop_circle
         )
         wateringButton.layoutButton(
-            tintColor: UIColor(cgColor: Color.fontAndBorderColor),
-            borderColor: Color.fontAndBorderColor,
+            tintColor: Color.fontAndBorderColor ?? UIColor.label,
+            borderColor: Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
             borderWidth: Size.backViewBorderWidth,
             cornerRadius: Size.buttonCornerRadius
         )
@@ -117,7 +120,7 @@ final class MainViewController: UIViewController {
     
     private func makeBarButtonItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: SystemName.person_circle), style: .plain, target: self, action: #selector(barButtonTapped))
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(cgColor: Color.titleColor)
+        navigationItem.rightBarButtonItem?.tintColor = Color.titleColor
         
     }
     /// 세팅화면으로 넘어가가기
@@ -129,7 +132,7 @@ final class MainViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func ButtonTapped(_ sender: UIButton) {
+    @IBAction private func ButtonTapped(_ sender: UIButton) {
         HapticsManager.shared.vibrateForSelection()
         if sender.tag == 0 {
             guard let num = feedingTextField.text else { return }
@@ -176,7 +179,7 @@ extension MainViewController {
     
     // MARK: - @objc Method
     /// 키보드 올라갈때 호출 메서드
-    @objc func keyboardWillShow(_ notification: Notification) {
+    @objc private func keyboardWillShow(_ notification: Notification) {
         var space: Double {
             let diff = view.frame.height - stackView.frame.maxY - 20
             return diff
@@ -191,7 +194,7 @@ extension MainViewController {
     }
     
     /// 키보드 내려갈때 호출 메서드
-    @objc func keyboardWillHide(_ notification: Notification) {
+    @objc private func keyboardWillHide(_ notification: Notification) {
         // 신조어 화면 높이 조정 및애니메이션 추가
         UIView.animate(withDuration: notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25) {
             self.view.bounds.origin.y = 0

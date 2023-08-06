@@ -57,7 +57,7 @@ final class SelectionViewController: UIViewController {
         layout.minimumInteritemSpacing = spacing
         layout.minimumLineSpacing = spacing
         layout.scrollDirection = .vertical
-        layout.collectionView?.backgroundColor =  UIColor(cgColor: Layout.Color.backgroundColor)
+        layout.collectionView?.backgroundColor =  Color.backgroundColor
         tamagotchiCollectionView.collectionViewLayout = layout
     }
     private func fetchList() {

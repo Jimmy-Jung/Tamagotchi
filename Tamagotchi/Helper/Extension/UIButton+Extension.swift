@@ -46,7 +46,7 @@ extension UIButton {
         config.image = UIImage(systemName: systemName)
         config.preferredSymbolConfigurationForImage = .init(pointSize: fontSize)
         config.imagePadding = 3
-        config.background.backgroundColor = UIColor(cgColor: Color.backgroundColor)
+        config.background.backgroundColor = Color.backgroundColor
         config.contentInsets = .zero
         return config
     }
@@ -56,19 +56,19 @@ extension UIButton {
         borderWidth: CGFloat,
         cornerRadius: CGFloat
     ) {
-        self.tintColor = UIColor(cgColor: Color.fontAndBorderColor)
-        self.layer.borderColor = Color.fontAndBorderColor
+        self.tintColor = Color.fontAndBorderColor
+        self.layer.borderColor = Color.fontAndBorderColor?.cgColor
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 8
         self.clipsToBounds = true
     }
     
     func defaultButtonSetting(borderWidth: CGFloat, cornerRadius: CGFloat) {
-        self.layer.borderColor = Color.fontAndBorderColor
+        self.layer.borderColor = Color.fontAndBorderColor?.cgColor
         self.layer.borderWidth = borderWidth
         self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = true
-        self.backgroundColor = UIColor(cgColor: Layout.Color.backgroundColor)
+        self.backgroundColor = Color.backgroundColor
     }
     
     /// 버튼 클릭시 배경색 변화 애니메이션 및 햅틱반응
@@ -78,12 +78,12 @@ extension UIButton {
     static func buttonTapEffect(button: UIButton, type: ButtonActionType) {
         HapticsManager.shared.vibrateForSelection()
         
-        let BGColor: UIColor = {
+        let BGColor: UIColor? = {
             switch type {
             case .cancel:
-                return UIColor(cgColor: Layout.Color.cancelBackgroundColor)
+                return Color.cancelBackgroundColor
             case .defaults:
-                return UIColor(cgColor: Layout.Color.backgroundColor)
+                return Color.backgroundColor
             }}()
         
         UIView.transition(
