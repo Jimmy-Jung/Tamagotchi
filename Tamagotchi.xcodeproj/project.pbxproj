@@ -22,6 +22,9 @@
 		552C75BA2A7E882200982EAA /* DefaultsTamagotchiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75B92A7E882200982EAA /* DefaultsTamagotchiList.swift */; };
 		552C75BC2A7EC5EE00982EAA /* SystemName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75BB2A7EC5EE00982EAA /* SystemName.swift */; };
 		552C75BE2A7EED3D00982EAA /* LogicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75BD2A7EED3D00982EAA /* LogicManager.swift */; };
+		552C75C02A7F547100982EAA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75BF2A7F547100982EAA /* SettingViewController.swift */; };
+		552C75C22A7F566F00982EAA /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75C12A7F566F00982EAA /* ChangeNameViewController.swift */; };
+		552C75C42A7F572B00982EAA /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75C32A7F572B00982EAA /* SettingTableViewCell.swift */; };
 		557D556E2A7D222A000DDE17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D556D2A7D222A000DDE17 /* AppDelegate.swift */; };
 		557D55702A7D222A000DDE17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D556F2A7D222A000DDE17 /* SceneDelegate.swift */; };
 		557D55752A7D222A000DDE17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557D55732A7D222A000DDE17 /* Main.storyboard */; };
@@ -52,6 +55,9 @@
 		552C75B92A7E882200982EAA /* DefaultsTamagotchiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsTamagotchiList.swift; sourceTree = "<group>"; };
 		552C75BB2A7EC5EE00982EAA /* SystemName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemName.swift; sourceTree = "<group>"; };
 		552C75BD2A7EED3D00982EAA /* LogicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicManager.swift; sourceTree = "<group>"; };
+		552C75BF2A7F547100982EAA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		552C75C12A7F566F00982EAA /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		552C75C32A7F572B00982EAA /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		557D556A2A7D222A000DDE17 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		557D556D2A7D222A000DDE17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		557D556F2A7D222A000DDE17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +90,8 @@
 				552C75872A7D232A00982EAA /* SelectionViewController.swift */,
 				552C75A62A7DC7E200982EAA /* DetailPopupViewController.swift */,
 				552C75B32A7E254E00982EAA /* MainViewController.swift */,
+				552C75BF2A7F547100982EAA /* SettingViewController.swift */,
+				552C75C12A7F566F00982EAA /* ChangeNameViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -143,6 +151,7 @@
 				557D55782A7D222B000DDE17 /* LaunchScreen.storyboard */,
 				557D55912A7D22D0000DDE17 /* TamagotchiCollectionViewCell.swift */,
 				557D55922A7D22D0000DDE17 /* TamagotchiCollectionViewCell.xib */,
+				552C75C32A7F572B00982EAA /* SettingTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,10 +276,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				557D556E2A7D222A000DDE17 /* AppDelegate.swift in Sources */,
+				552C75C02A7F547100982EAA /* SettingViewController.swift in Sources */,
 				552C75A22A7D276300982EAA /* String+Extension.swift in Sources */,
 				552C75B22A7E238F00982EAA /* HapticManager.swift in Sources */,
 				552C75B02A7E1B0C00982EAA /* SegueType.swift in Sources */,
 				552C75A72A7DC7E200982EAA /* DetailPopupViewController.swift in Sources */,
+				552C75C42A7F572B00982EAA /* SettingTableViewCell.swift in Sources */,
 				552C75A52A7D32ED00982EAA /* UserDefault.swift in Sources */,
 				552C75AB2A7DD86F00982EAA /* UIView+Extension.swift in Sources */,
 				552C75B42A7E254E00982EAA /* MainViewController.swift in Sources */,
@@ -282,6 +293,7 @@
 				557D558B2A7D22B7000DDE17 /* UIViewController+Extension.swift in Sources */,
 				552C75BC2A7EC5EE00982EAA /* SystemName.swift in Sources */,
 				552C75A92A7DD72900982EAA /* UILabel+Extension.swift in Sources */,
+				552C75C22A7F566F00982EAA /* ChangeNameViewController.swift in Sources */,
 				552C75992A7D23E400982EAA /* SelectionViewController.swift in Sources */,
 				552C75BA2A7E882200982EAA /* DefaultsTamagotchiList.swift in Sources */,
 				557D55702A7D222A000DDE17 /* SceneDelegate.swift in Sources */,

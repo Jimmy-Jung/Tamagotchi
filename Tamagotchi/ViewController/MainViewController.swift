@@ -22,6 +22,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var wateringTextField: UITextField!
     @IBOutlet private weak var wateringButton: UIButton!
     @IBOutlet private var underLineViews: [UIView]!
+    @IBOutlet weak var stackView: UIStackView!
     
     // MARK: - ProperTies
     let inspirationMessages = LocalizedString.Inspiration.getMessages()
@@ -46,10 +47,13 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        feedingTextField.delegate = self
+        wateringTextField.delegate = self
         logicManager.delegate = self
         setTitleColor()
         configUI()
         makeBarButtonItem()
+        keyboardNotification()
     }
     
     private func configUI() {
@@ -60,7 +64,6 @@ final class MainViewController: UIViewController {
             type: tamagotchiInfo.tamagotchiType,
             level: tamagotchiInfo.level
         )
-        print(tamagoImage.image)
         view.backgroundColor = UIColor(cgColor: Color.backgroundColor)
         nameBackView.defaultViewSetting()
         nameTitleLabel.font = Layout.Font.mainNameFont
@@ -163,12 +166,15 @@ extension MainViewController {
     // MARK: - @objc Method
     /// 키보드 올라갈때 호출 메서드
     @objc func keyboardWillShow(_ notification: Notification) {
+        var space: Double {
+            let diff = view.frame.height - stackView.frame.maxY - 20
+            return diff
+        }
         guard let keyboardFrame = notification
             .userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-        
         // 신조어 화면 높이 조정 및애니메이션 추가
         UIView.animate(withDuration: notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25) {
-            self.view.bounds.origin.y = keyboardFrame.height - 90
+            self.view.bounds.origin.y = keyboardFrame.height - space
             self.view.layoutIfNeeded()
         }
     }
@@ -183,5 +189,12 @@ extension MainViewController {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+}
+
+extension MainViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
