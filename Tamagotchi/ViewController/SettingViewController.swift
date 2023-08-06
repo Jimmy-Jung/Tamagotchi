@@ -10,20 +10,23 @@ import UIKit
 final class SettingViewController: UIViewController {
     let cellIdentifier = "SettingTableViewCell"
     @IBOutlet weak var settingTableView: UITableView!
-    
+    private var settingList: [SettingManager.SettingsOption] = []
     private var settingManager = SettingManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(#function)
         settingManager.delegate = self
+        settingList = settingManager.getList
         setNavigationColor()
         configUI()
         setupTableView()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = UM.userName
-//        settingManager = SettingManager()
+        print(#function)
+        settingManager.SetList()
+        settingList = settingManager.getList
         settingTableView.reloadData()
     }
     private func configUI() {
@@ -43,7 +46,7 @@ final class SettingViewController: UIViewController {
 
 extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let settingInfo = settingManager.settingList[indexPath.row]
+        let settingInfo = settingList[indexPath.row]
         settingInfo.handler()
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -51,11 +54,11 @@ extension SettingViewController: UITableViewDelegate {
 
 extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingManager.settingList.count
+        return settingList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let settingInfo = settingManager.settingList[indexPath.row]
+        let settingInfo = settingList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
         var content = cell.defaultContentConfiguration()
         let title = settingInfo.title

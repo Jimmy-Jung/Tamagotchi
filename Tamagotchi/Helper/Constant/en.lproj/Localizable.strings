@@ -7,9 +7,62 @@
 */
 
 // MARK: - TamagochiName
+
 stingTamago = "Sting Tamago";
 smilingTamago = "Smiling Tamago";
 shinningTamago = "Shinning Tamago";
+preparingTamago = "Preparing Tamago";
 
+// MARK: - Description
+
+stingDescription = "I am a cactus Tamago. I am 2cm tall and weigh 150g. I'm timid, but my heart is warm. I am confident that I will eat well and grow well. Nice to meet you, owner~:)";
+smilingDescription = "I'm a fluffy Tamago! I am 100km tall and weigh 150 tons! I'm hot-tempered and fly around! I am confident that I will eat well and grow well. Fluffy!";
+shinningDescription = "I'm a shiny Tamago~ I'm 120cm tall and weigh 120g~ My personality is also bright and cool~ Please raise me~ I'll eat well and grow well~";
+preparingDescription = "Oops, I'm sorry! This character is still in production and cannot be selected yet. But it will be completed soon, so please wait and you'll be able to meet it! Please wait a little bit. Thank you :)";
+
+// MARK: - Main
 
 "LV%d • %d • %d" = "LV%d • %d grains of rice • %d droplets";
+feedingPlaceholder = "Feed me";
+wateringPlaceholder = "Water me";
+feedingError = "It's hard to have more than 100";
+wateringError = "It's hard to have more than 50";
+numberError = "Enter a number";
+minusError = "Enter a positive number";
+feeding = "Feed";
+watering = "Water";
+
+// MARK: - Title
+
+selectTamagotchi = "Select Tamagotchi";
+changeTamagotchi = "Change Tamagotchi";
+userTamagotchi = "'s Tamagotchi";
+changeUserName = "Set your name";
+setting = "Settings";
+
+// MARK: - System
+
+cancel = "Cancel";
+start = "Start";
+ok = "OK";
+no = "No!";
+resetTitle = "Reset Data";
+resetMessage = "Do you really want to start over from the beginning?";
+save = "Save";
+
+// MARK: - Inspiration Message
+
+InspirationMessage0 = "'Try it out and fix it' is a programming method left to chance. The opposite is intentional programming. This means that planning and design are required, and you should not do programming that relies on luck and accidental success.\n-Andrew Hunt, The Pragmatic Programmer";
+InspirationMessage1 = "We make models, and the models we make can make us.\n-Peter Senge";
+InspirationMessage2 = "Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.\n-Antoine de Saint-Exupéry (+Steve Jobs' product philosophy)";
+InspirationMessage3 = "When I design software, I am an architect. When I design the user interface, I am an artist. When I implement, I am a craftsman. But when I test, I am a killer.\n-Steve McConnell";
+InspirationMessage4 = "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.\n-Martin Fowler";
+InspirationMessage5 = "Software development is an interesting thing. If it's not interesting, the process is wrong. Software development is a technique that mixes art, science, and engineering in a sophisticated manner, that is, craftsmanship. It's not just a job. It's a passion for work.\n-Pete McBreen";
+
+// MARK: - CannotEat Message
+
+"CannotEatMessage0 %@" = "%@'s Tamago is too full. Please feed and water it later.";
+"CannotEatMessage1 %@" = "You gave %@'s Tamago too much food and water. It seems difficult for Tamago to digest.";
+"CannotEatMessage2 %@" = "%@'s Tamago cannot eat or drink anymore. Please try again later.";
+"CannotEatMessage3 %@" = "You gave %@'s Tamago food and water too often. Tamago seems full and tired.";
+"CannotEatMessage4 %@" = "%@'s Tamago doesn't seem to like food and water. Try another way to take care of it.";

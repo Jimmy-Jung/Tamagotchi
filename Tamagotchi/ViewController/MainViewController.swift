@@ -58,7 +58,7 @@ final class MainViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = UM.userName
+        title = UM.userName + Title.userTamagotchi
     }
     
     private func configUI() {
