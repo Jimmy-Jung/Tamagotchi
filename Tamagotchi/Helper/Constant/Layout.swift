@@ -44,7 +44,10 @@ struct Layout {
         static let nameTitleFont = UIFont.systemFont(ofSize: 13, weight: .bold)
         /// 설명 레이블 폰트
         static let descriptionFont = UIFont.systemFont(ofSize: 14, weight: .medium)
+        /// 메인화면 이름 폰트
         static let mainNameFont = UIFont.systemFont(ofSize: 15, weight: .bold)
+        /// 버블 레이블 폰트
+        static let bubbleFont = UIFont.systemFont(ofSize: 13, weight: .medium)
     }
     struct Image {
         /// 물먹기 버튼 이미지

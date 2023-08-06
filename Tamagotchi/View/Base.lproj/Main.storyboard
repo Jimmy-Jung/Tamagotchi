@@ -191,28 +191,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hf4-e6-KCy">
-                                <rect key="frame" x="0.0" y="157.66666666666666" width="393" height="141.99999999999997"/>
+                                <rect key="frame" x="0.0" y="119.66666666666669" width="393" height="180"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="TLn-N4-Wgk">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="142"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 복습을 안해오셨다구요?아직 복습을 안해오셨다구요?아직 복습을 안해오셨다구요?아직 복습을 안해오셨다구요?아직 복습을 안해오셨다구요?아직 복습을 안해오셨다구요?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjq-bP-da7">
-                                        <rect key="frame" x="105" y="0.0" width="183" height="126"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="아직 복습을 안해오셨다구요?아직 복습을 안해오셨다구요?아직 복습을 안해오셨다구요?아직 복습을 안해오셨다구요?아직 복습을 안해오셨다구요?아직 복습을 안해오셨다구요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjq-bP-da7">
+                                        <rect key="frame" x="80" y="0.0" width="233" height="164"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="TLn-N4-Wgk" firstAttribute="top" secondItem="hf4-e6-KCy" secondAttribute="top" id="Dwf-JD-RCs"/>
+                                    <constraint firstItem="Gjq-bP-da7" firstAttribute="top" secondItem="hf4-e6-KCy" secondAttribute="top" id="Eop-bS-9vp"/>
                                     <constraint firstAttribute="bottom" secondItem="Gjq-bP-da7" secondAttribute="bottom" constant="16" id="U6K-jG-pLH"/>
                                     <constraint firstItem="TLn-N4-Wgk" firstAttribute="leading" secondItem="hf4-e6-KCy" secondAttribute="leading" id="WxM-vb-qPo"/>
                                     <constraint firstAttribute="trailing" secondItem="TLn-N4-Wgk" secondAttribute="trailing" id="a3y-ZV-Usf"/>
-                                    <constraint firstAttribute="trailing" secondItem="Gjq-bP-da7" secondAttribute="trailing" constant="105" id="dxd-if-c39"/>
-                                    <constraint firstItem="Gjq-bP-da7" firstAttribute="top" secondItem="hf4-e6-KCy" secondAttribute="top" id="eaC-Zg-URv"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gjq-bP-da7" secondAttribute="trailing" constant="80" id="dxd-if-c39"/>
+                                    <constraint firstAttribute="height" constant="180" id="esl-DS-i40"/>
                                     <constraint firstAttribute="bottom" secondItem="TLn-N4-Wgk" secondAttribute="bottom" id="ipN-9Y-E23"/>
-                                    <constraint firstItem="Gjq-bP-da7" firstAttribute="leading" secondItem="hf4-e6-KCy" secondAttribute="leading" constant="105" id="o46-Y1-2La"/>
+                                    <constraint firstItem="TLn-N4-Wgk" firstAttribute="top" secondItem="hf4-e6-KCy" secondAttribute="top" id="iwl-4Q-9G3"/>
+                                    <constraint firstItem="Gjq-bP-da7" firstAttribute="leading" secondItem="hf4-e6-KCy" secondAttribute="leading" constant="80" id="o46-Y1-2La"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1-6" translatesAutoresizingMaskIntoConstraints="NO" id="i5z-Ld-wdk">
@@ -403,7 +404,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIq-35-MiN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1569" y="-35"/>
+            <point key="canvasLocation" x="1568.7022900763359" y="-35.211267605633807"/>
         </scene>
     </scenes>
     <resources>

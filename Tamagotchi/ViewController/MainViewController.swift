@@ -26,6 +26,7 @@ final class MainViewController: UIViewController {
     // MARK: - ProperTies
     let inspirationMessages = LocalizedString.Inspiration.getMessages()
     let cannotEatMessages = LocalizedString.CannotEatMessage.getMessages()
+    let logicManager = LogicManager()
     var tamagotchiInfo: TamagotchiInfo?
     var changedValue: TamagotchiInfo? {
         didSet {
@@ -38,6 +39,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        logicManager.delegate = self
         setTitleColor()
         configUI()
         makeBarButtonItem()
@@ -46,6 +48,7 @@ final class MainViewController: UIViewController {
     private func configUI() {
         guard let tamagotchiInfo else {return}
         bubbleLabel.text = inspirationMessages.randomElement()
+        bubbleLabel.font = Font.bubbleFont
         tamagoImage.image = Image.getTamagochiImage(
             type: tamagotchiInfo.tamagotchiType,
             level: tamagotchiInfo.level
@@ -108,49 +111,39 @@ final class MainViewController: UIViewController {
         //세팅화면으로 넘어가가기
     }
     @IBAction func ButtonTapped(_ sender: UIButton) {
-        
         if sender.tag == 0 {
-            guard let num = feedingTextField.text, !num.isEmpty else { return }
-            feedingLogic(
+            guard let num = feedingTextField.text else { return }
+            logicManager.feedingLogic(
                 numString: num,
                 label: feedingLabel,
-                constraint: Logic.feedingConstraint
+                textField: feedingTextField,
+                bubbleLabel: bubbleLabel,
+                tag: sender.tag,
+                constraint: LogicManager.feedingConstraint
             )
         } else {
-            guard let num = wateringTextField.text, !num.isEmpty else { return }
-            feedingLogic(
+            guard let num = wateringTextField.text else { return }
+            logicManager.feedingLogic(
                 numString: num,
                 label: wateringLabel,
-                constraint: Logic.wateringConstraint
+                textField: wateringTextField,
+                bubbleLabel: bubbleLabel,
+                tag: sender.tag,
+                constraint: LogicManager.wateringConstraint
             )
-        }
-    }
-    private func feedingLogic(numString: String, label: UILabel, constraint: Int) {
-        guard let count = Int(numString) else {
-            label.text = LocalizedString.Main.numberError
-            label.textColor = .systemRed
-            label.shake()
-            return
-        }
-        if count > constraint {
-            bubbleLabel.text = LocalizedString.CannotEatMessage.getMessages().randomElement()
-            label.textColor = .systemRed
-            label.shake()
-        } else if 0 <= count && count <= constraint {
-            bubbleLabel.text = LocalizedString.Inspiration.getMessages().randomElement()
-            UserDefaultManager.pickedTamagotchi?.raiseFeedingCount(count)
-            changedValue = UserDefaultManager.pickedTamagotchi!
-        } else {
-            bubbleLabel.text = LocalizedString.Main.minusError
-            label.textColor = .systemRed
-            label.shake()
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }
 
 extension MainViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        <#code#>
-    }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        feedingLabel.text = ""
+//        feedingLabel.textColor = .clear
+//        wateringLabel.text = ""
+//        wateringLabel.textColor = .clear
+//    }
 }

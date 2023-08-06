@@ -14,6 +14,8 @@ extension UIViewController {
     typealias Image = Layout.Image
     typealias Title = LocalizedString.Title
     typealias Main = LocalizedString.Main
+    typealias Inspiration = LocalizedString.Inspiration
+    typealias CannotEatMessage = LocalizedString.CannotEatMessage
     typealias UM = UserDefaultManager
     
     enum VCTitle {
