@@ -37,7 +37,7 @@ final class DetailPopupViewController: UIViewController {
     private func configUI() {
         guard let tamagotchiInfo else {return}
         // 다마고치 이미지 설정
-        tamagoImage.image = Image.getTamagochiImage(
+        tamagoImage.image = Image.getTamagotchiImage(
             type: tamagotchiInfo.tamagotchiType,
             level: 6
         )

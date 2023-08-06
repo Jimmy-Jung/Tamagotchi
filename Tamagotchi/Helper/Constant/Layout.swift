@@ -74,16 +74,17 @@ struct Layout {
         ///   - type: TamagotchiType
         ///   - level: level
         /// - Returns: UIImage
-        static func getTamagochiImage(type: TamagotchiType, level: Int) -> UIImage {
+        static func getTamagotchiImage(type: TamagotchiType, level: Int) -> UIImage? {
+            let safeLevel = level > 9 ? 9 : level
             switch type {
             case .sting:
-                return UIImage(named: "1-\(level)")!
+                return UIImage(named: "1-\(safeLevel)") ?? UIImage(named: "noImage")
             case .smiling:
-                return UIImage(named: "2-\(level)")!
+                return UIImage(named: "2-\(safeLevel)") ?? UIImage(named: "noImage")
             case .shinning:
-                return UIImage(named: "3-\(level)")!
+                return UIImage(named: "3-\(safeLevel)") ?? UIImage(named: "noImage")
             case .none:
-                return UIImage(named: "noImage")!
+                return UIImage(named: "noImage")
             }
         }
     }

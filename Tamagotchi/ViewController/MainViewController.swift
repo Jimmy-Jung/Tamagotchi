@@ -44,7 +44,6 @@ final class MainViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         logicManager.delegate = self
@@ -57,10 +56,11 @@ final class MainViewController: UIViewController {
         guard let tamagotchiInfo else {return}
         bubbleLabel.text = inspirationMessages.randomElement()
         bubbleLabel.font = Font.bubbleFont
-        tamagoImage.image = Image.getTamagochiImage(
+        tamagoImage.image = Image.getTamagotchiImage(
             type: tamagotchiInfo.tamagotchiType,
             level: tamagotchiInfo.level
         )
+        print(tamagoImage.image)
         view.backgroundColor = UIColor(cgColor: Color.backgroundColor)
         nameBackView.defaultViewSetting()
         nameTitleLabel.font = Layout.Font.mainNameFont
@@ -74,8 +74,6 @@ final class MainViewController: UIViewController {
         configFeedingWatering()
     }
     private func configFeedingWatering() {
-        feedingTextField.delegate = self
-        wateringTextField.delegate = self
         feedingLabel.text = Main.feedingError
         feedingLabel.textColor = .clear
         feedingLabel.font = Font.descriptionFont
@@ -95,10 +93,10 @@ final class MainViewController: UIViewController {
             cornerRadius: Size.buttonCornerRadius
         )
         wateringButton.configuration = UIButton.imageButtonConfig(
-            title: Main.feeding,
+            title: Main.watering,
             ofSize: 14,
             weight: .bold,
-            systemName: SystemName.leaf_circle
+            systemName: SystemName.drop_circle
         )
         wateringButton.layoutButton(
             tintColor: UIColor(cgColor: Color.fontAndBorderColor),
@@ -141,17 +139,49 @@ final class MainViewController: UIViewController {
             )
         }
     }
+}
+
+extension MainViewController {
+    /// 키보드 노티피케이션 등록
+    private func keyboardNotification() {
+        // 키보드 올라올 때 알림 등록
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        // 키보드 내려갈 때 알림 등록
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
     
+    // MARK: - @objc Method
+    /// 키보드 올라갈때 호출 메서드
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrame = notification
+            .userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+        
+        // 신조어 화면 높이 조정 및애니메이션 추가
+        UIView.animate(withDuration: notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25) {
+            self.view.bounds.origin.y = keyboardFrame.height - 90
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    /// 키보드 내려갈때 호출 메서드
+    @objc func keyboardWillHide(_ notification: Notification) {
+        // 신조어 화면 높이 조정 및애니메이션 추가
+        UIView.animate(withDuration: notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25) {
+            self.view.bounds.origin.y = 0
+            self.view.layoutIfNeeded()
+        }
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-}
-
-extension MainViewController: UITextFieldDelegate {
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        feedingLabel.text = ""
-//        feedingLabel.textColor = .clear
-//        wateringLabel.text = ""
-//        wateringLabel.textColor = .clear
-//    }
 }
