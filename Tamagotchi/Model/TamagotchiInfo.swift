@@ -25,8 +25,8 @@ struct TamagotchiInfo: Codable {
     mutating func raiseWateringCount(_ count: Int) {
         wateringCount += count
     }
-    mutating func raiseLevel() {
-        level += 1
+    mutating func setLevel(level: Int) {
+        self.level  = level
     }
     mutating func changeType(to type: TamagotchiType) {
         tamagotchiType = type

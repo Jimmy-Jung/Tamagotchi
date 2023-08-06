@@ -13,21 +13,21 @@ struct DefaultsTamagotchiList {
         TamagotchiInfo(
             tamagotchiType: .sting,
             name: tamagoName.sting,
-            level: 6,
+            level: 1,
             feedingCount: 0,
             wateringCount: 0
         ),
         TamagotchiInfo(
             tamagotchiType: .smiling,
             name: tamagoName.smiling,
-            level: 6,
+            level: 1,
             feedingCount: 0,
             wateringCount: 0
         ),
         TamagotchiInfo(
             tamagotchiType: .shinning,
             name: tamagoName.shinning,
-            level: 6,
+            level: 1,
             feedingCount: 0,
             wateringCount: 0
         )]

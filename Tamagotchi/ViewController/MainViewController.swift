@@ -11,10 +11,10 @@ final class MainViewController: UIViewController {
 
     @IBOutlet private weak var bubbleImage: UIImageView!
     @IBOutlet private weak var bubbleLabel: UILabel!
-    @IBOutlet private weak var tamagoImage: UIImageView!
+    @IBOutlet weak var tamagoImage: UIImageView!
     @IBOutlet private weak var nameBackView: UIView!
     @IBOutlet private weak var nameTitleLabel: UILabel!
-    @IBOutlet private weak var statusLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet private weak var feedingLabel: UILabel!
     @IBOutlet private weak var feedingTextField: UITextField!
     @IBOutlet private weak var feedingButton: UIButton!
@@ -32,7 +32,15 @@ final class MainViewController: UIViewController {
         didSet {
             guard let changedValue else {return}
             UserDefaultManager.pickedTamagotchi = changedValue
-            statusLabel.text = String(format: Main.status, changedValue.level, changedValue.feedingCount, changedValue.wateringCount)
+            statusLabel.text = String(
+                format: Main.status,
+                changedValue.level, changedValue.feedingCount, changedValue.wateringCount
+            )
+            logicManager.levelUp(
+                feedingCount: changedValue.feedingCount,
+                wateringCount: changedValue.wateringCount,
+                type: changedValue.tamagotchiType
+            )
         }
     }
     

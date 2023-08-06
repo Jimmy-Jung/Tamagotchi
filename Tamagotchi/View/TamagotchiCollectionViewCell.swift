@@ -17,7 +17,7 @@ final class TamagotchiCollectionViewCell: UICollectionViewCell {
             guard let tamagotchiInfo else { return }
             tamagotchiImage.image = Layout.Image.getTamagochiImage(
                 type: tamagotchiInfo.tamagotchiType,
-                level: tamagotchiInfo.level
+                level: 6
             )
             titleLabel.text = tamagotchiInfo.name
         }

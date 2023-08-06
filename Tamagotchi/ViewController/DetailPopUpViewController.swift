@@ -39,7 +39,7 @@ final class DetailPopupViewController: UIViewController {
         // 다마고치 이미지 설정
         tamagoImage.image = Image.getTamagochiImage(
             type: tamagotchiInfo.tamagotchiType,
-            level: tamagotchiInfo.level
+            level: 6
         )
         // 배경색상 및 코너
         backgroundView.backgroundColor = UIColor(cgColor: Color.backgroundColor)
