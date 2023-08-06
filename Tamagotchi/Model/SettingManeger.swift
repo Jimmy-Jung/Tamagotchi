@@ -68,6 +68,7 @@ final class SettingManager {
                             let vc = sb.instantiateViewController(identifier: SelectionViewController.identifier) as! SelectionViewController
                             vc.setTitle(type: .changeTamagotchi)
                             let nav = UINavigationController(rootViewController: vc)
+                            UM.pickedTamagotchi = nil
                             sceneDelegate?.window?.rootViewController = nav
                             sceneDelegate?.window?.makeKeyAndVisible()
                         }

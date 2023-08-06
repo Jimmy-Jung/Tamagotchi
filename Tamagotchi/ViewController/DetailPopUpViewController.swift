@@ -98,8 +98,15 @@ final class DetailPopupViewController: UIViewController {
         UIButton.buttonTapEffect(button: sender, type: .defaults)
         // 유저디폴드에 다마고치 넣어주기
         // 다음 실행부터 Main화면에서 시작
-        UserDefaultManager.pickedTamagotchi = tamagotchiInfo
-        changeRootViewController()
+        if var pickedTamago = UserDefaultManager.pickedTamagotchi, let tamagotchiInfo {
+            pickedTamago.changeType(to: tamagotchiInfo.tamagotchiType)
+            UserDefaultManager.pickedTamagotchi = pickedTamago
+            changeRootViewController()
+        } else {
+            UserDefaultManager.pickedTamagotchi = tamagotchiInfo
+            changeRootViewController()
+        }
+        
     }
     
     
