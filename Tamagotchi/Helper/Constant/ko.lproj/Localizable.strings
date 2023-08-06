@@ -48,12 +48,7 @@ ok = "웅";
 no = "아냐!";
 resetTitle = "데이터 초기화";
 resetMessage = "정말 다시 처음부터 시작하실 건가용?";
-
-// MARK: - Setting
-
-changeUserName = "내 이름 설정하기";
-changeTamagotchi = "다마고치 변경하기";
-reset = "데이터 초기화";
+save = "저장";
 
 // MARK: - Inspiration Message
 

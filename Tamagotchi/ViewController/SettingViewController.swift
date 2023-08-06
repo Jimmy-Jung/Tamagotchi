@@ -11,15 +11,21 @@ final class SettingViewController: UIViewController {
     let cellIdentifier = "SettingTableViewCell"
     @IBOutlet weak var settingTableView: UITableView!
     
-    private let settingManager = SettingManager()
+    private var settingManager = SettingManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         settingManager.delegate = self
+        setNavigationColor()
         configUI()
         setupTableView()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = UM.userName
+//        settingManager = SettingManager()
+        settingTableView.reloadData()
+    }
     private func configUI() {
         view.backgroundColor = UIColor(cgColor: Color.backgroundColor)
         settingTableView.backgroundColor = UIColor(cgColor: Color.backgroundColor)
@@ -58,7 +64,6 @@ extension SettingViewController: UITableViewDataSource {
             .foregroundColor: Color.fontAndBorderColor
         ])
         content.image = settingInfo.icon
-//        UIImage(systemName: "pencil")
         content.imageProperties.tintColor = UIColor(cgColor: Color.fontAndBorderColor)
         if let secondaryText = settingInfo.secondaryText {
             content.secondaryAttributedText = NSAttributedString(

@@ -20,6 +20,7 @@ final class SelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationColor()
         setupLayout()
         setupCollectionView()
         configCollectionView()

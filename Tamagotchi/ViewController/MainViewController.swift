@@ -50,10 +50,15 @@ final class MainViewController: UIViewController {
         feedingTextField.delegate = self
         wateringTextField.delegate = self
         logicManager.delegate = self
+        setNavigationColor()
         configUI()
         configBackBarButton(title: "")
         makeBarButtonItem()
         keyboardNotification()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = UM.userName
     }
     
     private func configUI() {
@@ -121,8 +126,8 @@ final class MainViewController: UIViewController {
         let vc = sb.instantiateViewController(identifier: SettingViewController.identifier) as! SettingViewController
         vc.setTitle(type: .setting)
         navigationController?.pushViewController(vc, animated: true)
-        
     }
+    
     @IBAction func ButtonTapped(_ sender: UIButton) {
         if sender.tag == 0 {
             guard let num = feedingTextField.text else { return }

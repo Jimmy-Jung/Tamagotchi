@@ -8,7 +8,6 @@
 import UIKit
 
 final class SettingManager {
-    typealias Setting = LocalizedString.Setting
     typealias Title = LocalizedString.Title
     typealias System = LocalizedString.System
     typealias Color = Layout.Color
@@ -25,7 +24,7 @@ final class SettingManager {
     
     lazy var settingList: [SettingsOption] = [
         SettingsOption(
-            title: Setting.changeUserName,
+            title: UM.userName + Title.changeUserName,
             icon: UIImage(systemName: "pencil"),
             secondaryText: UM.userName,
             handler: { [weak self] in
@@ -35,7 +34,7 @@ final class SettingManager {
                 self?.delegate?.navigationController?.pushViewController(vc, animated: true)
             }),
         SettingsOption(
-            title: Setting.changeTamagotchi,
+            title: Title.changeTamagotchi,
             icon: UIImage(systemName: "moon.fill"),
             secondaryText: nil,
             handler: { [weak self] in
@@ -46,7 +45,7 @@ final class SettingManager {
             }
         ),
         SettingsOption(
-            title: Setting.reset,
+            title: System.resetTitle,
             icon: UIImage(systemName: "arrow.clockwise"),
             secondaryText: nil,
             handler: { [weak self] in

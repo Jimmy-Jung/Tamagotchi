@@ -66,12 +66,7 @@ struct LocalizedString {
         static let no = "no".localized
         static let resetTitle = "resetTitle".localized
         static let resetMessage = "resetMessage".localized
-    }
-    
-    struct Setting {
-        static let changeUserName = "changeUserName".localized
-        static let changeTamagotchi = "changeTamagotchi".localized
-        static let reset = "reset".localized
+        static let save = "save".localized
     }
     
     struct Inspiration {

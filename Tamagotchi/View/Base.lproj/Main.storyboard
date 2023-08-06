@@ -477,33 +477,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ErZ-mP-BWb">
-                                <rect key="frame" x="20" y="79" width="353" height="35"/>
+                                <rect key="frame" x="30" y="79" width="333" height="30"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="고래밥" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ala-M7-AD3">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="고래밥" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ala-M7-AD3">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="29"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXo-5z-eRm">
-                                        <rect key="frame" x="0.0" y="34" width="353" height="1"/>
+                                        <rect key="frame" x="0.0" y="29" width="333" height="1"/>
                                         <color key="backgroundColor" systemColor="labelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="v5P-ip-RRz"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="nNJ-zp-fno"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7em-FF-vV1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ErZ-mP-BWb" firstAttribute="top" secondItem="7em-FF-vV1" secondAttribute="top" constant="20" id="33Q-Lv-LLh"/>
-                            <constraint firstItem="7em-FF-vV1" firstAttribute="trailing" secondItem="ErZ-mP-BWb" secondAttribute="trailing" constant="20" id="RbK-Kn-6vi"/>
-                            <constraint firstItem="ErZ-mP-BWb" firstAttribute="leading" secondItem="7em-FF-vV1" secondAttribute="leading" constant="20" id="xtY-Ib-kpQ"/>
+                            <constraint firstItem="7em-FF-vV1" firstAttribute="trailing" secondItem="ErZ-mP-BWb" secondAttribute="trailing" constant="30" id="RbK-Kn-6vi"/>
+                            <constraint firstItem="ErZ-mP-BWb" firstAttribute="leading" secondItem="7em-FF-vV1" secondAttribute="leading" constant="30" id="xtY-Ib-kpQ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="nameTextField" destination="ala-M7-AD3" id="Wfr-vJ-4ds"/>
+                        <outlet property="underLineView" destination="jXo-5z-eRm" id="A6i-mh-5QP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryc-Qf-42R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

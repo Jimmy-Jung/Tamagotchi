@@ -14,6 +14,7 @@ extension UIViewController {
     typealias Image = Layout.Image
     typealias Title = LocalizedString.Title
     typealias Main = LocalizedString.Main
+    typealias System = LocalizedString.System
     typealias Inspiration = LocalizedString.Inspiration
     typealias CannotEatMessage = LocalizedString.CannotEatMessage
     typealias UM = UserDefaultManager
@@ -47,6 +48,10 @@ extension UIViewController {
             self.title = Title.setting
         }
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Color.titleColor]
+    }
+    func setNavigationColor() {
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Color.titleColor]
+        view.backgroundColor = UIColor(cgColor: Color.backgroundColor)
     }
 
     
