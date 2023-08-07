@@ -7,16 +7,15 @@
 
 import UIKit
 
-typealias Color = Layout.Color
-typealias Font = Layout.Font
-typealias Size = Layout.Size
-typealias Image = Layout.Image
-typealias Title = LocalizedString.Title
-typealias Main = LocalizedString.Main
-typealias System = LocalizedString.System
-typealias Inspiration = LocalizedString.Inspiration
-typealias CannotEatMessage = LocalizedString.CannotEatMessage
-typealias UM = UserDefaultManager
+typealias LT_Color = Layout.Color
+typealias LT_Font = Layout.Font
+typealias LT_Size = Layout.Size
+typealias LT_Image = Layout.Image
+typealias LT_Title = LocalizedString.Title
+typealias LT_Main = LocalizedString.Main
+typealias LT_System = LocalizedString.System
+typealias LT_Inspiration = LocalizedString.Inspiration
+typealias LT_CannotEatMessage = LocalizedString.CannotEatMessage
 
 /// 레이아웃 Constant
 enum Layout {

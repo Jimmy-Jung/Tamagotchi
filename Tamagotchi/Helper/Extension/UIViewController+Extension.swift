@@ -27,27 +27,27 @@ extension UIViewController {
     func setTitle(type: VCTitle) {
         switch type {
         case .selectTamagotchi:
-            self.title = Title.selectTamagotchi
+            self.title = LT_Title.selectTamagotchi
         case .changeTamagotchi:
-            self.title = Title.changeTamagotchi
+            self.title = LT_Title.changeTamagotchi
         case .userTamagotchi:
-            self.title = UM.userName + Title.userTamagotchi
+            self.title = UM.userName + LT_Title.userTamagotchi
         case .changeUserName:
-            self.title =  String(format: Title.changeUserName, UM.userName)
+            self.title =  String(format: LT_Title.changeUserName, UM.userName)
         case .setting:
-            self.title = Title.setting
+            self.title = LT_Title.setting
         }
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Color.titleColor ?? UIColor.label]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: LT_Color.titleColor ?? UIColor.label]
     }
     func setNavigationColor() {
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Color.titleColor ?? UIColor.label]
-        view.backgroundColor = Color.backgroundColor
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: LT_Color.titleColor ?? UIColor.label]
+        view.backgroundColor = LT_Color.backgroundColor
     }
 
     
     func configBackBarButton(title: String) {
         let backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = Color.fontAndBorderColor
+        backBarButtonItem.tintColor = LT_Color.fontAndBorderColor
         navigationItem.backBarButtonItem = backBarButtonItem
     }
 

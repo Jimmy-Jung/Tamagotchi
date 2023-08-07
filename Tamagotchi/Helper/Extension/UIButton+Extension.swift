@@ -45,7 +45,7 @@ extension UIButton {
         config.image = UIImage(systemName: systemName)
         config.preferredSymbolConfigurationForImage = .init(pointSize: fontSize)
         config.imagePadding = 3
-        config.background.backgroundColor = Color.backgroundColor
+        config.background.backgroundColor = LT_Color.backgroundColor
         config.contentInsets = .zero
         return config
     }
@@ -55,19 +55,19 @@ extension UIButton {
         borderWidth: CGFloat,
         cornerRadius: CGFloat
     ) {
-        self.tintColor = Color.fontAndBorderColor
-        self.layer.borderColor = Color.fontAndBorderColor?.cgColor
+        self.tintColor = LT_Color.fontAndBorderColor
+        self.layer.borderColor = LT_Color.fontAndBorderColor?.cgColor
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 8
         self.clipsToBounds = true
     }
     
     func defaultButtonSetting(borderWidth: CGFloat, cornerRadius: CGFloat) {
-        self.layer.borderColor = Color.fontAndBorderColor?.cgColor
+        self.layer.borderColor = LT_Color.fontAndBorderColor?.cgColor
         self.layer.borderWidth = borderWidth
         self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = true
-        self.backgroundColor = Color.backgroundColor
+        self.backgroundColor = LT_Color.backgroundColor
     }
     
     /// 버튼 클릭시 배경색 변화 애니메이션 및 햅틱반응
@@ -80,9 +80,9 @@ extension UIButton {
         let BGColor: UIColor? = {
             switch type {
             case .cancel:
-                return Color.cancelBackgroundColor
+                return LT_Color.cancelBackgroundColor
             case .defaults:
-                return Color.backgroundColor
+                return LT_Color.backgroundColor
             }}()
         
         UIView.transition(

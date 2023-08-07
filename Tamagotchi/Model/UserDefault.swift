@@ -65,6 +65,8 @@ struct UserDefaultCustomType<T: Codable> {
     }
 }
 
+typealias UM = UserDefaultManager
+
 struct UserDefaultManager {
     
     @UserDefault(

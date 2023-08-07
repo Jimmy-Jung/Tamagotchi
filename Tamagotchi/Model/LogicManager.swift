@@ -72,7 +72,7 @@ final class LogicManager {
         UM.pickedTamagotchi?.setLevel(level: level)
         guard let changedValue = UM.pickedTamagotchi else {return}
         delegate?.statusLabel.text = String(
-            format: Main.status,
+            format: LT_Main.status,
             changedValue.level, changedValue.feedingCount, changedValue.wateringCount
         )
     }
@@ -104,7 +104,7 @@ final class LogicManager {
         }
         guard let count = Int(numString) else {
             label.shake(
-                shakeText: Main.numberError,
+                shakeText: LT_Main.numberError,
                 durationTime: 2,
                 textWillDisappear: true,
                 prepareHandler: { textField.text = " " },
@@ -115,16 +115,16 @@ final class LogicManager {
         
         switch count {
         case let count where count > constraint:
-            bubbleLabel.text = CannotEatMessage.getMessages().randomElement()
+            bubbleLabel.text = LT_CannotEatMessage.getMessages().randomElement()
             label.shake(
-                shakeText: tag == 0 ? Main.feedingError : Main.wateringError,
+                shakeText: tag == 0 ? LT_Main.feedingError : LT_Main.wateringError,
                 durationTime: 2,
                 textWillDisappear: true,
                 prepareHandler: { textField.text = " " },
                 completionHandler: { textField.text = "" }
             )
         case 0...constraint:
-            bubbleLabel.text = Inspiration.getMessages().randomElement()
+            bubbleLabel.text = LT_Inspiration.getMessages().randomElement()
             if tag == 0 {
                 UM.pickedTamagotchi?.raiseFeedingCount(count)
             } else {
@@ -133,7 +133,7 @@ final class LogicManager {
             delegate?.changedValue = UM.pickedTamagotchi
         case let count where count < 0:
             label.shake(
-                shakeText: Main.minusError,
+                shakeText: LT_Main.minusError,
                 durationTime: 2,
                 textWillDisappear: true,
                 prepareHandler: { textField.text = " " },

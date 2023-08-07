@@ -7,6 +7,15 @@
 
 import Foundation
 
+typealias LS_Name = LocalizedString.Name
+typealias LS_Description = LocalizedString.Description
+typealias LS_Main = LocalizedString.Main
+typealias LS_Title = LocalizedString.Title
+typealias LS_System = LocalizedString.System
+typealias LS_Inspiration = LocalizedString.Inspiration
+typealias LS_CannotEatMessage = LocalizedString.CannotEatMessage
+//typealias LS_ = LocalizedString.
+
 enum LocalizedString {
     
     enum Name {
@@ -50,6 +59,7 @@ enum LocalizedString {
         static let feeding = "feeding".localized
         static let watering = "watering".localized
     }
+    
     enum Title {
         static let selectTamagotchi = "selectTamagotchi".localized
         static let changeTamagotchi = "changeTamagotchi".localized

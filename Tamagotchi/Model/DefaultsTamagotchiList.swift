@@ -8,7 +8,7 @@
 import Foundation
 
 struct DefaultsTamagotchiList {
-    typealias tamagoName = LocalizedString.Name
+    typealias tamagoName = LS_Name
     static let defaultTamagotchiList = [
         TamagotchiInfo(
             tamagotchiType: .sting,

@@ -25,7 +25,7 @@ final class SettingManager {
     func SetList() {
         settingList = [
             SettingsOption(
-                title: String(format: Title.changeUserName, UM.userName),
+                title: String(format: LT_Title.changeUserName, UM.userName),
                 icon: UIImage(systemName: "pencil"),
                 secondaryText: UM.userName,
                 handler: { [weak self] in
@@ -35,7 +35,7 @@ final class SettingManager {
                     self?.delegate?.navigationController?.pushViewController(vc, animated: true)
                 }),
             SettingsOption(
-                title: Title.changeTamagotchi,
+                title: LT_Title.changeTamagotchi,
                 icon: UIImage(systemName: "moon.fill"),
                 secondaryText: nil,
                 handler: { [weak self] in
@@ -46,17 +46,17 @@ final class SettingManager {
                 }
             ),
             SettingsOption(
-                title: System.resetTitle,
+                title: LT_System.resetTitle,
                 icon: UIImage(systemName: "arrow.clockwise"),
                 secondaryText: nil,
                 handler: { [weak self] in
                     HapticsManager.shared.vibrateForNotification(type: .warning)
                     self?.delegate?.showCancelAlert(
-                        title: System.resetTitle,
-                        message: System.resetMessage,
+                        title: LT_System.resetTitle,
+                        message: LT_System.resetMessage,
                         preferredStyle: .alert,
-                        cancelTitle: System.no,
-                        okTitle: System.ok,
+                        cancelTitle: LT_System.no,
+                        okTitle: LT_System.ok,
                         cancelHandler: { _ in
                             HapticsManager.shared.vibrateForSelection()
                             
@@ -67,7 +67,7 @@ final class SettingManager {
                             let sceneDelegate = windowScene?.delegate as? SceneDelegate
                             let sb = UIStoryboard(name: "Main", bundle: nil)
                             let vc = sb.instantiateViewController(identifier: SelectionViewController.identifier) as! SelectionViewController
-                            UM.userName = LocalizedString.Name.userName
+                            UM.userName = LS_Name.userName
                             vc.setTitle(type: .selectTamagotchi)
                             let nav = UINavigationController(rootViewController: vc)
                             UM.pickedTamagotchi = nil

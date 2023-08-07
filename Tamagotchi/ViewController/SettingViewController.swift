@@ -30,9 +30,9 @@ final class SettingViewController: UIViewController {
         settingTableView.reloadData()
     }
     private func configUI() {
-        view.backgroundColor = Color.backgroundColor
-        settingTableView.backgroundColor = Color.backgroundColor
-        configBackBarButton(title: Title.setting)
+        view.backgroundColor = LT_Color.backgroundColor
+        settingTableView.backgroundColor = LT_Color.backgroundColor
+        configBackBarButton(title: LT_Title.setting)
     }
     
     private func setupTableView() {
@@ -61,22 +61,22 @@ extension SettingViewController: UITableViewDataSource {
         var content = cell.defaultContentConfiguration()
         let title = settingInfo.title
         content.attributedText = NSAttributedString(string: title, attributes: [
-            .font: Font.mainNameFont,
-            .foregroundColor: Color.fontAndBorderColor ?? UIColor.label
+            .font: LT_Font.mainNameFont,
+            .foregroundColor: LT_Color.fontAndBorderColor ?? UIColor.label
         ])
         content.image = settingInfo.icon
-        content.imageProperties.tintColor = Color.fontAndBorderColor
+        content.imageProperties.tintColor = LT_Color.fontAndBorderColor
         if let secondaryText = settingInfo.secondaryText {
             content.secondaryAttributedText = NSAttributedString(
                 string: secondaryText,
                 attributes: [
-                .font: Font.mainNameFont,
+                .font: LT_Font.mainNameFont,
                 .foregroundColor: UIColor.lightGray
             ])
         }
         cell.contentConfiguration = content
         cell.accessoryType = .disclosureIndicator
-        cell.backgroundColor = Color.backgroundColor
+        cell.backgroundColor = LT_Color.backgroundColor
         return cell
     }
 }

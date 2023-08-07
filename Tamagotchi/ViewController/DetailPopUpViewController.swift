@@ -36,52 +36,52 @@ final class DetailPopupViewController: UIViewController {
     private func configUI() {
         guard let tamagotchiInfo else {return}
         // 다마고치 이미지 설정
-        tamagoImage.image = Image.getTamagotchiImage(
+        tamagoImage.image = LT_Image.getTamagotchiImage(
             type: tamagotchiInfo.tamagotchiType,
             level: 6
         )
         // 배경색상 및 코너
-        backgroundView.backgroundColor = Color.backgroundColor
+        backgroundView.backgroundColor = LT_Color.backgroundColor
         backgroundView.layer.cornerRadius = 10
         backgroundView.clipsToBounds = true
         // 뷰컨트롤러 배경색상 반투명색
-        view.backgroundColor = Color.seeThroughBackgroundColor
+        view.backgroundColor = LT_Color.seeThroughBackgroundColor
         // 이름 배경 레이아웃 설정
         nameBackView.defaultViewSetting()
         // 이름 레이블 레이아웃 설정
         nameTitleLabel.defaultLabelSetting()
         nameTitleLabel.text = tamagotchiInfo.name
         // 구분 선 색상 설정
-        separatorLineView.backgroundColor = Color.separatorColor
+        separatorLineView.backgroundColor = LT_Color.separatorColor
         // 설명 텍스트 및 레이아웃 설정
-        descriptionLabel.text = LocalizedString.Description.getDescription(type: tamagotchiInfo.tamagotchiType)
-        descriptionLabel.textColor = Color.fontAndBorderColor
-        descriptionLabel.font = Font.descriptionFont
+        descriptionLabel.text = LS_Description.getDescription(type: tamagotchiInfo.tamagotchiType)
+        descriptionLabel.textColor = LT_Color.fontAndBorderColor
+        descriptionLabel.font = LT_Font.descriptionFont
         // 버튼 위 구분 선 색상 설정
-        buttonSeparatorLineView.backgroundColor = Color.separatorColor
+        buttonSeparatorLineView.backgroundColor = LT_Color.separatorColor
         // 버튼 색상 설정 및 레이아웃 설정
-        cancelButton.backgroundColor = Color.cancelBackgroundColor
-        startButton.backgroundColor = Color.backgroundColor
+        cancelButton.backgroundColor = LT_Color.cancelBackgroundColor
+        startButton.backgroundColor = LT_Color.backgroundColor
         
         cancelButton.configuration = UIButton.plainButtonConfig(
-            title: LocalizedString.System.cancel,
-            titleColor: Color.fontAndBorderColor ?? UIColor.label,
+            title: LS_System.cancel,
+            titleColor: LT_Color.fontAndBorderColor ?? UIColor.label,
             ofSize: 14,
             weight: .bold
         )
         if tamagotchiInfo.tamagotchiType == .none {
             startButton.isEnabled = false
-            startButton.backgroundColor = Color.separatorColor
+            startButton.backgroundColor = LT_Color.separatorColor
             startButton.configuration = UIButton.plainButtonConfig(
-                title: LocalizedString.System.start,
-                titleColor: Color.separatorColor ?? UIColor.separator,
+                title: LS_System.start,
+                titleColor: LT_Color.separatorColor ?? UIColor.separator,
                 ofSize: 14,
                 weight: .medium
             )
         } else {
             startButton.configuration = UIButton.plainButtonConfig(
-                title: LocalizedString.System.start,
-                titleColor: Color.fontAndBorderColor ?? UIColor.label,
+                title: LS_System.start,
+                titleColor: LT_Color.fontAndBorderColor ?? UIColor.label,
                 ofSize: 14,
                 weight: .medium
             )

@@ -57,7 +57,7 @@ final class SelectionViewController: UIViewController {
         layout.minimumInteritemSpacing = spacing
         layout.minimumLineSpacing = spacing
         layout.scrollDirection = .vertical
-        layout.collectionView?.backgroundColor =  Color.backgroundColor
+        layout.collectionView?.backgroundColor =  LT_Color.backgroundColor
         tamagotchiCollectionView.collectionViewLayout = layout
     }
     private func fetchList() {
@@ -67,7 +67,7 @@ final class SelectionViewController: UIViewController {
             tamagoList.append(
                 TamagotchiInfo(
                     tamagotchiType: .none,
-                    name: LocalizedString.Name.none,
+                    name: LS_Name.none,
                     level: 1,
                     feedingCount: 1,
                     wateringCount: 1

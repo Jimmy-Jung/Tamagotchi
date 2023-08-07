@@ -25,8 +25,8 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     
     // MARK: - ProperTies
-    private let inspirationMessages = LocalizedString.Inspiration.getMessages()
-    private let cannotEatMessages = LocalizedString.CannotEatMessage.getMessages()
+    private let inspirationMessages = LS_Inspiration.getMessages()
+    private let cannotEatMessages = LS_CannotEatMessage.getMessages()
     private let logicManager = LogicManager()
     var tamagotchiInfo: TamagotchiInfo?
     var changedValue: TamagotchiInfo? {
@@ -34,7 +34,7 @@ final class MainViewController: UIViewController {
             guard let changedValue else {return}
             UserDefaultManager.pickedTamagotchi = changedValue
             statusLabel.text = String(
-                format: Main.status,
+                format: LT_Main.status,
                 changedValue.level, changedValue.feedingCount, changedValue.wateringCount
             )
             logicManager.levelUp(
@@ -58,70 +58,70 @@ final class MainViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = UM.userName + Title.userTamagotchi
+        title = UM.userName + LT_Title.userTamagotchi
     }
     
     private func configUI() {
         guard let tamagotchiInfo else {return}
         bubbleLabel.text = inspirationMessages.randomElement()
-        bubbleLabel.font = Font.bubbleFont
-        bubbleLabel.textColor = Color.titleColor
-        tamagoImage.image = Image.getTamagotchiImage(
+        bubbleLabel.font = LT_Font.bubbleFont
+        bubbleLabel.textColor = LT_Color.titleColor
+        tamagoImage.image = LT_Image.getTamagotchiImage(
             type: tamagotchiInfo.tamagotchiType,
             level: tamagotchiInfo.level
         )
-        view.backgroundColor = Color.backgroundColor
+        view.backgroundColor = LT_Color.backgroundColor
         nameBackView.defaultViewSetting()
         nameTitleLabel.text = tamagotchiInfo.name
         nameTitleLabel.font = Layout.Font.mainNameFont
-        nameTitleLabel.textColor = Color.fontAndBorderColor
+        nameTitleLabel.textColor = LT_Color.fontAndBorderColor
         underLineViews.forEach {
-            $0.backgroundColor = Color.separatorColor
+            $0.backgroundColor = LT_Color.separatorColor
         }
 
-        statusLabel.text = String(format: Main.status, tamagotchiInfo.level, tamagotchiInfo.feedingCount, tamagotchiInfo.wateringCount)
+        statusLabel.text = String(format: LT_Main.status, tamagotchiInfo.level, tamagotchiInfo.feedingCount, tamagotchiInfo.wateringCount)
         statusLabel.textColor = .gray
         configFeedingWatering()
     }
     private func configFeedingWatering() {
-        feedingTextField.textColor = Color.fontAndBorderColor
-        wateringTextField.textColor = Color.fontAndBorderColor
-        feedingLabel.text = Main.feedingError
+        feedingTextField.textColor = LT_Color.fontAndBorderColor
+        wateringTextField.textColor = LT_Color.fontAndBorderColor
+        feedingLabel.text = LT_Main.feedingError
         feedingLabel.textColor = .clear
-        feedingLabel.font = Font.descriptionFont
-        wateringLabel.text = Main.wateringError
+        feedingLabel.font = LT_Font.descriptionFont
+        wateringLabel.text = LT_Main.wateringError
         wateringLabel.textColor = .clear
-        wateringLabel.font = Font.descriptionFont
+        wateringLabel.font = LT_Font.descriptionFont
         feedingButton.configuration = UIButton.imageButtonConfig(
-            title: Main.feeding,
+            title: LT_Main.feeding,
             ofSize: 14,
             weight: .bold,
             systemName: SystemName.leaf_circle
         )
         feedingButton.layoutButton(
-            tintColor: Color.fontAndBorderColor ?? UIColor.label,
-            borderColor: Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
-            borderWidth: Size.backViewBorderWidth,
-            cornerRadius: Size.buttonCornerRadius
+            tintColor: LT_Color.fontAndBorderColor ?? UIColor.label,
+            borderColor: LT_Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
+            borderWidth: LT_Size.backViewBorderWidth,
+            cornerRadius: LT_Size.buttonCornerRadius
         )
         wateringButton.configuration = UIButton.imageButtonConfig(
-            title: Main.watering,
+            title: LT_Main.watering,
             ofSize: 14,
             weight: .bold,
             systemName: SystemName.drop_circle
         )
         wateringButton.layoutButton(
-            tintColor: Color.fontAndBorderColor ?? UIColor.label,
-            borderColor: Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
-            borderWidth: Size.backViewBorderWidth,
-            cornerRadius: Size.buttonCornerRadius
+            tintColor: LT_Color.fontAndBorderColor ?? UIColor.label,
+            borderColor: LT_Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
+            borderWidth: LT_Size.backViewBorderWidth,
+            cornerRadius: LT_Size.buttonCornerRadius
         )
         
     }
     
     private func makeBarButtonItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: SystemName.person_circle), style: .plain, target: self, action: #selector(barButtonTapped))
-        navigationItem.rightBarButtonItem?.tintColor = Color.titleColor
+        navigationItem.rightBarButtonItem?.tintColor = LT_Color.titleColor
         
     }
     /// 세팅화면으로 넘어가가기

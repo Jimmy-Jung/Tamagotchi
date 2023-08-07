@@ -21,15 +21,15 @@ final class ChangeNameViewController: UIViewController {
     }
     
     private func configUI() {
-        nameTextField.font = Font.descriptionFont
-        nameTextField.textColor = Color.titleColor
+        nameTextField.font = LT_Font.descriptionFont
+        nameTextField.textColor = LT_Color.titleColor
         nameTextField.text = UM.userName
-        underLineView.backgroundColor = Color.separatorColor
+        underLineView.backgroundColor = LT_Color.separatorColor
         errorLabel.text = ""
     }
     private func makeBarButtonItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: System.save, style: .plain, target: self, action: #selector(barButtonTapped))
-        navigationItem.rightBarButtonItem?.tintColor = Color.titleColor
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: LT_System.save, style: .plain, target: self, action: #selector(barButtonTapped))
+        navigationItem.rightBarButtonItem?.tintColor = LT_Color.titleColor
         
     }
     /// 세팅화면으로 넘어가가기
@@ -40,7 +40,7 @@ final class ChangeNameViewController: UIViewController {
             navigationController?.popViewController(animated: true)
         } else {
             errorLabel.shake(
-                shakeText: System.numberOfTextError,
+                shakeText: LT_System.numberOfTextError,
                 durationTime: 3,
                 textWillDisappear: true,
                 prepareHandler: { [weak self] in
