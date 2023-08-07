@@ -21,7 +21,6 @@ final class SelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationColor()
-        setupLayout()
         setupCollectionView()
         configCollectionView()
         fetchList()
@@ -29,15 +28,15 @@ final class SelectionViewController: UIViewController {
     
     // MARK: - Methods
     
-    private func setupLayout() {
-    }
-    
     /// 컬렉션뷰 세팅
     private func setupCollectionView() {
         tamagotchiCollectionView.delegate = self
         tamagotchiCollectionView.dataSource = self
         let nib = UINib(nibName: TamagotchiCollectionViewCell.identifier, bundle: nil)
-        tamagotchiCollectionView.register(nib, forCellWithReuseIdentifier: TamagotchiCollectionViewCell.identifier)
+        tamagotchiCollectionView.register(
+            nib,
+            forCellWithReuseIdentifier: TamagotchiCollectionViewCell.identifier
+        )
     }
     
     /// 컬렉션뷰 구성
@@ -60,6 +59,7 @@ final class SelectionViewController: UIViewController {
         layout.collectionView?.backgroundColor =  LT_Color.backgroundColor
         tamagotchiCollectionView.collectionViewLayout = layout
     }
+    /// 리스트 가져오기
     private func fetchList() {
         let defaultsTamagoList = DefaultsTamagotchiList.defaultTamagotchiList
         tamagoList.append(contentsOf: defaultsTamagoList)
@@ -77,33 +77,40 @@ final class SelectionViewController: UIViewController {
     }
 }
 
-// MARK: - CollectionView Delegate
+// MARK: - CollectionView Delegate,Datasource
 
-extension SelectionViewController: UICollectionViewDelegate {
-    
-}
-// MARK: - CollectionView Datasource
-
-extension SelectionViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension SelectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         return tamagoList.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TamagotchiCollectionViewCell.identifier, for: indexPath) as! TamagotchiCollectionViewCell
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: TamagotchiCollectionViewCell.identifier,
+            for: indexPath
+        ) as! TamagotchiCollectionViewCell
         cell.tamagotchiInfo = tamagoList[indexPath.item]
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: DetailPopupViewController.identifier) as! DetailPopupViewController
+        let vc = sb.instantiateViewController(
+            withIdentifier: DetailPopupViewController.identifier
+        ) as! DetailPopupViewController
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         vc.tamagotchiInfo = tamagoList[indexPath.item]
         present(vc, animated: true)
         collectionView.deselectItem(at: indexPath, animated: true)
     }
-    
-    
 }

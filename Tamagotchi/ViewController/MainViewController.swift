@@ -24,7 +24,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private var underLineViews: [UIView]!
     @IBOutlet weak var stackView: UIStackView!
     
-    // MARK: - ProperTies
+    // MARK: - Properties
     private let inspirationMessages = LS_Inspiration.getMessages()
     private let cannotEatMessages = LS_CannotEatMessage.getMessages()
     private let logicManager = LogicManager()
@@ -45,85 +45,35 @@ final class MainViewController: UIViewController {
         }
     }
     
+    // MARK: - LifeCycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        feedingTextField.delegate = self
-        wateringTextField.delegate = self
-        logicManager.delegate = self
         setNavigationColor()
-        configUI()
+        registerDelegates()
         configBackBarButton(title: "")
-        makeBarButtonItem()
+        configUpperView()
+        configFeedingWateringView()
+        makeRightBarButtonItem()
         keyboardNotification()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = UM.userName + LT_Title.userTamagotchi
     }
     
-    private func configUI() {
-        guard let tamagotchiInfo else {return}
-        bubbleLabel.text = inspirationMessages.randomElement()
-        bubbleLabel.font = LT_Font.bubbleFont
-        bubbleLabel.textColor = LT_Color.titleColor
-        tamagoImage.image = LT_Image.getTamagotchiImage(
-            type: tamagotchiInfo.tamagotchiType,
-            level: tamagotchiInfo.level
-        )
-        view.backgroundColor = LT_Color.backgroundColor
-        nameBackView.defaultViewSetting()
-        nameTitleLabel.text = tamagotchiInfo.name
-        nameTitleLabel.font = Layout.Font.mainNameFont
-        nameTitleLabel.textColor = LT_Color.fontAndBorderColor
-        underLineViews.forEach {
-            $0.backgroundColor = LT_Color.separatorColor
-        }
+    // MARK: - Methods
 
-        statusLabel.text = String(format: LT_Main.status, tamagotchiInfo.level, tamagotchiInfo.feedingCount, tamagotchiInfo.wateringCount)
-        statusLabel.textColor = .gray
-        configFeedingWatering()
-    }
-    private func configFeedingWatering() {
-        feedingTextField.textColor = LT_Color.fontAndBorderColor
-        wateringTextField.textColor = LT_Color.fontAndBorderColor
-        feedingLabel.text = LT_Main.feedingError
-        feedingLabel.textColor = .clear
-        feedingLabel.font = LT_Font.descriptionFont
-        wateringLabel.text = LT_Main.wateringError
-        wateringLabel.textColor = .clear
-        wateringLabel.font = LT_Font.descriptionFont
-        feedingButton.configuration = UIButton.imageButtonConfig(
-            title: LT_Main.feeding,
-            ofSize: 14,
-            weight: .bold,
-            systemName: SystemName.leaf_circle
-        )
-        feedingButton.layoutButton(
-            tintColor: LT_Color.fontAndBorderColor ?? UIColor.label,
-            borderColor: LT_Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
-            borderWidth: LT_Size.backViewBorderWidth,
-            cornerRadius: LT_Size.buttonCornerRadius
-        )
-        wateringButton.configuration = UIButton.imageButtonConfig(
-            title: LT_Main.watering,
-            ofSize: 14,
-            weight: .bold,
-            systemName: SystemName.drop_circle
-        )
-        wateringButton.layoutButton(
-            tintColor: LT_Color.fontAndBorderColor ?? UIColor.label,
-            borderColor: LT_Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
-            borderWidth: LT_Size.backViewBorderWidth,
-            cornerRadius: LT_Size.buttonCornerRadius
-        )
-        
+    /// 델리게이트 등록
+    private func registerDelegates() {
+        feedingTextField.delegate = self
+        wateringTextField.delegate = self
+        logicManager.delegate = self
     }
     
-    private func makeBarButtonItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: SystemName.person_circle), style: .plain, target: self, action: #selector(barButtonTapped))
-        navigationItem.rightBarButtonItem?.tintColor = LT_Color.titleColor
-        
-    }
+    // MARK: - Action Methods
+
     /// 세팅화면으로 넘어가가기
     @objc private func barButtonTapped() {
         HapticsManager.shared.vibrateForSelection()
@@ -156,6 +106,85 @@ final class MainViewController: UIViewController {
                 constraint: LogicManager.wateringConstraint
             )
         }
+    }
+}
+
+// MARK: - ConfigurationUI Methods
+
+extension MainViewController {
+    
+    /// 상단 부분 구성
+    private func configUpperView() {
+        guard let tamagotchiInfo else {return}
+        bubbleLabel.text = inspirationMessages.randomElement()
+        bubbleLabel.font = LT_Font.bubbleFont
+        bubbleLabel.textColor = LT_Color.titleColor
+        tamagoImage.image = LT_Image.getTamagotchiImage(
+            type: tamagotchiInfo.tamagotchiType,
+            level: tamagotchiInfo.level
+        )
+        view.backgroundColor = LT_Color.backgroundColor
+        nameBackView.defaultViewSetting()
+        nameTitleLabel.text = tamagotchiInfo.name
+        nameTitleLabel.font = Layout.Font.mainNameFont
+        nameTitleLabel.textColor = LT_Color.fontAndBorderColor
+        underLineViews.forEach {
+            $0.backgroundColor = LT_Color.separatorColor
+        }
+        statusLabel.text = String(
+            format: LT_Main.status,
+            tamagotchiInfo.level,
+            tamagotchiInfo.feedingCount,
+            tamagotchiInfo.wateringCount
+        )
+        statusLabel.textColor = .gray
+        
+    }
+    /// 밥주기 부분 구성
+    private func configFeedingWateringView() {
+        feedingTextField.textColor = LT_Color.fontAndBorderColor
+        wateringTextField.textColor = LT_Color.fontAndBorderColor
+        feedingLabel.text = LT_Main.feedingError
+        feedingLabel.textColor = .clear
+        feedingLabel.font = LT_Font.descriptionFont
+        wateringLabel.text = LT_Main.wateringError
+        wateringLabel.textColor = .clear
+        wateringLabel.font = LT_Font.descriptionFont
+        feedingButton.configuration = UIButton.imageButtonConfig(
+            title: LT_Main.feeding,
+            ofSize: 14,
+            weight: .bold,
+            systemName: SystemName.leaf_circle
+        )
+        feedingButton.layoutButton(
+            tintColor: LT_Color.fontAndBorderColor ?? UIColor.label,
+            borderColor: LT_Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
+            borderWidth: LT_Size.backViewBorderWidth,
+            cornerRadius: LT_Size.buttonCornerRadius
+        )
+        wateringButton.configuration = UIButton.imageButtonConfig(
+            title: LT_Main.watering,
+            ofSize: 14,
+            weight: .bold,
+            systemName: SystemName.drop_circle
+        )
+        wateringButton.layoutButton(
+            tintColor: LT_Color.fontAndBorderColor ?? UIColor.label,
+            borderColor: LT_Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
+            borderWidth: LT_Size.backViewBorderWidth,
+            cornerRadius: LT_Size.buttonCornerRadius
+        )
+    }
+    
+    /// 우측 바 버튼 만들기
+    private func makeRightBarButtonItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: SystemName.person_circle),
+            style: .plain,
+            target: self,
+            action: #selector(barButtonTapped)
+        )
+        navigationItem.rightBarButtonItem?.tintColor = LT_Color.titleColor
     }
 }
 
@@ -206,6 +235,8 @@ extension MainViewController {
         view.endEditing(true)
     }
 }
+
+// MARK: - TextField Delegate
 
 extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

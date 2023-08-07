@@ -8,38 +8,50 @@
 import UIKit
 
 final class SettingViewController: UIViewController {
-    let cellIdentifier = "SettingTableViewCell"
-    @IBOutlet weak var settingTableView: UITableView!
+    private let cellIdentifier = "SettingTableViewCell"
+    
+    // MARK: - IBOutlet
+
+    @IBOutlet private weak var settingTableView: UITableView!
+    
+    // MARK: - Properties
+
     private var settingList: [SettingManager.SettingsOption] = []
     private var settingManager = SettingManager()
     
+    // MARK: - LifeCycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function)
-        settingManager.delegate = self
         settingList = settingManager.getList
+        registerDelegate()
         setNavigationColor()
         configUI()
-        setupTableView()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(#function)
         settingManager.SetList()
         settingList = settingManager.getList
         settingTableView.reloadData()
     }
+    
+    // MARK: - Methods
+
     private func configUI() {
         view.backgroundColor = LT_Color.backgroundColor
         settingTableView.backgroundColor = LT_Color.backgroundColor
         configBackBarButton(title: LT_Title.setting)
     }
     
-    private func setupTableView() {
+    private func registerDelegate() {
+        settingManager.delegate = self
         settingTableView.delegate = self
         settingTableView.dataSource = self
     }
 }
+
+// MARK: - TableView Delegate & DataSource
 
 extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
