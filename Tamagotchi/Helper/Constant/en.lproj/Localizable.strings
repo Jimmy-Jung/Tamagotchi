@@ -12,6 +12,7 @@ stingTamago = "Sting Tamago";
 smilingTamago = "Smille Tamago";
 shinningTamago = "Shiny Tamago";
 preparingTamago = "Preparing";
+userName = "Whale";
 
 // MARK: - Description
 
@@ -39,6 +40,7 @@ changeTamagotchi = "Change Tamagotchi";
 userTamagotchi = "'s Tamagotchi";
 "changeUserName%@" = "Change %@'s name";
 setting = "Settings";
+numberOfTextError = "Name length should be 2~7";
 
 // MARK: - System
 

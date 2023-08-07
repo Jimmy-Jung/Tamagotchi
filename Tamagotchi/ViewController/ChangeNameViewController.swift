@@ -25,6 +25,7 @@ final class ChangeNameViewController: UIViewController {
         nameTextField.textColor = Color.titleColor
         nameTextField.text = UM.userName
         underLineView.backgroundColor = Color.separatorColor
+        errorLabel.text = ""
     }
     private func makeBarButtonItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: System.save, style: .plain, target: self, action: #selector(barButtonTapped))
@@ -38,7 +39,9 @@ final class ChangeNameViewController: UIViewController {
             UM.userName = text
             navigationController?.popViewController(animated: true)
         } else {
-            
+            errorLabel.shake(shakeText: System.numberOfTextError, durationTime: 3, willDisappear: true) { [weak self] in
+                self?.nameTextField.text = ""
+            }
         }
         
     }
@@ -52,4 +55,7 @@ func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
     return true
 }
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        self.errorLabel.text = ""
+    }
 }

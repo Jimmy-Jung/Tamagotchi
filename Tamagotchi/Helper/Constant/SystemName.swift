@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SystemName {
+enum SystemName {
     static let leaf_circle = "leaf.circle"
     static let drop_circle = "drop.circle"
     static let person_circle = "person.circle"

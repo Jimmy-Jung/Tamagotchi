@@ -8,14 +8,14 @@
 import UIKit
 
 /// 레이아웃 Constant
-struct Layout {
+enum Layout {
     /// 설정 화면 리스트
     enum SettingType {
         case setName
         case changeTamagotchi
         case resetData
     }
-    struct Color {
+    enum Color {
         /// 네비게이션 타이틀 색상
         /// CGColor(red: 83/255, green: 105/255, blue: 118/255, alpha: 1)
         static let titleColor = UIColor(named: "titleColor")
@@ -37,7 +37,7 @@ struct Layout {
 
         
     }
-    struct Size {
+    enum Size {
         /// 이름 백뷰 테두리 넓이
         static let backViewBorderWidth: CGFloat = 1
         /// 이름 백뷰 코너 크기
@@ -46,7 +46,7 @@ struct Layout {
         static let buttonCornerRadius: CGFloat = 8
         
     }
-    struct Font {
+    enum Font {
         /// 이름 레이블 폰트 ofSize: 13, weight: .bold
         static let nameTitleFont: UIFont = {
             if Bundle.main.preferredLocalizations.first == "ko" {
@@ -63,7 +63,7 @@ struct Layout {
         /// 버블 레이블 폰트 ofSize: 13, weight: .medium
         static let bubbleFont = UIFont.systemFont(ofSize: 13, weight: .medium)
     }
-    struct Image {
+    enum Image {
         /// 물먹기 버튼 이미지
         static let wateringButtonImage = UIImage(systemName: "drop.circle")
         /// 밥먹기 버튼 이미지

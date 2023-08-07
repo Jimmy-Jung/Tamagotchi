@@ -66,7 +66,8 @@ final class SettingManager {
                             let sceneDelegate = windowScene?.delegate as? SceneDelegate
                             let sb = UIStoryboard(name: "Main", bundle: nil)
                             let vc = sb.instantiateViewController(identifier: SelectionViewController.identifier) as! SelectionViewController
-                            vc.setTitle(type: .changeTamagotchi)
+                            UM.userName = LocalizedString.Name.userName
+                            vc.setTitle(type: .selectTamagotchi)
                             let nav = UINavigationController(rootViewController: vc)
                             UM.pickedTamagotchi = nil
                             sceneDelegate?.window?.rootViewController = nav

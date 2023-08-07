@@ -12,6 +12,7 @@ stingTamago = "따끔따끔 다마고치";
 smilingTamago = "방실방실 다마고치";
 shinningTamago = "반짝반짝 다마고치";
 preparingTamago = "준비중이에요";
+userName = "고래";
 
 // MARK: - Description
 
@@ -49,6 +50,7 @@ no = "아냐!";
 resetTitle = "데이터 초기화";
 resetMessage = "정말 다시 처음부터 시작하실 건가용?";
 save = "저장";
+numberOfTextError = "이름은 2자이상 6자 이하에요";
 
 // MARK: - Inspiration Message
 

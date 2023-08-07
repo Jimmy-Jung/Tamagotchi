@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct LocalizedString {
+enum LocalizedString {
     
-    struct Name {
+    enum Name {
         static let sting = "stingTamago".localized
         static let smiling = "smilingTamago".localized
         static let shinning = "shinningTamago".localized
         static let none = "preparingTamago".localized
-        
+        static let userName = "userName".localized
     }
-    struct Description {
+    enum Description {
         static private let sting = "stingDescription".localized
         static private let smiling = "smilingDescription".localized
         static private let shinning = "shinningDescription".localized
@@ -39,7 +39,7 @@ struct LocalizedString {
         }
     }
     
-    struct Main {
+    enum Main {
         static let status = "LV%d • %d • %d".localized
         static let feedingPlaceholder = "feedingPlaceholder".localized
         static let wateringPlaceholder = "wateringPlaceholder".localized
@@ -49,9 +49,8 @@ struct LocalizedString {
         static let minusError = "minusError".localized
         static let feeding = "feeding".localized
         static let watering = "watering".localized
-        
     }
-    struct Title {
+    enum Title {
         static let selectTamagotchi = "selectTamagotchi".localized
         static let changeTamagotchi = "changeTamagotchi".localized
         static let userTamagotchi = "userTamagotchi".localized
@@ -59,7 +58,7 @@ struct LocalizedString {
         static let setting = "setting".localized
     }
     
-    struct System {
+    enum System {
         static let cancel = "cancel".localized
         static let start = "start".localized
         static let ok = "ok".localized
@@ -67,9 +66,10 @@ struct LocalizedString {
         static let resetTitle = "resetTitle".localized
         static let resetMessage = "resetMessage".localized
         static let save = "save".localized
+        static let numberOfTextError = "numberOfTextError".localized
     }
     
-    struct Inspiration {
+    enum Inspiration {
         static func getMessages() -> [String] {
             return [message0, message1, message2, message3, message4, message5]
         }
@@ -81,7 +81,7 @@ struct LocalizedString {
         static private let message5 = "InspirationMessage5".localized
     }
 
-    struct CannotEatMessage {
+    enum CannotEatMessage {
         static func getMessages() -> [String] {
             return messages.map {
                 String(format: $0, UserDefaultManager.userName)
