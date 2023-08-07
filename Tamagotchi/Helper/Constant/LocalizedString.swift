@@ -55,7 +55,7 @@ struct LocalizedString {
         static let selectTamagotchi = "selectTamagotchi".localized
         static let changeTamagotchi = "changeTamagotchi".localized
         static let userTamagotchi = "userTamagotchi".localized
-        static let changeUserName = "changeUserName".localized
+        static let changeUserName = "changeUserName%@".localized
         static let setting = "setting".localized
     }
     

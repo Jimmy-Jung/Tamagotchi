@@ -50,6 +50,7 @@ final class DetailPopupViewController: UIViewController {
         nameBackView.defaultViewSetting()
         // 이름 레이블 레이아웃 설정
         nameTitleLabel.defaultLabelSetting()
+        nameTitleLabel.text = tamagotchiInfo.name
         // 구분 선 색상 설정
         separatorLineView.backgroundColor = Color.separatorColor
         // 설명 텍스트 및 레이아웃 설정

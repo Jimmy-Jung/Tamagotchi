@@ -9,9 +9,9 @@
 // MARK: - TamagochiName
 
 stingTamago = "Sting Tamago";
-smilingTamago = "Smiling Tamago";
-shinningTamago = "Shinning Tamago";
-preparingTamago = "Preparing Tamago";
+smilingTamago = "Smille Tamago";
+shinningTamago = "Shiny Tamago";
+preparingTamago = "Preparing";
 
 // MARK: - Description
 
@@ -37,7 +37,7 @@ watering = "Water";
 selectTamagotchi = "Select Tamagotchi";
 changeTamagotchi = "Change Tamagotchi";
 userTamagotchi = "'s Tamagotchi";
-changeUserName = "Set your name";
+"changeUserName%@" = "Change %@'s name";
 setting = "Settings";
 
 // MARK: - System

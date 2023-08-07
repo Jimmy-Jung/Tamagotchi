@@ -43,7 +43,7 @@ final class SelectionViewController: UIViewController {
     /// 컬렉션뷰 구성
     private func configCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 20
+        let spacing: CGFloat = 18
         let inset: CGFloat = 18
         let width = UIScreen.main.bounds.width - (spacing * 2) - (inset * 2)
         layout.itemSize = CGSize(width: width/3, height: width/3 + 24)

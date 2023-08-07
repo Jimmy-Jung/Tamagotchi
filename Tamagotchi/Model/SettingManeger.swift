@@ -29,7 +29,7 @@ final class SettingManager {
     func SetList() {
         settingList = [
             SettingsOption(
-                title: UM.userName + Title.changeUserName,
+                title: String(format: Title.changeUserName, UM.userName),
                 icon: UIImage(systemName: "pencil"),
                 secondaryText: UM.userName,
                 handler: { [weak self] in

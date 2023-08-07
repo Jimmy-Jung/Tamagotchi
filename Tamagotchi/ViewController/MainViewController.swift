@@ -72,6 +72,7 @@ final class MainViewController: UIViewController {
         )
         view.backgroundColor = Color.backgroundColor
         nameBackView.defaultViewSetting()
+        nameTitleLabel.text = tamagotchiInfo.name
         nameTitleLabel.font = Layout.Font.mainNameFont
         nameTitleLabel.textColor = Color.fontAndBorderColor
         underLineViews.forEach {

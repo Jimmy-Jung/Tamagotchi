@@ -48,7 +48,14 @@ struct Layout {
     }
     struct Font {
         /// 이름 레이블 폰트 ofSize: 13, weight: .bold
-        static let nameTitleFont = UIFont.systemFont(ofSize: 13, weight: .bold)
+        static let nameTitleFont: UIFont = {
+            if Bundle.main.preferredLocalizations.first == "ko" {
+                return UIFont.systemFont(ofSize: 13, weight: .bold)
+            } else {
+                // 영어 이름 레이블 폰트 ofSize: 11, weight: .bold
+                return UIFont.systemFont(ofSize: 12, weight: .bold)
+            }
+        }()
         /// 설명 레이블 폰트 ofSize: 14, weight: .medium
         static let descriptionFont = UIFont.systemFont(ofSize: 14, weight: .medium)
         /// 메인화면 이름 폰트 ofSize: 15, weight: .bold
