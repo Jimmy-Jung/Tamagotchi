@@ -8,10 +8,14 @@
 import UIKit
 
 final class ChangeNameViewController: UIViewController {
+    // MARK: - IBOutlet
 
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var underLineView: UIView!
+    
+    // MARK: - LifeCycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
@@ -19,7 +23,8 @@ final class ChangeNameViewController: UIViewController {
         configUI()
         makeBarButtonItem()
     }
-    
+    // MARK: - ConfigurationUI Methods
+
     private func configUI() {
         nameTextField.font = LT_Font.descriptionFont
         nameTextField.textColor = LT_Color.titleColor
@@ -30,8 +35,13 @@ final class ChangeNameViewController: UIViewController {
     private func makeBarButtonItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: LT_System.save, style: .plain, target: self, action: #selector(barButtonTapped))
         navigationItem.rightBarButtonItem?.tintColor = LT_Color.titleColor
-        
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    // MARK: - Action Methods
+
     /// 세팅화면으로 넘어가가기
     @objc private func barButtonTapped() {
         guard let text = nameTextField.text, !text.isEmpty else { return }
@@ -50,10 +60,9 @@ final class ChangeNameViewController: UIViewController {
         }
         
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
 }
+
+// MARK: - TextField Delegate
 
 extension ChangeNameViewController: UITextFieldDelegate {
 func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -143,7 +143,9 @@ extension MainViewController {
     /// 밥주기 부분 구성
     private func configFeedingWateringView() {
         feedingTextField.textColor = LT_Color.fontAndBorderColor
+        feedingTextField.keyboardType = .numberPad
         wateringTextField.textColor = LT_Color.fontAndBorderColor
+        wateringTextField.keyboardType = .numberPad
         feedingLabel.text = LT_Main.feedingError
         feedingLabel.textColor = .clear
         feedingLabel.font = LT_Font.descriptionFont
