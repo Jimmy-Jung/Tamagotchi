@@ -148,10 +148,10 @@ extension MainViewController {
         wateringTextField.keyboardType = .numberPad
         feedingLabel.text = LT_Main.feedingError
         feedingLabel.textColor = .clear
-        feedingLabel.font = LT_Font.descriptionFont
+        feedingLabel.font = LT_Font.errorLabelFont
         wateringLabel.text = LT_Main.wateringError
         wateringLabel.textColor = .clear
-        wateringLabel.font = LT_Font.descriptionFont
+        wateringLabel.font = LT_Font.errorLabelFont
         feedingButton.configuration = UIButton.imageButtonConfig(
             title: LT_Main.feeding,
             ofSize: 14,

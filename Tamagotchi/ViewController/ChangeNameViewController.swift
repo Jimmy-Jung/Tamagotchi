@@ -31,6 +31,7 @@ final class ChangeNameViewController: UIViewController {
         nameTextField.text = UM.userName
         underLineView.backgroundColor = LT_Color.separatorColor
         errorLabel.text = ""
+        errorLabel.font = LT_Font.errorLabelFont
     }
     private func makeBarButtonItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: LT_System.save, style: .plain, target: self, action: #selector(barButtonTapped))
