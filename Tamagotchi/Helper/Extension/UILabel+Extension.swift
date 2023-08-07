@@ -13,14 +13,16 @@ extension UILabel {
         self.font = Layout.Font.nameTitleFont
         self.textColor = Layout.Color.fontAndBorderColor
     }
-    func shake(shakeText: String, textColor: UIColor = .red, durationTime: Double, willDisappear: Bool, prepareHandler: ( () -> Void)? = nil) {
+    func shake(shakeText: String, textColor: UIColor = .red, durationTime: Double, textWillDisappear: Bool, prepareHandler: (() -> Void)? = nil, completionHandler: (() -> Void)? = nil) {
         prepareHandler?()
         self.text = shakeText
         self.textColor = textColor
         self.shake()
-        if willDisappear {
+        HapticsManager.shared.vibrateForNotification(type: .error)
+        if textWillDisappear {
             DispatchQueue.main.asyncAfter(deadline: .now() + durationTime) {
                 self.text = ""
+                completionHandler?()
             }
         }
     }

@@ -40,7 +40,7 @@ changeTamagotchi = "Change Tamagotchi";
 userTamagotchi = "'s Tamagotchi";
 "changeUserName%@" = "Change %@'s name";
 setting = "Settings";
-numberOfTextError = "Name length should be 2~7";
+numberOfTextError = "The name should be between 2 and 6 characters";
 
 // MARK: - System
 

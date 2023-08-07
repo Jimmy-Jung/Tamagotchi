@@ -7,6 +7,17 @@
 
 import UIKit
 
+typealias Color = Layout.Color
+typealias Font = Layout.Font
+typealias Size = Layout.Size
+typealias Image = Layout.Image
+typealias Title = LocalizedString.Title
+typealias Main = LocalizedString.Main
+typealias System = LocalizedString.System
+typealias Inspiration = LocalizedString.Inspiration
+typealias CannotEatMessage = LocalizedString.CannotEatMessage
+typealias UM = UserDefaultManager
+
 /// 레이아웃 Constant
 enum Layout {
     /// 설정 화면 리스트
@@ -50,7 +61,7 @@ enum Layout {
         /// 이름 레이블 폰트 ofSize: 13, weight: .bold
         static let nameTitleFont: UIFont = {
             if Bundle.main.preferredLocalizations.first == "ko" {
-                return UIFont.systemFont(ofSize: 13, weight: .bold)
+                return UIFont.systemFont(ofSize: 12, weight: .bold)
             } else {
                 // 영어 이름 레이블 폰트 ofSize: 11, weight: .bold
                 return UIFont.systemFont(ofSize: 12, weight: .bold)

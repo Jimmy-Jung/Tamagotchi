@@ -8,17 +8,7 @@
 import UIKit.UIViewController
 
 extension UIViewController {
-    typealias Color = Layout.Color
-    typealias Font = Layout.Font
-    typealias Size = Layout.Size
-    typealias Image = Layout.Image
-    typealias Title = LocalizedString.Title
-    typealias Main = LocalizedString.Main
-    typealias System = LocalizedString.System
-    typealias Inspiration = LocalizedString.Inspiration
-    typealias CannotEatMessage = LocalizedString.CannotEatMessage
-    typealias UM = UserDefaultManager
-    
+
     enum VCTitle {
         case selectTamagotchi
         case changeTamagotchi

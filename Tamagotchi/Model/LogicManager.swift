@@ -8,11 +8,6 @@
 import UIKit
 
 final class LogicManager {
-
-    typealias Main = LocalizedString.Main
-    typealias Inspiration = LocalizedString.Inspiration
-    typealias CannotEatMessage = LocalizedString.CannotEatMessage
-    typealias UM = UserDefaultManager
     
     static let feedingConstraint: Int = 99
     static let wateringConstraint: Int = 49
@@ -108,32 +103,26 @@ final class LogicManager {
             return
         }
         guard let count = Int(numString) else {
-            textField.text = " "
-            label.text = Main.numberError
-            label.textColor = .systemRed
-            label.shake()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                label.text = ""
-                textField.text = ""
-            }
+            label.shake(
+                shakeText: Main.numberError,
+                durationTime: 2,
+                textWillDisappear: true,
+                prepareHandler: { textField.text = " " },
+                completionHandler: { textField.text = "" }
+            )
             return
         }
         
         switch count {
         case let count where count > constraint:
             bubbleLabel.text = CannotEatMessage.getMessages().randomElement()
-            textField.text = " "
-            if tag == 0 {
-                label.text = Main.feedingError
-            } else {
-                label.text = Main.wateringError
-            }
-            label.textColor = .systemRed
-            label.shake()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                label.text = ""
-                textField.text = ""
-            }
+            label.shake(
+                shakeText: tag == 0 ? Main.feedingError : Main.wateringError,
+                durationTime: 2,
+                textWillDisappear: true,
+                prepareHandler: { textField.text = " " },
+                completionHandler: { textField.text = "" }
+            )
         case 0...constraint:
             bubbleLabel.text = Inspiration.getMessages().randomElement()
             if tag == 0 {
@@ -143,14 +132,13 @@ final class LogicManager {
             }
             delegate?.changedValue = UM.pickedTamagotchi
         case let count where count < 0:
-            textField.text = " "
-            label.text = Main.minusError
-            label.textColor = .systemRed
-            label.shake()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                label.text = ""
-                textField.text = ""
-            }
+            label.shake(
+                shakeText: Main.minusError,
+                durationTime: 2,
+                textWillDisappear: true,
+                prepareHandler: { textField.text = " " },
+                completionHandler: { textField.text = "" }
+            )
         default:
             break
         }

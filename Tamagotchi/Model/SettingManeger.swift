@@ -8,10 +8,6 @@
 import UIKit
 
 final class SettingManager {
-    typealias Title = LocalizedString.Title
-    typealias System = LocalizedString.System
-    typealias Color = Layout.Color
-    typealias UM = UserDefaultManager
     
     struct SettingsOption {
         let title : String
@@ -54,14 +50,19 @@ final class SettingManager {
                 icon: UIImage(systemName: "arrow.clockwise"),
                 secondaryText: nil,
                 handler: { [weak self] in
+                    HapticsManager.shared.vibrateForNotification(type: .warning)
                     self?.delegate?.showCancelAlert(
                         title: System.resetTitle,
                         message: System.resetMessage,
                         preferredStyle: .alert,
                         cancelTitle: System.no,
                         okTitle: System.ok,
-                        cancelHandler: nil,
+                        cancelHandler: { _ in
+                            HapticsManager.shared.vibrateForSelection()
+                            
+                        },
                         okHandler: { _ in
+                            HapticsManager.shared.vibrateForSelection()
                             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                             let sceneDelegate = windowScene?.delegate as? SceneDelegate
                             let sb = UIStoryboard(name: "Main", bundle: nil)

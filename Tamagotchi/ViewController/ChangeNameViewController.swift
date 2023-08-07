@@ -39,9 +39,14 @@ final class ChangeNameViewController: UIViewController {
             UM.userName = text
             navigationController?.popViewController(animated: true)
         } else {
-            errorLabel.shake(shakeText: System.numberOfTextError, durationTime: 3, willDisappear: true) { [weak self] in
-                self?.nameTextField.text = ""
-            }
+            errorLabel.shake(
+                shakeText: System.numberOfTextError,
+                durationTime: 3,
+                textWillDisappear: true,
+                prepareHandler: { [weak self] in
+                    self?.nameTextField.text = ""
+                }
+            )
         }
         
     }

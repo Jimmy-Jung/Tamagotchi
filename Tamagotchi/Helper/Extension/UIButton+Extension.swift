@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIButton {
-    typealias Color = Layout.Color
     enum ButtonActionType {
         case cancel
         case defaults

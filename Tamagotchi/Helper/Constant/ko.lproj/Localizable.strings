@@ -50,7 +50,7 @@ no = "아냐!";
 resetTitle = "데이터 초기화";
 resetMessage = "정말 다시 처음부터 시작하실 건가용?";
 save = "저장";
-numberOfTextError = "이름은 2자이상 6자 이하에요";
+numberOfTextError = "이름은 2자 이상 6자 이하여야 해요";
 
 // MARK: - Inspiration Message
 

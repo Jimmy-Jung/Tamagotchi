@@ -22,11 +22,11 @@ final class HapticsManager {
         generator.prepare()
         generator.selectionChanged()
     }
-    
-    /// 드래그 햅틱
-//    public func dragVibrate() {
-//        let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
-//        feedbackGenerator.prepare()
-//        feedbackGenerator.impactOccurred()
-//    }
+    /// 알림 진동 피드백
+    func vibrateForNotification(type: UINotificationFeedbackGenerator.FeedbackType) {
+        let generator = UINotificationFeedbackGenerator()
+        generator.prepare()
+        generator.notificationOccurred(type)
+    }
+
 }

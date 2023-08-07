@@ -8,8 +8,6 @@
 import UIKit.UIView
 
 extension UIView {
-    typealias Color = Layout.Color
-    typealias Size = Layout.Size
     /// 타이틀 백뷰 테두리 & 코너 & 배경색
     func defaultViewSetting() {
         self.layer.borderColor = Color.fontAndBorderColor?.cgColor
