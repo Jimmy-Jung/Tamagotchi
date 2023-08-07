@@ -9,6 +9,7 @@ import UIKit
 
 final class ChangeNameViewController: UIViewController {
 
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var underLineView: UIView!
     override func viewDidLoad() {
@@ -33,8 +34,13 @@ final class ChangeNameViewController: UIViewController {
     /// 세팅화면으로 넘어가가기
     @objc private func barButtonTapped() {
         guard let text = nameTextField.text, !text.isEmpty else { return }
-        UM.userName = text
-        navigationController?.popViewController(animated: true)
+        if text.count > 1, text.count < 7 {
+            UM.userName = text
+            navigationController?.popViewController(animated: true)
+        } else {
+            
+        }
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)

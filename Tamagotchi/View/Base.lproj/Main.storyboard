@@ -217,7 +217,7 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1-6" translatesAutoresizingMaskIntoConstraints="NO" id="i5z-Ld-wdk">
-                                <rect key="frame" x="111.33333333333333" y="320.66666666666669" width="170.33333333333343" height="170.66666666666669"/>
+                                <rect key="frame" x="111.33333333333333" y="320.66666666666669" width="170.33333333333337" height="170.66666666666669"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="i5z-Ld-wdk" secondAttribute="height" id="AeX-ky-NKX"/>
                                 </constraints>
@@ -497,16 +497,27 @@
                                     <constraint firstAttribute="height" constant="30" id="nNJ-zp-fno"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                에러처리 레이블" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsR-gE-NX7">
+                                <rect key="frame" x="30" y="79" width="333" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7em-FF-vV1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ErZ-mP-BWb" firstAttribute="top" secondItem="7em-FF-vV1" secondAttribute="top" constant="20" id="33Q-Lv-LLh"/>
+                            <constraint firstItem="KsR-gE-NX7" firstAttribute="trailing" secondItem="ala-M7-AD3" secondAttribute="trailing" id="EMx-P6-xsN"/>
+                            <constraint firstItem="KsR-gE-NX7" firstAttribute="leading" secondItem="ala-M7-AD3" secondAttribute="leading" id="LED-bf-350"/>
                             <constraint firstItem="7em-FF-vV1" firstAttribute="trailing" secondItem="ErZ-mP-BWb" secondAttribute="trailing" constant="30" id="RbK-Kn-6vi"/>
+                            <constraint firstItem="KsR-gE-NX7" firstAttribute="bottom" secondItem="ala-M7-AD3" secondAttribute="bottom" id="bgf-Xc-Ljc"/>
+                            <constraint firstItem="KsR-gE-NX7" firstAttribute="top" secondItem="ala-M7-AD3" secondAttribute="top" id="sMz-G9-2BL"/>
                             <constraint firstItem="ErZ-mP-BWb" firstAttribute="leading" secondItem="7em-FF-vV1" secondAttribute="leading" constant="30" id="xtY-Ib-kpQ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="KsR-gE-NX7" id="ZhD-IA-QMA"/>
                         <outlet property="nameTextField" destination="ala-M7-AD3" id="Wfr-vJ-4ds"/>
                         <outlet property="underLineView" destination="jXo-5z-eRm" id="A6i-mh-5QP"/>
                     </connections>
