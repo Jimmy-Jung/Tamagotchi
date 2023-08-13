@@ -17,21 +17,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        
+        let nav: UINavigationController
         if let pickedTamago = UserDefaultManager.pickedTamagotchi {
             let vc = sb.instantiateViewController(identifier: MainViewController.identifier) as! MainViewController
             vc.setTitle(type: .userTamagotchi)
             vc.tamagotchiInfo = pickedTamago
-            let nav = UINavigationController(rootViewController: vc)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
+            nav = UINavigationController(rootViewController: vc)
         } else {
             let vc = sb.instantiateViewController(identifier: SelectionViewController.identifier) as! SelectionViewController
             vc.setTitle(type: .selectTamagotchi)
-            let nav = UINavigationController(rootViewController: vc)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
+            nav = UINavigationController(rootViewController: vc)
         }
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

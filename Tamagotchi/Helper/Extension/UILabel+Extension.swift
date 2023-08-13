@@ -13,7 +13,14 @@ extension UILabel {
         self.font = Layout.Font.nameTitleFont
         self.textColor = Layout.Color.fontAndBorderColor
     }
-    func shake(shakeText: String, textColor: UIColor = .red, durationTime: Double, textWillDisappear: Bool, prepareHandler: (() -> Void)? = nil, completionHandler: (() -> Void)? = nil) {
+    func shake(
+        shakeText: String,
+        textColor: UIColor = .red,
+        durationTime: Double,
+        textWillDisappear: Bool,
+        prepareHandler: (() -> Void)? = nil,
+        completionHandler: (() -> Void)? = nil
+    ) {
         prepareHandler?()
         self.text = shakeText
         self.textColor = textColor

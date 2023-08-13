@@ -69,16 +69,10 @@ typealias UM = UserDefaultManager
 
 struct UserDefaultManager {
     
-    @UserDefault(
-        key: KeyEnum.userName.rawValue,
-        defaultValue: "대장"
-    )
+    @UserDefault(key: KeyEnum.userName.rawValue, defaultValue: "대장")
     static var userName: String
     
-    @UserDefaultCustomType(
-        key: KeyEnum.pickedTamagotchi.rawValue,
-        defaultValue: nil
-    )
+    @UserDefaultCustomType(key: KeyEnum.pickedTamagotchi.rawValue, defaultValue: nil)
     static var pickedTamagotchi: TamagotchiInfo?
     
     enum KeyEnum: String {
