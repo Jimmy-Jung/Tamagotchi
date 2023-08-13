@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class TamagotchiManagementViewController: UIViewController {
 
     @IBOutlet private weak var bubbleImage: UIImageView!
     @IBOutlet private weak var bubbleLabel: UILabel!
@@ -111,7 +111,7 @@ final class MainViewController: UIViewController {
 
 // MARK: - ConfigurationUI Methods
 
-extension MainViewController {
+extension TamagotchiManagementViewController {
     
     /// 상단 부분 구성
     private func configUpperView() {
@@ -190,7 +190,7 @@ extension MainViewController {
     }
 }
 
-extension MainViewController {
+extension TamagotchiManagementViewController {
     /// 키보드 노티피케이션 등록
     private func keyboardNotification() {
         // 키보드 올라올 때 알림 등록
@@ -240,7 +240,7 @@ extension MainViewController {
 
 // MARK: - TextField Delegate
 
-extension MainViewController: UITextFieldDelegate {
+extension TamagotchiManagementViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

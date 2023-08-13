@@ -12,7 +12,7 @@ final class LogicManager {
     static let feedingConstraint: Int = 99
     static let wateringConstraint: Int = 49
     
-    weak var delegate: MainViewController?
+    weak var delegate: TamagotchiManagementViewController?
     
     /// 먹이 주면 레멜업, 유저디폴트 갱신
     /// - Parameters:

@@ -185,7 +185,7 @@
         <!--대장님의 다마고치-->
         <scene sceneID="ujf-tt-jT8">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="Jpt-YW-lkb" customClass="MainViewController" customModule="Tamagotchi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TamagotchiManagementViewController" id="Jpt-YW-lkb" customClass="TamagotchiManagementViewController" customModule="Tamagotchi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZrE-An-4Iu">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

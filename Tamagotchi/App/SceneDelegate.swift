@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let nav: UINavigationController
         if let pickedTamago = UserDefaultManager.pickedTamagotchi {
-            let vc = sb.instantiateViewController(identifier: MainViewController.identifier) as! MainViewController
+            let vc = sb.instantiateViewController(identifier: TamagotchiManagementViewController.identifier) as! TamagotchiManagementViewController
             vc.setTitle(type: .userTamagotchi)
             vc.tamagotchiInfo = pickedTamago
             nav = UINavigationController(rootViewController: vc)

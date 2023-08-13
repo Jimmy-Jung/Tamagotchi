@@ -41,7 +41,7 @@ final class DetailPopupViewController: UIViewController {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: MainViewController.identifier) as! MainViewController
+        let vc = sb.instantiateViewController(withIdentifier: TamagotchiManagementViewController.identifier) as! TamagotchiManagementViewController
         vc.setTitle(type: .userTamagotchi)
         vc.tamagotchiInfo = UserDefaultManager.pickedTamagotchi
         let nav = UINavigationController(rootViewController: vc)
