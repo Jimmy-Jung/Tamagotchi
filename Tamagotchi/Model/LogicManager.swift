@@ -20,7 +20,8 @@ final class LogicManager {
     ///   - WC: wateringCount
     ///   - type: TamagotchiType
     func levelUp(feedingCount FC: Int, wateringCount WC: Int, type: TamagotchiType) {
-        let count = Float(FC)/5 + Float(WC)/2
+        let floatCount = Float(FC)/5 + Float(WC)/2
+        let count = Int(floatCount / 10)
         var level = 0
             var imageName = ""
 
@@ -36,33 +37,12 @@ final class LogicManager {
             }
 
             switch count {
-            case 0..<20:
+            case 0...1:
                 imageName += "1"
                 level = 1
-            case 20..<30:
-                imageName += "2"
-                level = 2
-            case 30..<40:
-                imageName += "3"
-                level = 3
-            case 40..<50:
-                imageName += "4"
-                level = 4
-            case 50..<60:
-                imageName += "5"
-                level = 5
-            case 60..<70:
-                imageName += "6"
-                level = 6
-            case 70..<80:
-                imageName += "7"
-                level = 7
-            case 80..<90:
-                imageName += "8"
-                level = 8
-            case 90..<100:
-                imageName += "9"
-                level = 9
+            case 2...9:
+                imageName += "\(count)"
+                level = count
             default:
                 imageName += "9"
                 level = 10
