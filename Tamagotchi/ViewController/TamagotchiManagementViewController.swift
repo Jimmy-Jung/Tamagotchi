@@ -92,8 +92,7 @@ final class TamagotchiManagementViewController: UIViewController {
                 label: feedingLabel,
                 textField: feedingTextField,
                 bubbleLabel: bubbleLabel,
-                tag: sender.tag,
-                constraint: LogicManager.feedingConstraint
+                tag: sender.tag
             )
         } else {
             guard let num = wateringTextField.text else { return }
@@ -102,8 +101,7 @@ final class TamagotchiManagementViewController: UIViewController {
                 label: wateringLabel,
                 textField: wateringTextField,
                 bubbleLabel: bubbleLabel,
-                tag: sender.tag,
-                constraint: LogicManager.wateringConstraint
+                tag: sender.tag
             )
         }
     }
@@ -245,4 +243,44 @@ extension TamagotchiManagementViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+}
+
+protocol LogicProtocol {
+    func setFeedingLabel(text: String?)
+    func setWateringLabel(text: String?)
+    func setStatusLabel(text: String?)
+    func setChangedValue(tamagotchi: TamagotchiInfo?)
+    func setTamagotchiImage(imageName: String)
+    func setBubbleLabel(text: String?)
+}
+
+extension TamagotchiManagementViewController: LogicProtocol {
+    func setBubbleLabel(text: String?) {
+        self.bubbleLabel.text = text
+    }
+    
+    func setFeedingLabel(text: String?) {
+        self.feedingLabel.text = text
+    }
+    
+    func setWateringLabel(text: String?) {
+        self.wateringLabel.text = text
+    }
+    
+    func setStatusLabel(text: String?) {
+        self.statusLabel.text = text
+    }
+    
+    func setChangedValue(tamagotchi: TamagotchiInfo?) {
+        self.changedValue = tamagotchi
+    }
+    
+    func setTamagotchiImage(imageName: String) {
+        tamagoImage.image = UIImage(named: imageName)
+    }
+    
+    
+   
+    
+    
 }

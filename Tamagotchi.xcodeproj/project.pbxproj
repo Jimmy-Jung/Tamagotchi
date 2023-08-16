@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550427112A8CBDD6004E57FA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550427102A8CBDD6004E57FA /* Error.swift */; };
 		552C75992A7D23E400982EAA /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75872A7D232A00982EAA /* SelectionViewController.swift */; };
 		552C759D2A7D270200982EAA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 552C759F2A7D270200982EAA /* Localizable.strings */; };
 		552C75A22A7D276300982EAA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A12A7D276300982EAA /* String+Extension.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		550427102A8CBDD6004E57FA /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		552C75872A7D232A00982EAA /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		552C759E2A7D270200982EAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		552C75A02A7D272800982EAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				552C75B12A7E238F00982EAA /* HapticManager.swift */,
+				550427102A8CBDD6004E57FA /* Error.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				557D558E2A7D22B7000DDE17 /* Layout.swift in Sources */,
 				557D558B2A7D22B7000DDE17 /* UIViewController+Extension.swift in Sources */,
 				552C75BC2A7EC5EE00982EAA /* SystemName.swift in Sources */,
+				550427112A8CBDD6004E57FA /* Error.swift in Sources */,
 				552C75A92A7DD72900982EAA /* UILabel+Extension.swift in Sources */,
 				552C75C22A7F566F00982EAA /* ChangeNameViewController.swift in Sources */,
 				552C75992A7D23E400982EAA /* SelectionViewController.swift in Sources */,
