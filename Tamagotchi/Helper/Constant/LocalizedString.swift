@@ -77,6 +77,7 @@ enum LocalizedString {
         static let resetMessage = "resetMessage".localized
         static let save = "save".localized
         static let numberOfTextError = "numberOfTextError".localized
+        static let feedingAlert = "feedingAlert".localized
     }
     
     enum Inspiration {

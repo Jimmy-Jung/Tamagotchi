@@ -75,8 +75,12 @@ struct UserDefaultManager {
     @UserDefaultCustomType(key: KeyEnum.pickedTamagotchi.rawValue, defaultValue: nil)
     static var pickedTamagotchi: TamagotchiInfo?
     
+    @UserDefault(key: KeyEnum.feedingAlert.rawValue, defaultValue: nil)
+    static var feedingAlert: Date?
+    
     enum KeyEnum: String {
         case userName
         case pickedTamagotchi
+        case feedingAlert
     }
 }

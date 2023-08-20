@@ -76,8 +76,24 @@ final class SettingManager {
                         }
                     )
                 }
+            ),
+            SettingsOption(
+                title: LT_System.feedingAlert,
+                icon: UIImage(systemName: "clock"),
+                secondaryText: dateFormatter(date: UM.feedingAlert),
+                handler: { [weak self] in
+                let vc = AlertPickerViewController()
+                let nav = UINavigationController(rootViewController: vc)
+                self?.delegate?.navigationController?.pushViewController(vc, animated: true)
+            }
             )
         ]
     }
     
+    private func dateFormatter(date: Date?) -> String? {
+        guard let selectedTime = date else { return nil }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: selectedTime)
+    }
 }

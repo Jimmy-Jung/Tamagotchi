@@ -51,6 +51,7 @@ resetTitle = "데이터 초기화";
 resetMessage = "정말 다시 처음부터 시작하실 건가용?";
 save = "저장";
 numberOfTextError = "이름은 2자 이상 6자 이하여야 해요";
+feedingAlert = "먹이 알람";
 
 // MARK: - Inspiration Message
 

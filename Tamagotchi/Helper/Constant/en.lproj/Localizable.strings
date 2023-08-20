@@ -40,7 +40,7 @@ changeTamagotchi = "Change Tamagotchi";
 userTamagotchi = "'s Tamagotchi";
 "changeUserName%@" = "Change %@'s name";
 setting = "Settings";
-numberOfTextError = "The name should be between 2 and 6 characters";
+
 
 // MARK: - System
 
@@ -51,6 +51,8 @@ no = "No!";
 resetTitle = "Reset Data";
 resetMessage = "Do you really want to start over from the beginning?";
 save = "Save";
+numberOfTextError = "The name should be between 2 and 6 characters";
+feedingAlert = "Feeding Alert";
 
 // MARK: - Inspiration Message
 
