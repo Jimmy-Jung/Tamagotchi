@@ -1,8 +1,7 @@
 # Push Notification
 ### SeSAC 8월21일(월) 과제
-![Simulator Screen Recording - iPhone 14 - 2023-08-21 at 18 43 04](https://github.com/Jimmy-Jung/Tamagotchi/assets/115251866/76ae617c-289b-4742-9335-cf5916c74629)
-![Simulator Screen Recording - iPhone 14 - 2023-08-21 at 17 49 03](https://github.com/Jimmy-Jung/Tamagotchi/assets/115251866/bde81771-4058-4694-be38-6d481a89cbaf)
-
+<img width="300" alt="image" src="https://github.com/Jimmy-Jung/Tamagotchi/assets/115251866/76ae617c-289b-4742-9335-cf5916c74629">
+<img width="300" alt="image" src="https://github.com/Jimmy-Jung/Tamagotchi/assets/115251866/bde81771-4058-4694-be38-6d481a89cbaf">
 
 # 한글 버전
 ### SeSAC 8월4일(금) 과제
