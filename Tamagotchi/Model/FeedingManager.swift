@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LogicManager {
+final class FeedingManager {
     
     static let feedingConstraint: Int = 99
     static let wateringConstraint: Int = 49

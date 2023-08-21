@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 final class AlertPickerViewController: UIViewController {
+    private let feedingIdentifier = "FeedingIdentifier"
     private let timePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .time
@@ -22,18 +23,23 @@ final class AlertPickerViewController: UIViewController {
         label.text = "알람 시간"
         return label
     }()
-    
-    private let button: UIButton = {
-        let button = UIButton()
-        
-        button.layoutButton(
-            tintColor: LT_Color.fontAndBorderColor ?? UIColor.label,
-            borderColor: LT_Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
-            borderWidth: LT_Size.backViewBorderWidth,
-            cornerRadius: LT_Size.buttonCornerRadius)
-        button.configuration = UIButton.plainButtonConfig(title: "설정하기", ofSize: 14, weight: .bold)
+    private let button: UISwitch = {
+       let button = UISwitch()
+        button.isOn = false
         return button
     }()
+    
+//    private let button: UIButton = {
+//        let button = UIButton()
+//
+//        button.layoutButton(
+//            tintColor: LT_Color.fontAndBorderColor ?? UIColor.label,
+//            borderColor: LT_Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
+//            borderWidth: LT_Size.backViewBorderWidth,
+//            cornerRadius: LT_Size.buttonCornerRadius)
+//        button.configuration = UIButton.plainButtonConfig(title: "설정하기", ofSize: 14, weight: .bold)
+//        return button
+//    }()
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -57,14 +63,19 @@ final class AlertPickerViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-inset)
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(inset)
         }
-        button.addTarget(self, action: #selector(didSelectTime(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didChangeSwitch(_:)), for: .touchUpInside)
     }
     
-    @objc private func didSelectTime(_ sender: UIDatePicker) {
+    @objc private func didChangeSwitch(_ sender: UISwitch) {
         let selectedTime = timePicker.date
-        UserDefaultManager.feedingAlert = selectedTime
-        requestSendNotification(time: selectedTime)
-        print(UserDefaultManager.feedingAlert)
+        if sender.isOn {
+            UserDefaultManager.feedingAlert = selectedTime
+            requestSendNotification(time: selectedTime)
+            let times = getTime(time: selectedTime)
+            showAlert(title: "알람이 설정되었습니다.", message: "매일 \(times.hour)시 \(times.minute)분에 알람이 설정되었습니다.", preferredStyle: .alert, cancelTitle: "확인")
+        } else {
+            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [feedingIdentifier])
+        }
     }
     
     func requestSendNotification(time: Date) {
@@ -77,23 +88,14 @@ final class AlertPickerViewController: UIViewController {
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HHmm"
-        
-        // 아래 Index 사용 부분은 extension으로 subscript를 구현해야 가능하다.
-        let hourString = dateFormatter.string(from: time).substring(toIndex: 2)
-        let minuteString = dateFormatter.string(from: time).substring(fromIndex: 2)
-        
-        guard let hour = Int(hourString), let minute = Int(minuteString) else { return }
-        
-        dateComponents.hour = hour
-        dateComponents.minute = minute
+        let times = getTime(time: time)
+        dateComponents.hour = times.hour
+        dateComponents.minute = times.minute
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
         // Create the request
-        let uuidString = "FeedingIdentifier"
-        let request = UNNotificationRequest(identifier: uuidString,
+        let request = UNNotificationRequest(identifier: feedingIdentifier,
                                             content: content,
                                             trigger: trigger)
         
@@ -103,6 +105,17 @@ final class AlertPickerViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func getTime(time: Date) -> (hour: Int, minute: Int) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HHmm"
+        
+        // 아래 Index 사용 부분은 extension으로 subscript를 구현해야 가능하다.
+        let hourString = dateFormatter.string(from: time).substring(toIndex: 2)
+        let minuteString = dateFormatter.string(from: time).substring(fromIndex: 2)
+        guard let hour = Int(hourString), let minute = Int(minuteString) else { return (0,0) }
+        return (hour, minute)
     }
 }
 

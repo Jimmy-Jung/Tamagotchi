@@ -27,7 +27,7 @@ final class TamagotchiManagementViewController: UIViewController {
     // MARK: - Properties
     private let inspirationMessages = LS_Inspiration.getMessages()
     private let cannotEatMessages = LS_CannotEatMessage.getMessages()
-    private let logicManager = LogicManager()
+    private let logicManager = FeedingManager()
     var tamagotchiInfo: TamagotchiInfo?
     var changedValue: TamagotchiInfo? {
         didSet {

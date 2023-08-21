@@ -83,7 +83,6 @@ final class SettingManager {
                 secondaryText: dateFormatter(date: UM.feedingAlert),
                 handler: { [weak self] in
                 let vc = AlertPickerViewController()
-                let nav = UINavigationController(rootViewController: vc)
                 self?.delegate?.navigationController?.pushViewController(vc, animated: true)
             }
             )

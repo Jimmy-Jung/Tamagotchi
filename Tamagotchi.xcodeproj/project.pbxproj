@@ -13,7 +13,7 @@
 		552C75992A7D23E400982EAA /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75872A7D232A00982EAA /* SelectionViewController.swift */; };
 		552C759D2A7D270200982EAA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 552C759F2A7D270200982EAA /* Localizable.strings */; };
 		552C75A22A7D276300982EAA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A12A7D276300982EAA /* String+Extension.swift */; };
-		552C75A52A7D32ED00982EAA /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A42A7D32ED00982EAA /* UserDefault.swift */; };
+		552C75A52A7D32ED00982EAA /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A42A7D32ED00982EAA /* UserDefaultManager.swift */; };
 		552C75A72A7DC7E200982EAA /* DetailPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A62A7DC7E200982EAA /* DetailPopupViewController.swift */; };
 		552C75A92A7DD72900982EAA /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75A82A7DD72900982EAA /* UILabel+Extension.swift */; };
 		552C75AB2A7DD86F00982EAA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75AA2A7DD86F00982EAA /* UIView+Extension.swift */; };
@@ -24,7 +24,7 @@
 		552C75B62A7E360400982EAA /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75B52A7E360400982EAA /* UICollectionViewCell+Extension.swift */; };
 		552C75BA2A7E882200982EAA /* DefaultsTamagotchiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75B92A7E882200982EAA /* DefaultsTamagotchiList.swift */; };
 		552C75BC2A7EC5EE00982EAA /* SystemName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75BB2A7EC5EE00982EAA /* SystemName.swift */; };
-		552C75BE2A7EED3D00982EAA /* LogicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75BD2A7EED3D00982EAA /* LogicManager.swift */; };
+		552C75BE2A7EED3D00982EAA /* FeedingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75BD2A7EED3D00982EAA /* FeedingManager.swift */; };
 		552C75C02A7F547100982EAA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75BF2A7F547100982EAA /* SettingViewController.swift */; };
 		552C75C22A7F566F00982EAA /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552C75C12A7F566F00982EAA /* ChangeNameViewController.swift */; };
 		557D556E2A7D222A000DDE17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D556D2A7D222A000DDE17 /* AppDelegate.swift */; };
@@ -47,7 +47,7 @@
 		552C759E2A7D270200982EAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		552C75A02A7D272800982EAA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		552C75A12A7D276300982EAA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		552C75A42A7D32ED00982EAA /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		552C75A42A7D32ED00982EAA /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		552C75A62A7DC7E200982EAA /* DetailPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopupViewController.swift; sourceTree = "<group>"; };
 		552C75A82A7DD72900982EAA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		552C75AA2A7DD86F00982EAA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		552C75B52A7E360400982EAA /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		552C75B92A7E882200982EAA /* DefaultsTamagotchiList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsTamagotchiList.swift; sourceTree = "<group>"; };
 		552C75BB2A7EC5EE00982EAA /* SystemName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemName.swift; sourceTree = "<group>"; };
-		552C75BD2A7EED3D00982EAA /* LogicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicManager.swift; sourceTree = "<group>"; };
+		552C75BD2A7EED3D00982EAA /* FeedingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedingManager.swift; sourceTree = "<group>"; };
 		552C75BF2A7F547100982EAA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		552C75C12A7F566F00982EAA /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 		557D556A2A7D222A000DDE17 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,8 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				552C75AF2A7E1B0C00982EAA /* SettingManeger.swift */,
-				552C75BD2A7EED3D00982EAA /* LogicManager.swift */,
-				552C75A42A7D32ED00982EAA /* UserDefault.swift */,
+				552C75BD2A7EED3D00982EAA /* FeedingManager.swift */,
+				552C75A42A7D32ED00982EAA /* UserDefaultManager.swift */,
 				552C75B92A7E882200982EAA /* DefaultsTamagotchiList.swift */,
 				557D558A2A7D22B7000DDE17 /* TamagotchiInfo.swift */,
 			);
@@ -292,12 +292,12 @@
 				552C75B22A7E238F00982EAA /* HapticManager.swift in Sources */,
 				552C75B02A7E1B0C00982EAA /* SettingManeger.swift in Sources */,
 				552C75A72A7DC7E200982EAA /* DetailPopupViewController.swift in Sources */,
-				552C75A52A7D32ED00982EAA /* UserDefault.swift in Sources */,
+				552C75A52A7D32ED00982EAA /* UserDefaultManager.swift in Sources */,
 				552C75AB2A7DD86F00982EAA /* UIView+Extension.swift in Sources */,
 				552C75B42A7E254E00982EAA /* TamagotchiManagementViewController.swift in Sources */,
 				552C75B62A7E360400982EAA /* UICollectionViewCell+Extension.swift in Sources */,
 				557D558D2A7D22B7000DDE17 /* LocalizedString.swift in Sources */,
-				552C75BE2A7EED3D00982EAA /* LogicManager.swift in Sources */,
+				552C75BE2A7EED3D00982EAA /* FeedingManager.swift in Sources */,
 				557D55932A7D22D0000DDE17 /* TamagotchiCollectionViewCell.swift in Sources */,
 				557D558E2A7D22B7000DDE17 /* Layout.swift in Sources */,
 				557D558B2A7D22B7000DDE17 /* UIViewController+Extension.swift in Sources */,
