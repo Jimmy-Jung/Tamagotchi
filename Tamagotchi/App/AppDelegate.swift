@@ -10,8 +10,6 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -40,7 +38,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    // 포그라운드에서 알림 받기
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.sound, .badge, .banner, .list])
+    }
+    // 푸쉬 탭을 선택했을 때 아래 코드 실행
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let notification = response.notification
+        let userInfo = notification.request.content.userInfo
+        
+        if response.actionIdentifier == UNNotificationDismissActionIdentifier {
+            print ("Message Closed")
+        }
+        else if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
+            print ("푸시 메시지 클릭 했을 때")
+            print(userInfo)
+        }
+        completionHandler()
     }
 }

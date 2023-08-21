@@ -70,6 +70,7 @@ final class AlertPickerViewController: UIViewController {
         let content = UNMutableNotificationContent()
         content.title = "밥먹을 시간이 됐어요"
         content.body = "\(UM.userName ?? LS_Name.userName)님!! 다마고치에게 밥을 주세요!!"
+        content.badge = 1
         
         // Set Notification Time
         var dateComponents = DateComponents()
