@@ -12,7 +12,7 @@ typealias UM = UserDefaultManager
 struct UserDefaultManager {
     
     @UserDefault(key: KeyEnum.userName.rawValue, defaultValue: "대장")
-    static var userName: String
+    static var userName: String?
     
     @UserDefaultCustomType(key: KeyEnum.pickedTamagotchi.rawValue, defaultValue: nil)
     static var pickedTamagotchi: TamagotchiInfo?
@@ -32,13 +32,13 @@ extension UserDefaultManager {
     /// 유저 디퐅트
     struct UserDefault<T> {
         private let key: String
-        private let defaultValue: T
+        private let defaultValue: T?
         
-        init(key: String, defaultValue: T) {
+        init(key: String, defaultValue: T?) {
             self.key = key
             self.defaultValue = defaultValue
         }
-        var wrappedValue: T {
+        var wrappedValue: T? {
             get {
                 return UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
             }

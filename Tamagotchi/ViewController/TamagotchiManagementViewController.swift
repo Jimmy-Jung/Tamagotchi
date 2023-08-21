@@ -60,7 +60,7 @@ final class TamagotchiManagementViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = UM.userName + LT_Title.userTamagotchi
+        title = (UM.userName ?? LS_Name.userName) + LT_Title.userTamagotchi
     }
     
     // MARK: - Methods

@@ -78,6 +78,7 @@ enum LocalizedString {
         static let save = "save".localized
         static let numberOfTextError = "numberOfTextError".localized
         static let feedingAlert = "feedingAlert".localized
+        static let feedingIdentifier = "FeedingIdentifier"
     }
     
     enum Inspiration {
@@ -95,7 +96,7 @@ enum LocalizedString {
     enum CannotEatMessage {
         static func getMessages() -> [String] {
             return messages.map {
-                String(format: $0, UserDefaultManager.userName)
+                String(format: $0, UserDefaultManager.userName ?? Name.userName)
             }
         }
         static let messages = [message0, message1, message2, message3, message4]

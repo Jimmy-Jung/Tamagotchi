@@ -25,7 +25,7 @@ final class SettingManager {
     func SetList() {
         settingList = [
             SettingsOption(
-                title: String(format: LT_Title.changeUserName, UM.userName),
+                title: String(format: LT_Title.changeUserName, UM.userName ?? LS_Name.userName),
                 icon: UIImage(systemName: "pencil"),
                 secondaryText: UM.userName,
                 handler: { [weak self] in
@@ -71,6 +71,8 @@ final class SettingManager {
                             vc.setTitle(type: .selectTamagotchi)
                             let nav = UINavigationController(rootViewController: vc)
                             UM.pickedTamagotchi = nil
+                            UM.feedingAlert = nil
+                            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [LT_System.feedingIdentifier])
                             sceneDelegate?.window?.rootViewController = nav
                             sceneDelegate?.window?.makeKeyAndVisible()
                         }

@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 final class AlertPickerViewController: UIViewController {
-    private let feedingIdentifier = "FeedingIdentifier"
     private let timePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .time
@@ -25,21 +24,9 @@ final class AlertPickerViewController: UIViewController {
     }()
     private let button: UISwitch = {
        let button = UISwitch()
-        button.isOn = false
+        button.isOn = (UM.feedingAlert != nil) ? true : false
         return button
     }()
-    
-//    private let button: UIButton = {
-//        let button = UIButton()
-//
-//        button.layoutButton(
-//            tintColor: LT_Color.fontAndBorderColor ?? UIColor.label,
-//            borderColor: LT_Color.fontAndBorderColor?.cgColor ?? UIColor.label.cgColor,
-//            borderWidth: LT_Size.backViewBorderWidth,
-//            cornerRadius: LT_Size.buttonCornerRadius)
-//        button.configuration = UIButton.plainButtonConfig(title: "설정하기", ofSize: 14, weight: .bold)
-//        return button
-//    }()
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -69,12 +56,12 @@ final class AlertPickerViewController: UIViewController {
     @objc private func didChangeSwitch(_ sender: UISwitch) {
         let selectedTime = timePicker.date
         if sender.isOn {
-            UserDefaultManager.feedingAlert = selectedTime
             requestSendNotification(time: selectedTime)
             let times = getTime(time: selectedTime)
             showAlert(title: "알람이 설정되었습니다.", message: "매일 \(times.hour)시 \(times.minute)분에 알람이 설정되었습니다.", preferredStyle: .alert, cancelTitle: "확인")
         } else {
-            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [feedingIdentifier])
+            UM.feedingAlert = nil
+            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [LT_System.feedingIdentifier])
         }
     }
     
@@ -82,7 +69,7 @@ final class AlertPickerViewController: UIViewController {
         // Configure Notification Content
         let content = UNMutableNotificationContent()
         content.title = "밥먹을 시간이 됐어요"
-        content.body = "\(UM.userName)님!! 다마고치에게 밥을 주세요!!"
+        content.body = "\(UM.userName ?? LS_Name.userName)님!! 다마고치에게 밥을 주세요!!"
         
         // Set Notification Time
         var dateComponents = DateComponents()
@@ -95,11 +82,12 @@ final class AlertPickerViewController: UIViewController {
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
         // Create the request
-        let request = UNNotificationRequest(identifier: feedingIdentifier,
+        let request = UNNotificationRequest(identifier: LT_System.feedingIdentifier,
                                             content: content,
                                             trigger: trigger)
         
         // Schedule the request with the system.
+        UM.feedingAlert = time
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print(error.localizedDescription)

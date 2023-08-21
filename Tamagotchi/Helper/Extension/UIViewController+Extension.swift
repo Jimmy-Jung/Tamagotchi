@@ -31,9 +31,9 @@ extension UIViewController {
         case .changeTamagotchi:
             self.title = LT_Title.changeTamagotchi
         case .userTamagotchi:
-            self.title = UM.userName + LT_Title.userTamagotchi
+            self.title = (UM.userName ?? LS_Name.userName) + LT_Title.userTamagotchi
         case .changeUserName:
-            self.title =  String(format: LT_Title.changeUserName, UM.userName)
+            self.title =  String(format: LT_Title.changeUserName, UM.userName ?? LS_Name.userName)
         case .setting:
             self.title = LT_Title.setting
         }
