@@ -86,14 +86,7 @@ extension DetailPopupViewController {
             weight: .bold
         )
         if tamagotchiInfo.tamagotchiType == .none {
-            startButton.isEnabled = false
-            startButton.backgroundColor = LT_Color.separatorColor
-            startButton.configuration = UIButton.plainButtonConfig(
-                title: LS_System.start,
-                titleColor: LT_Color.separatorColor ?? UIColor.separator,
-                ofSize: 14,
-                weight: .medium
-            )
+            startButton.isHidden = true
         } else {
             startButton.configuration = UIButton.plainButtonConfig(
                 title: LS_System.start,
